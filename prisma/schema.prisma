@@ -1,0 +1,141 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model categoria {
+  id               Int               @id @default(autoincrement())
+  created_at       DateTime          @default(now()) @db.Timestamptz(6)
+  nombre           String?
+  tickets          ticket[]
+  sub_categorias   sub_categorias[]
+
+  @@map("categoria")
+}
+
+model estados {
+  id         Int      @id @default(autoincrement())
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  nombre     String?
+  tickets    ticket[]
+
+  @@map("estados")
+}
+
+model informe_link {
+  id           Int            @id @default(autoincrement())
+  created_at   DateTime       @default(now()) @db.Timestamptz(6)
+  link         String?
+  user_informs user_inform[]
+
+  @@map("informe_link")
+}
+
+model posicion {
+  id         Int      @id @default(autoincrement())
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  nombre     String?
+  users      users[]
+
+  @@map("posicion")
+}
+
+model prioridad {
+  id         Int      @id @default(autoincrement())
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  nombre     String?
+  tickets    ticket[]
+
+  @@map("prioridad")
+}
+
+model rol {
+  id         Int      @id @default(autoincrement())
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  nombre     String?
+
+  @@map("rol")
+}
+
+model sector {
+  id         Int      @id @default(autoincrement())
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  nombre     String?
+  tickets    ticket[]
+  users      users[]
+
+  @@map("sector")
+}
+
+model sub_categorias {
+  id            Int        @id @default(autoincrement())
+  created_at    DateTime   @default(now()) @db.Timestamptz(6)
+  nombre        String?
+  id_categorias Int?
+  categoria     categoria? @relation(fields: [id_categorias], references: [id])
+  tickets       ticket[]
+
+  @@map("sub_categorias")
+}
+
+model ticket {
+  id              Int             @id @default(autoincrement())
+  created_at      DateTime        @default(now()) @db.Timestamptz(6)
+  id_user         String?         // CAMBIADO: String para UUID de Supabase
+  id_categoria    Int?
+  id_subcategoria Int?
+  telefono        String?
+  descripcion     String?
+  id_prioridad    Int?
+  id_sector       Int?
+  valor           String?
+  link_art        String?
+  id_estado       Int?
+  fecha           String?         @db.VarChar
+  
+  // Relaciones
+  user         users?          @relation(fields: [id_user], references: [id])
+  categoria    categoria?      @relation(fields: [id_categoria], references: [id])
+  subcategoria sub_categorias? @relation(fields: [id_subcategoria], references: [id])
+  prioridad    prioridad?      @relation(fields: [id_prioridad], references: [id])
+  sector       sector?         @relation(fields: [id_sector], references: [id])
+  estado       estados?        @relation(fields: [id_estado], references: [id])
+
+  @@map("ticket")
+}
+
+model user_inform {
+  id              Int           @id @default(autoincrement())
+  created_at      DateTime      @default(now()) @db.Timestamptz(6)
+  id_informe_link Int?
+  informe_link    informe_link? @relation(fields: [id_informe_link], references: [id])
+
+  @@map("user_inform")
+}
+
+model users {
+  id             String    @id // UUID de Supabase Auth
+  created_at     DateTime  @default(now()) @db.Timestamptz(6)
+  username       String?   @unique
+  correo         String?   @unique
+  id_sector      Int?
+  id_posicion    Int?
+  id_autorizador String?   // String para UUID del autorizador
+  rol            String?   @default("user")
+  telefono       String?
+  
+  // Relaciones
+  sector         sector?   @relation(fields: [id_sector], references: [id])
+  posicion       posicion? @relation(fields: [id_posicion], references: [id])
+  autorizador    users?    @relation("UserAutoriza", fields: [id_autorizador], references: [id])
+  autorizados    users[]   @relation("UserAutoriza")
+  tickets        ticket[]  // Relación con tickets
+
+  @@map("users")
+}
