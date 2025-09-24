@@ -5,6 +5,7 @@ import Header from "@/components/header"
 import { Search, Plus, Pencil } from 'lucide-react'
 import { useRouter } from "next/navigation"
 import Modal from "@/components/modal"
+import { sub } from "date-fns/sub"
 
 
 
@@ -399,7 +400,7 @@ export function AjustesComponent({
                     </thead>
                     <tbody>
                       {subcategoriasList.length === 0 ? (
-                        <tr>
+                        <tr key={subcategory.id}>
                           <td colSpan={3} className="table-empty-message">
                             No hay subcategorías disponibles.
                           </td>

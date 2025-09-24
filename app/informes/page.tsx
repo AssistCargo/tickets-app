@@ -4,9 +4,9 @@ import { useState, useEffect } from "react"
 import Header from "@/components/header"
 
 export default function InformesPage() {
-  const [userReports, setUserReports] = useState([])
-  const [activeTab, setActiveTab] = useState("")
-  const [isLoading, setIsLoading] = useState(true)
+  const [userReports, setUserReports] = useState<{ name: string; url: string }[]>([])
+  const [activeTab, setActiveTab] = useState<string>("")
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
     // Simulate fetching user's Power BI reports
@@ -16,7 +16,7 @@ export default function InformesPage() {
       await new Promise(resolve => setTimeout(resolve, 500)) // Simulate network delay
 
       // Dummy data for a user with Power BI reports
-      const dummyUser = {
+      const dummyUser: { id: string, nombre: string, powerBi1: string, powerBi2: string, powerBi3: string, powerBi4: string, powerBi5: string } = {
         id: "1",
         nombre: "Juan Pérez",
         powerBi1: "https://app.powerbi.com/view?r=eyJrIjoiN2I3NjQxOGUtNmFmYy00ZTVjLTlhMjktYzAxNDk2Y2UxN2Y0IiwidCI6IjI3MTI4ZmZkLTI1NjEtNGEwYy1iNzRiLWM5YWY5ZWZjNjM5YiIsImMiOjR9",
@@ -26,7 +26,7 @@ export default function InformesPage() {
         powerBi5: "",
       }
 
-      const reports = []
+      const reports: { name: string; url: string }[] = []
       if (dummyUser.powerBi1) reports.push({ name: "Informe BI 1", url: dummyUser.powerBi1 })
       if (dummyUser.powerBi2) reports.push({ name: "Informe BI 2", url: dummyUser.powerBi2 })
       if (dummyUser.powerBi3) reports.push({ name: "Informe BI 3", url: dummyUser.powerBi3 })

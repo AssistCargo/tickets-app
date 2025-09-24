@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { X } from 'lucide-react'
 
-export default function Modal({ isOpen, onClose, title, children }) {
+export default function Modal({ isOpen, onClose, title, children }: { isOpen: boolean, onClose: () => void, title: string, children: React.ReactNode }) {
   const [isVisible, setIsVisible] = useState(isOpen)
 
   useEffect(() => {

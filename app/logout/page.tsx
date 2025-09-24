@@ -1,6 +1,5 @@
 "use client" // Add this directive as useRouter is a client hook
 
-import Link from "next/link"
 import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 

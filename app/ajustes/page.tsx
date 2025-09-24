@@ -24,7 +24,7 @@ async function getSectores() {
   }
 }
 
-async function createSector(item) {
+async function createSector(item: string) {
   'use server'
 
   await prisma.sector.create({
@@ -35,7 +35,7 @@ async function createSector(item) {
   revalidatePath('/ajustes')
 }
 
-async function updateSector(id, item) {
+async function updateSector(id: string, item: string) {
   'use server'
 
   await prisma.sector.update({
@@ -71,7 +71,7 @@ async function getPosiciones() {
   }
 }
 
-async function createPosicion(item) {
+async function createPosicion(item: string) {
   'use server'
   await prisma.posicion.create({
     data: {
@@ -81,7 +81,7 @@ async function createPosicion(item) {
   revalidatePath('/ajustes')
 }
 
-async function updatePosicion(id, item) {
+async function updatePosicion(id: string, item: string) {
   'use server'
 
   await prisma.posicion.update({
@@ -117,7 +117,7 @@ async function getCategorias() {
   }
 }
 
-async function createCategoria(item) {
+async function createCategoria(item: string) {
   'use server'
 
   await prisma.categoria.create({
@@ -128,7 +128,7 @@ async function createCategoria(item) {
   revalidatePath('/ajustes')
 }
 
-async function updateCategoria(id, item) {
+async function updateCategoria(id: string, item: string) {
   'use server'
 
   await prisma.categoria.update({
@@ -164,7 +164,7 @@ async function getSubcategorias() {
   }
 }
 
-async function createSubcategoria(nombre, id_categorias) {
+async function createSubcategoria(nombre: string, id_categorias: string) {
   'use server'
 
   await prisma.sub_categorias.create({
@@ -176,7 +176,7 @@ async function createSubcategoria(nombre, id_categorias) {
   revalidatePath('/ajustes')
 }
 
-async function updateSubcategoria(id, nombre, id_categorias) {
+async function updateSubcategoria(id: string, nombre: string, id_categorias: string) {
   'use server'
 
   await prisma.sub_categorias.update({
