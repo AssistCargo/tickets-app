@@ -1,30 +1,85 @@
+import React from 'react'
 import { AjustesComponent } from "./client"
 import { revalidatePath } from "next/cache"
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@/lib/prisma"
 
-async function getSectores() {
+// Types para los datos base (estructura típica de las tablas)
+
+
+// Types para los datos serializados (Date → string)
+interface SerializedSector {
+  id: number
+  nombre: string | null
+  created_at: string
+  updated_at?: string
+}
+
+interface SerializedPosicion {
+  id: number
+  nombre: string | null
+  created_at: string
+  updated_at?: string
+}
+
+interface SerializedCategoria {
+  id: number
+  nombre: string | null
+  created_at: string
+  updated_at?: string
+}
+
+interface SerializedSubcategoria {
+  id: number
+  nombre: string | null
+  id_categorias: number | null
+  created_at: string
+  updated_at?: string
+}
+
+interface SerializedUser {
+  id: string;                      // <- era number
+  username: string | null;         // <- era string
+  correo: string | null;           // <- era string
+  // password?: string | null;     // si lo necesitás, mantenelo como opcional y nullable
+  id_sector: number | null;
+  id_posicion: number | null;
+  id_autorizador: string | null;   // <- era number | null
+  created_at: string;
+  updated_at?: string;
+  sector: SerializedSector | null;
+  posicion: SerializedPosicion | null;
+  autorizador: { id: string; username: string | null; correo: string | null } | null;
+  tickets: Array<{
+    id: number;
+    descripcion: string;
+    created_at: string;
+    categoria: { nombre: string };
+  }>;
+}
+
+async function getSectores(): Promise<SerializedSector[]> {
   try {
     const sectores = await prisma.sector.findMany({
       orderBy: {
         created_at: 'asc' // Más recientes primero
       }
-    });
+    })
 
     // Serializar la fecha created_at
-    const serializedSectores = sectores.map(sector => ({
+    const serializedSectores: SerializedSector[] = sectores.map(sector => ({
       ...sector,
       created_at: sector.created_at.toISOString() // Date → String
-    }));
+    }))
 
-    return serializedSectores;
+    return serializedSectores
 
   } catch (error) {
-    console.error('Error obteniendo sectores:', error);
-    return []; // Array vacío en caso de error
+    console.error('Error obteniendo sectores:', error)
+    return [] // Array vacío en caso de error
   }
 }
 
-async function createSector(item: string) {
+async function createSector(item: string): Promise<void> {
   'use server'
 
   await prisma.sector.create({
@@ -35,7 +90,7 @@ async function createSector(item: string) {
   revalidatePath('/ajustes')
 }
 
-async function updateSector(id: string, item: string) {
+async function updateSector(id: string, item: string): Promise<void> {
   'use server'
 
   await prisma.sector.update({
@@ -49,29 +104,29 @@ async function updateSector(id: string, item: string) {
   revalidatePath('/ajustes')
 }
 
-async function getPosiciones() {
+async function getPosiciones(): Promise<SerializedPosicion[]> {
   try {
     const posiciones = await prisma.posicion.findMany({
       orderBy: {
         created_at: 'asc' // Más recientes primero
       }
-    });
+    })
 
     // Serializar la fecha created_at
-    const serializedPosiciones = posiciones.map(posicion => ({
+    const serializedPosiciones: SerializedPosicion[] = posiciones.map(posicion => ({
       ...posicion,
       created_at: posicion.created_at.toISOString() // Date → String
-    }));
+    }))
 
-    return serializedPosiciones;
+    return serializedPosiciones
 
   } catch (error) {
-    console.error('Error obteniendo posiciones:', error);
-    return []; // Array vacío en caso de error
+    console.error('Error obteniendo posiciones:', error)
+    return [] // Array vacío en caso de error
   }
 }
 
-async function createPosicion(item: string) {
+async function createPosicion(item: string): Promise<void> {
   'use server'
   await prisma.posicion.create({
     data: {
@@ -81,7 +136,7 @@ async function createPosicion(item: string) {
   revalidatePath('/ajustes')
 }
 
-async function updatePosicion(id: string, item: string) {
+async function updatePosicion(id: string, item: string): Promise<void> {
   'use server'
 
   await prisma.posicion.update({
@@ -95,29 +150,29 @@ async function updatePosicion(id: string, item: string) {
   revalidatePath('/ajustes')
 }
 
-async function getCategorias() {
+async function getCategorias(): Promise<SerializedCategoria[]> {
   try {
     const categorias = await prisma.categoria.findMany({
       orderBy: {
         created_at: 'asc' // Más recientes primero
       }
-    });
+    })
 
     // Serializar la fecha created_at
-    const serializedCategorias = categorias.map(posicion => ({
-      ...posicion,
-      created_at: posicion.created_at.toISOString() // Date → String
-    }));
+    const serializedCategorias: SerializedCategoria[] = categorias.map(categoria => ({
+      ...categoria,
+      created_at: categoria.created_at.toISOString() // Date → String
+    }))
 
-    return serializedCategorias;
+    return serializedCategorias
 
   } catch (error) {
-    console.error('Error obteniendo categorias:', error);
-    return []; // Array vacío en caso de error
+    console.error('Error obteniendo categorias:', error)
+    return [] // Array vacío en caso de error
   }
 }
 
-async function createCategoria(item: string) {
+async function createCategoria(item: string): Promise<void> {
   'use server'
 
   await prisma.categoria.create({
@@ -128,7 +183,7 @@ async function createCategoria(item: string) {
   revalidatePath('/ajustes')
 }
 
-async function updateCategoria(id: string, item: string) {
+async function updateCategoria(id: string, item: string): Promise<void> {
   'use server'
 
   await prisma.categoria.update({
@@ -142,29 +197,29 @@ async function updateCategoria(id: string, item: string) {
   revalidatePath('/ajustes')
 }
 
-async function getSubcategorias() {
+async function getSubcategorias(): Promise<SerializedSubcategoria[]> {
   try {
     const subcategorias = await prisma.sub_categorias.findMany({
       orderBy: {
         created_at: 'asc' // Más recientes primero
       }
-    });
+    })
 
     // Serializar la fecha created_at
-    const serializedSubcategorias = subcategorias.map(subcategoria => ({
+    const serializedSubcategorias: SerializedSubcategoria[] = subcategorias.map(subcategoria => ({
       ...subcategoria,
       created_at: subcategoria.created_at.toISOString() // Date → String
-    }));
+    }))
 
-    return serializedSubcategorias;
+    return serializedSubcategorias
 
   } catch (error) {
-    console.error('Error obteniendo subcategorias:', error);
-    return []; // Array vacío en caso de error
+    console.error('Error obteniendo subcategorias:', error)
+    return [] // Array vacío en caso de error
   }
 }
 
-async function createSubcategoria(nombre: string, id_categorias: string) {
+async function createSubcategoria(nombre: string, id_categorias: string): Promise<void> {
   'use server'
 
   await prisma.sub_categorias.create({
@@ -176,7 +231,7 @@ async function createSubcategoria(nombre: string, id_categorias: string) {
   revalidatePath('/ajustes')
 }
 
-async function updateSubcategoria(id: string, nombre: string, id_categorias: string) {
+async function updateSubcategoria(id: string, nombre: string, id_categorias: string): Promise<void> {
   'use server'
 
   await prisma.sub_categorias.update({
@@ -191,9 +246,7 @@ async function updateSubcategoria(id: string, nombre: string, id_categorias: str
   revalidatePath('/ajustes')
 }
 
-
-
-async function getUsuariosComplete() {
+async function getUsuariosComplete(): Promise<SerializedUser[]> {
   try {
     const users = await prisma.users.findMany({
       take: 10,
@@ -227,42 +280,60 @@ async function getUsuariosComplete() {
       orderBy: {
         created_at: 'desc'
       }
-    });
+    })
 
+    const serializedUsers: any[] = users.map((u) => ({
+      id: u.id,
+      username: u.username,
+      correo: u.correo,
+      id_sector: u.id_sector,
+      id_posicion: u.id_posicion,
+      id_autorizador: u.id_autorizador,
+      created_at: u.created_at.toISOString(),
 
-    // Serializar todas las fechas
-    const serializedUsers = users.map(user => ({
-      ...user,
-      created_at: user.created_at.toISOString(),
-      sector: user.sector ? {
-        ...user.sector,
-        created_at: user.sector.created_at.toISOString()
-      } : null,
-      posicion: user.posicion ? {
-        ...user.posicion,
-        created_at: user.posicion.created_at.toISOString()
-      } : null,
-      tickets: user.tickets.map(ticket => ({
-        ...ticket,
-        created_at: ticket.created_at.toISOString()
-      }))
+      sector: u.sector
+        ? {
+          id: u.sector.id,
+          nombre: u.sector.nombre,
+          created_at: u.sector.created_at.toISOString(),
+        }
+        : null,
+
+      posicion: u.posicion
+        ? {
+          id: u.posicion.id,
+          nombre: u.posicion.nombre,
+          created_at: u.posicion.created_at.toISOString(),
+        }
+        : null,
+
+      autorizador: u.autorizador
+        ? { id: u.autorizador.id, username: u.autorizador.username, correo: u.autorizador.correo }
+        : null,
+
+      tickets: u.tickets.map((t) => ({
+        id: t.id,
+        descripcion: t.descripcion,
+        created_at: t.created_at.toISOString(),
+        categoria: { nombre: t.categoria?.nombre },
+      })),
     }));
 
-    return serializedUsers;
+    return serializedUsers
 
   } catch (error) {
-    console.error('Error obteniendo usuarios completos:', error);
-    throw error;
+    console.error('Error obteniendo usuarios completos:', error)
+    throw error
   }
 }
 
-
-export default async function AjustesPage() {
+export default async function AjustesPage(): Promise<React.JSX.Element> {
   const users = await getUsuariosComplete()
   const sectores = await getSectores()
   const posiciones = await getPosiciones()
   const categorias = await getCategorias()
   const subcategorias = await getSubcategorias()
+
   return (
     <AjustesComponent
       usuarios={users}
@@ -279,6 +350,5 @@ export default async function AjustesPage() {
       createSubcategoria={createSubcategoria}
       updateSubcategoria={updateSubcategoria}
     />
-
   )
 }

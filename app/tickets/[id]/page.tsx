@@ -5,11 +5,11 @@ import Header from "@/components/header"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 
-export default function TicketDetailPage({ params }) {
+export default function TicketDetailPage({ params }: { params: { id: string } }) {
   const router = useRouter()
   const { id } = params // Get ticket ID from URL parameters
-  const [ticket, setTicket] = useState(null)
-  const [isLoading, setIsLoading] = useState(true)
+  const [ticket, setTicket] = useState<any>(null)
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
     // Simulate fetching ticket data based on ID
@@ -78,7 +78,7 @@ export default function TicketDetailPage({ params }) {
         },
       ]
 
-      const foundTicket = dummyTickets.find(t => t.idIncidencia === id)
+      const foundTicket: any = dummyTickets.find(t => t.idIncidencia === id)
       if (foundTicket) {
         setTicket(foundTicket)
       } else {
@@ -136,7 +136,7 @@ export default function TicketDetailPage({ params }) {
         <div className="card" style={{ padding: "24px" }}>
           <div className="card-header" style={{ textAlign: "left" }}>
             <Link href="/tickets" style={{ textDecoration: "none", color: "#4CAF50", fontSize: "14px", display: "flex", alignItems: "center", marginBottom: "16px" }}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1"><path d="m15 18-6-6 6-6"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1"><path d="m15 18-6-6 6-6" /></svg>
               Volver al Listado de Tickets
             </Link>
             <h2 className="card-title">Detalle del Ticket: {ticket.idIncidencia}</h2>

@@ -6,7 +6,7 @@ import Header from "@/components/header"
 import CreateTicketForm from "@/components/create-ticket-form"
 import { Plus, Search } from "lucide-react"
 
-const tabsData = [
+const tabsData: { value: string; label: string }[] = [
   { value: "todos", label: "Todos" },
   { value: "nuevos", label: "Nuevos" },
   { value: "autorizando", label: "Autorizando" },
@@ -16,12 +16,12 @@ const tabsData = [
 ]
 
 export default function TicketManagementClient() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [activeTab, setActiveTab] = useState("todos")
-  const [selectedSector, setSelectedSector] = useState("")
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+  const [activeTab, setActiveTab] = useState<string>("todos")
+  const [selectedSector, setSelectedSector] = useState<string>("")
 
   // Placeholder for tickets - NOW WITH EXAMPLE DATA including Gestor and Estado
-  const allTickets = [
+  const allTickets: any = [
     {
       idIncidencia: "T001",
       solicitante: "Juan Pérez",
@@ -103,7 +103,7 @@ export default function TicketManagementClient() {
   ]
 
   // Filter tickets based on activeTab and selectedSector
-  const filteredTickets = allTickets.filter((ticket) => {
+  const filteredTickets = allTickets.filter((ticket: any) => {
     const matchesTab =
       activeTab === "todos" ||
       (activeTab === "nuevos" && ticket.estadoIncidencia === "Nuevo") ||
@@ -118,11 +118,11 @@ export default function TicketManagementClient() {
   })
 
   // Function to get count for each tab
-  const getTabCount = (tabValue) => {
+  const getTabCount = (tabValue: string) => {
     if (tabValue === "todos") {
       return allTickets.length
     }
-    return allTickets.filter((ticket) => {
+    return allTickets.filter((ticket: any) => {
       const matchesStatus =
         (tabValue === "nuevos" && ticket.estadoIncidencia === "Nuevo") ||
         (tabValue === "autorizando" && ticket.estadoIncidencia === "Autorizando") ||
@@ -134,7 +134,7 @@ export default function TicketManagementClient() {
   }
 
   // Function to get styles for ticket status (for the span inside td)
-  const getStatusStyles = (status) => {
+  const getStatusStyles = (status: string) => {
     switch (status) {
       case "Nuevo":
         return { backgroundColor: "#e6f7ed", color: "#388e3c", padding: "4px 8px", borderRadius: "12px", fontWeight: "500", display: "inline-block" }
@@ -258,7 +258,7 @@ export default function TicketManagementClient() {
                   </td>
                 </tr>
               ) : (
-                filteredTickets.map((ticket) => (
+                filteredTickets.map((ticket: any) => (
                   <tr
                     key={ticket.idIncidencia}
                     onClick={() => {

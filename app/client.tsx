@@ -1,4 +1,9 @@
-export function LoginPage({ loginAction, signupAction }) {
+interface LoginPageProps {
+  loginAction: (FormData: FormData) => Promise<void>
+  signupAction: (FormData: FormData) => Promise<void>
+}
+
+export function LoginPage({ loginAction, signupAction }: LoginPageProps): React.ReactElement {
   return (
     <div
       style={{
@@ -23,8 +28,22 @@ export function LoginPage({ loginAction, signupAction }) {
             <p className="card-description">Inicia sesión para acceder al sistema de gestión de tickets.</p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <input type="email" id="email" name="email" placeholder="Correo electrónico" className="input-field" />
-            <input type="password" id="password" name="password" placeholder="Contraseña" className="input-field" />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Correo electrónico"
+              className="input-field"
+              required
+            />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Contraseña"
+              className="input-field"
+              required
+            />
             <button className="button button-primary" style={{ width: "100%" }}
               type='submit'
               formAction={loginAction}>
