@@ -58,7 +58,6 @@ export default function InformesPage() {
           flex: 1,
           padding: "24px",
           paddingTop: "80px", // Adjusted for fixed header
-          maxWidth: "1200px", // Max width for content
           margin: "0 auto", // Center content
           width: "100%",
         }}

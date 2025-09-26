@@ -6,8 +6,6 @@ import { Search, Plus, Pencil } from 'lucide-react'
 import { useRouter } from "next/navigation"
 import Modal from "@/components/modal"
 
-
-
 export function AjustesComponent({
   usuarios,
   sectores,
@@ -21,7 +19,8 @@ export function AjustesComponent({
   createCategoria,
   updateCategoria,
   createSubcategoria,
-  updateSubcategoria
+  updateSubcategoria,
+  createUser,
 }) {
   const users = usuarios
   const sectorsList = sectores
@@ -80,6 +79,7 @@ export function AjustesComponent({
 
   // Modal states
   const [isAddEditModalOpen, setIsAddEditModalOpen] = useState(false)
+  const [isAddEditUserModalOpen, setIsAddEditUserModalOpen] = useState(false)
   const [modalType, setModalType] = useState("") // 'sector', 'position', 'category', or 'subcategory'
   const [editingItem, setEditingItem] = useState(null) // Item being edited (null for adding)
   const [newItemName, setNewItemName] = useState("")
@@ -89,6 +89,14 @@ export function AjustesComponent({
     router.push(`/ajustes/usuarios/${userId}`)
   }
 
+  function emptyToNull(v) {
+    const s = (v ?? "").toString().trim();
+    return s === "" ? null : s;
+  }
+
+  function isEmail(s) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
+  }
 
 
   // Functions for general list management (Sectors, Positions, Categories, Subcategories)
@@ -114,6 +122,19 @@ export function AjustesComponent({
     setEditingItem(null)
     setNewItemName("")
     setNewParentCategoryId("")
+  }
+  const openUsuarioModal = (type) => {
+    setModalType(type)
+    setEditingItem(null)
+    setNewItemName("")
+    setIsAddEditUserModalOpen(true)
+  }
+
+  const closeUserModal = () => {
+    setIsAddEditUserModalOpen(false)
+    setModalType("")
+    setEditingItem(null)
+    setNewItemName("")
   }
 
   const handleSaveItem = () => {
@@ -152,7 +173,6 @@ export function AjustesComponent({
   }
 
 
-
   // Helper to get category name from ID
   const getCategoryName = (categoryId) => {
     const category = categoriesList.find(c => c.id === categoryId);
@@ -174,7 +194,6 @@ export function AjustesComponent({
           flex: 1,
           padding: "24px",
           paddingTop: "80px",
-          maxWidth: "1200px",
           margin: "0 auto",
           width: "100%",
         }}
@@ -399,7 +418,7 @@ export function AjustesComponent({
                     </thead>
                     <tbody>
                       {subcategoriasList.length === 0 ? (
-                        <tr key={subcategory.id}>
+                        <tr>
                           <td colSpan={3} className="table-empty-message">
                             No hay subcategorías disponibles.
                           </td>
@@ -449,8 +468,12 @@ export function AjustesComponent({
                     <Search style={{ height: "16px", width: "16px" }} />
                   </button>
                 </div>
-                <button className="button button-primary" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <Plus style={{ height: "20px", width: "20px" }} />
+                <button
+                  className="button button-primary"
+                  onClick={() => openUsuarioModal("addUser")}
+                  style={{ display: "flex", alignItems: "center", gap: "8px", padding: "8px 12px" }}
+                >
+                  <Plus style={{ height: "16px", width: "16px" }} />
                   Agregar Usuario
                 </button>
               </div>
@@ -466,18 +489,18 @@ export function AjustesComponent({
                     </tr>
                   </thead>
                   <tbody>
-                    {users.length === 0 ? (
+                    {users.usuarios.length === 0 ? (
                       <tr>
                         <td colSpan={4} className="table-empty-message">
                           No hay usuarios disponibles.
                         </td>
                       </tr>
                     ) : (
-                      users.map((user) => (
+                      users.usuarios.map((user) => (
                         <tr key={user.id}>
-                          <td>{user.username}</td>
-                          <td>{user.id_sector}</td>
-                          <td>{user.posicion}</td>
+                          <td>{user.nombre}</td>
+                          <td>{user.sector?.nombre}</td>
+                          <td>{user.posicion?.nombre}</td>
                           <td>
                             <div style={{ display: "flex", gap: "8px" }}>
                               <button
@@ -551,6 +574,129 @@ export function AjustesComponent({
           </div>
         </form>
       </Modal>
-    </div>
+      <Modal
+        isOpen={isAddEditUserModalOpen}
+        onClose={closeModal}
+        title={editingItem ? `Editar Usuario'}` : `Agregar Usuario`}
+      >
+        <form action={createUser}>
+          <div className="grid grid-cols-[180px,1fr] gap-3 items-center">
+            <label>Nombre</label>
+            <input
+              name="nombre"
+              type="text"
+              defaultValue={modalType === 'addUser' ? '' : (users?.nombre ?? '')}
+              className="input-field"
+              placeholder="Introduce el nombre del Usuario"
+              required
+            />
+            <label>Contraseña</label>
+            <input
+              name="contrasena"
+              type="password"
+              defaultValue=""
+              className="input-field"
+              placeholder="Introduce la contraseña"
+              required
+            />
+            <label>Mail</label>
+            <input
+              name="mail"
+              type="text"
+              defaultValue={modalType === 'addUser' ? '' : (users?.mail ?? '')}
+              className="input-field"
+              placeholder="Introduce el mail"
+              required
+            />
+            <label>Sector</label>
+            <select
+              name="sector"
+              defaultValue={modalType === "addUser" ? "" : (users?.id_sector ?? "")}
+              className="input-field"
+            >
+              <option value="" disabled>
+                Ingrese el sector
+              </option>
+              {sectorsList.map((sector) => (
+                <option key={sector.id} value={sector.id}>
+                  {sector.nombre}
+                </option>
+              ))}
+            </select>
+            <label>Posición</label>
+            <select
+              name="posicion"
+              defaultValue={modalType === 'addUser' ? '' : (users?.posicion ?? '')}
+              className="input-field"
+            >
+              <option value="" disabled>
+                Ingrese la posición
+              </option>
+              {positionsList.map((position) => (
+                <option key={position.id} value={position.id}>
+                  {position.nombre}
+                </option>
+              ))}
+            </select>
+            <label>Informe BI</label>
+            <input
+              name="iB"
+              type="text"
+              defaultValue={modalType === 'addUser' ? '' : (users?.iB ?? '')}
+              className="input-field"
+              placeholder="Introduce el link del Informe BI"
+            />
+            <label>Informe BI I</label>
+            <input
+              name="iB1"
+              type="text"
+              defaultValue={modalType === 'addUser' ? '' : (users?.iB1 ?? '')}
+              className="input-field"
+              placeholder="Introduce el link del Informe BI"
+            />
+            <label>Informe BI II</label>
+            <input
+              name="iB2"
+              type="text"
+              defaultValue={modalType === 'addUser' ? '' : (users?.iB2 ?? '')}
+              className="input-field"
+              placeholder="Introduce el link del Informe BI"
+            />
+            <label>Informe BI III</label>
+            <input
+              name="iB3"
+              type="text"
+              defaultValue={modalType === 'addUser' ? '' : (users?.iB3 ?? '')}
+              className="input-field"
+              placeholder="Introduce el link del Informe BI"
+            />
+            <label>Informe BI IV</label>
+            <input
+              name="iB4"
+              type="text"
+              defaultValue={modalType === 'addUser' ? '' : (users?.iB4 ?? '')}
+              className="input-field"
+              placeholder="Introduce el link del Informe BI"
+            />
+            <label>Informe BI V</label>
+            <input
+              name="iB5"
+              type="text"
+              defaultValue={modalType === 'addUser' ? '' : (users?.iB5 ?? '')}
+              className="input-field"
+              placeholder="Introduce el link del Informe BI"
+            />
+          </div>
+          <div style={{ display: "flex", justifyContent: "flex-end", gap: "8px" }}>
+            <button type="button" onClick={closeUserModal} className="button button-ghost">
+              Cancelar
+            </button>
+            <button type="submit" className="button button-primary">
+              Guardar
+            </button>
+          </div>
+        </form>
+      </Modal>
+    </div >
   )
 }

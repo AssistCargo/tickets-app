@@ -24,11 +24,6 @@ export type categoria = $Result.DefaultSelection<Prisma.$categoriaPayload>
  */
 export type estados = $Result.DefaultSelection<Prisma.$estadosPayload>
 /**
- * Model informe_link
- * 
- */
-export type informe_link = $Result.DefaultSelection<Prisma.$informe_linkPayload>
-/**
  * Model posicion
  * 
  */
@@ -58,11 +53,6 @@ export type sub_categorias = $Result.DefaultSelection<Prisma.$sub_categoriasPayl
  * 
  */
 export type ticket = $Result.DefaultSelection<Prisma.$ticketPayload>
-/**
- * Model user_inform
- * 
- */
-export type user_inform = $Result.DefaultSelection<Prisma.$user_informPayload>
 /**
  * Model users
  * 
@@ -208,16 +198,6 @@ export class PrismaClient<
   get estados(): Prisma.estadosDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.informe_link`: Exposes CRUD operations for the **informe_link** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Informe_links
-    * const informe_links = await prisma.informe_link.findMany()
-    * ```
-    */
-  get informe_link(): Prisma.informe_linkDelegate<ExtArgs, ClientOptions>;
-
-  /**
    * `prisma.posicion`: Exposes CRUD operations for the **posicion** model.
     * Example usage:
     * ```ts
@@ -276,16 +256,6 @@ export class PrismaClient<
     * ```
     */
   get ticket(): Prisma.ticketDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.user_inform`: Exposes CRUD operations for the **user_inform** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more User_informs
-    * const user_informs = await prisma.user_inform.findMany()
-    * ```
-    */
-  get user_inform(): Prisma.user_informDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.users`: Exposes CRUD operations for the **users** model.
@@ -738,14 +708,12 @@ export namespace Prisma {
   export const ModelName: {
     categoria: 'categoria',
     estados: 'estados',
-    informe_link: 'informe_link',
     posicion: 'posicion',
     prioridad: 'prioridad',
     rol: 'rol',
     sector: 'sector',
     sub_categorias: 'sub_categorias',
     ticket: 'ticket',
-    user_inform: 'user_inform',
     users: 'users'
   };
 
@@ -765,7 +733,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "categoria" | "estados" | "informe_link" | "posicion" | "prioridad" | "rol" | "sector" | "sub_categorias" | "ticket" | "user_inform" | "users"
+      modelProps: "categoria" | "estados" | "posicion" | "prioridad" | "rol" | "sector" | "sub_categorias" | "ticket" | "users"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -914,80 +882,6 @@ export namespace Prisma {
           count: {
             args: Prisma.estadosCountArgs<ExtArgs>
             result: $Utils.Optional<EstadosCountAggregateOutputType> | number
-          }
-        }
-      }
-      informe_link: {
-        payload: Prisma.$informe_linkPayload<ExtArgs>
-        fields: Prisma.informe_linkFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.informe_linkFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$informe_linkPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.informe_linkFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$informe_linkPayload>
-          }
-          findFirst: {
-            args: Prisma.informe_linkFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$informe_linkPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.informe_linkFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$informe_linkPayload>
-          }
-          findMany: {
-            args: Prisma.informe_linkFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$informe_linkPayload>[]
-          }
-          create: {
-            args: Prisma.informe_linkCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$informe_linkPayload>
-          }
-          createMany: {
-            args: Prisma.informe_linkCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.informe_linkCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$informe_linkPayload>[]
-          }
-          delete: {
-            args: Prisma.informe_linkDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$informe_linkPayload>
-          }
-          update: {
-            args: Prisma.informe_linkUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$informe_linkPayload>
-          }
-          deleteMany: {
-            args: Prisma.informe_linkDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.informe_linkUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.informe_linkUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$informe_linkPayload>[]
-          }
-          upsert: {
-            args: Prisma.informe_linkUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$informe_linkPayload>
-          }
-          aggregate: {
-            args: Prisma.Informe_linkAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateInforme_link>
-          }
-          groupBy: {
-            args: Prisma.informe_linkGroupByArgs<ExtArgs>
-            result: $Utils.Optional<Informe_linkGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.informe_linkCountArgs<ExtArgs>
-            result: $Utils.Optional<Informe_linkCountAggregateOutputType> | number
           }
         }
       }
@@ -1435,80 +1329,6 @@ export namespace Prisma {
           }
         }
       }
-      user_inform: {
-        payload: Prisma.$user_informPayload<ExtArgs>
-        fields: Prisma.user_informFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.user_informFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$user_informPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.user_informFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$user_informPayload>
-          }
-          findFirst: {
-            args: Prisma.user_informFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$user_informPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.user_informFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$user_informPayload>
-          }
-          findMany: {
-            args: Prisma.user_informFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$user_informPayload>[]
-          }
-          create: {
-            args: Prisma.user_informCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$user_informPayload>
-          }
-          createMany: {
-            args: Prisma.user_informCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.user_informCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$user_informPayload>[]
-          }
-          delete: {
-            args: Prisma.user_informDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$user_informPayload>
-          }
-          update: {
-            args: Prisma.user_informUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$user_informPayload>
-          }
-          deleteMany: {
-            args: Prisma.user_informDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.user_informUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.user_informUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$user_informPayload>[]
-          }
-          upsert: {
-            args: Prisma.user_informUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$user_informPayload>
-          }
-          aggregate: {
-            args: Prisma.User_informAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateUser_inform>
-          }
-          groupBy: {
-            args: Prisma.user_informGroupByArgs<ExtArgs>
-            result: $Utils.Optional<User_informGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.user_informCountArgs<ExtArgs>
-            result: $Utils.Optional<User_informCountAggregateOutputType> | number
-          }
-        }
-      }
       users: {
         payload: Prisma.$usersPayload<ExtArgs>
         fields: Prisma.usersFieldRefs
@@ -1681,14 +1501,12 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     categoria?: categoriaOmit
     estados?: estadosOmit
-    informe_link?: informe_linkOmit
     posicion?: posicionOmit
     prioridad?: prioridadOmit
     rol?: rolOmit
     sector?: sectorOmit
     sub_categorias?: sub_categoriasOmit
     ticket?: ticketOmit
-    user_inform?: user_informOmit
     users?: usersOmit
   }
 
@@ -1770,13 +1588,13 @@ export namespace Prisma {
    */
 
   export type CategoriaCountOutputType = {
-    tickets: number
     sub_categorias: number
+    tickets: number
   }
 
   export type CategoriaCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    tickets?: boolean | CategoriaCountOutputTypeCountTicketsArgs
     sub_categorias?: boolean | CategoriaCountOutputTypeCountSub_categoriasArgs
+    tickets?: boolean | CategoriaCountOutputTypeCountTicketsArgs
   }
 
   // Custom InputTypes
@@ -1793,15 +1611,15 @@ export namespace Prisma {
   /**
    * CategoriaCountOutputType without action
    */
-  export type CategoriaCountOutputTypeCountTicketsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ticketWhereInput
+  export type CategoriaCountOutputTypeCountSub_categoriasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: sub_categoriasWhereInput
   }
 
   /**
    * CategoriaCountOutputType without action
    */
-  export type CategoriaCountOutputTypeCountSub_categoriasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: sub_categoriasWhereInput
+  export type CategoriaCountOutputTypeCountTicketsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ticketWhereInput
   }
 
 
@@ -1833,37 +1651,6 @@ export namespace Prisma {
    */
   export type EstadosCountOutputTypeCountTicketsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ticketWhereInput
-  }
-
-
-  /**
-   * Count Type Informe_linkCountOutputType
-   */
-
-  export type Informe_linkCountOutputType = {
-    user_informs: number
-  }
-
-  export type Informe_linkCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user_informs?: boolean | Informe_linkCountOutputTypeCountUser_informsArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * Informe_linkCountOutputType without action
-   */
-  export type Informe_linkCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Informe_linkCountOutputType
-     */
-    select?: Informe_linkCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * Informe_linkCountOutputType without action
-   */
-  export type Informe_linkCountOutputTypeCountUser_informsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: user_informWhereInput
   }
 
 
@@ -2005,13 +1792,13 @@ export namespace Prisma {
    */
 
   export type UsersCountOutputType = {
-    autorizados: number
     tickets: number
+    autorizados: number
   }
 
   export type UsersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    autorizados?: boolean | UsersCountOutputTypeCountAutorizadosArgs
     tickets?: boolean | UsersCountOutputTypeCountTicketsArgs
+    autorizados?: boolean | UsersCountOutputTypeCountAutorizadosArgs
   }
 
   // Custom InputTypes
@@ -2028,15 +1815,15 @@ export namespace Prisma {
   /**
    * UsersCountOutputType without action
    */
-  export type UsersCountOutputTypeCountAutorizadosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: usersWhereInput
+  export type UsersCountOutputTypeCountTicketsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ticketWhereInput
   }
 
   /**
    * UsersCountOutputType without action
    */
-  export type UsersCountOutputTypeCountTicketsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ticketWhereInput
+  export type UsersCountOutputTypeCountAutorizadosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: usersWhereInput
   }
 
 
@@ -2058,56 +1845,66 @@ export namespace Prisma {
 
   export type CategoriaAvgAggregateOutputType = {
     id: number | null
+    encargado: number | null
   }
 
   export type CategoriaSumAggregateOutputType = {
     id: number | null
+    encargado: number | null
   }
 
   export type CategoriaMinAggregateOutputType = {
     id: number | null
     created_at: Date | null
     nombre: string | null
+    encargado: number | null
   }
 
   export type CategoriaMaxAggregateOutputType = {
     id: number | null
     created_at: Date | null
     nombre: string | null
+    encargado: number | null
   }
 
   export type CategoriaCountAggregateOutputType = {
     id: number
     created_at: number
     nombre: number
+    encargado: number
     _all: number
   }
 
 
   export type CategoriaAvgAggregateInputType = {
     id?: true
+    encargado?: true
   }
 
   export type CategoriaSumAggregateInputType = {
     id?: true
+    encargado?: true
   }
 
   export type CategoriaMinAggregateInputType = {
     id?: true
     created_at?: true
     nombre?: true
+    encargado?: true
   }
 
   export type CategoriaMaxAggregateInputType = {
     id?: true
     created_at?: true
     nombre?: true
+    encargado?: true
   }
 
   export type CategoriaCountAggregateInputType = {
     id?: true
     created_at?: true
     nombre?: true
+    encargado?: true
     _all?: true
   }
 
@@ -2201,6 +1998,7 @@ export namespace Prisma {
     id: number
     created_at: Date
     nombre: string | null
+    encargado: number
     _count: CategoriaCountAggregateOutputType | null
     _avg: CategoriaAvgAggregateOutputType | null
     _sum: CategoriaSumAggregateOutputType | null
@@ -2226,8 +2024,9 @@ export namespace Prisma {
     id?: boolean
     created_at?: boolean
     nombre?: boolean
-    tickets?: boolean | categoria$ticketsArgs<ExtArgs>
+    encargado?: boolean
     sub_categorias?: boolean | categoria$sub_categoriasArgs<ExtArgs>
+    tickets?: boolean | categoria$ticketsArgs<ExtArgs>
     _count?: boolean | CategoriaCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["categoria"]>
 
@@ -2235,24 +2034,27 @@ export namespace Prisma {
     id?: boolean
     created_at?: boolean
     nombre?: boolean
+    encargado?: boolean
   }, ExtArgs["result"]["categoria"]>
 
   export type categoriaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     created_at?: boolean
     nombre?: boolean
+    encargado?: boolean
   }, ExtArgs["result"]["categoria"]>
 
   export type categoriaSelectScalar = {
     id?: boolean
     created_at?: boolean
     nombre?: boolean
+    encargado?: boolean
   }
 
-  export type categoriaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "created_at" | "nombre", ExtArgs["result"]["categoria"]>
+  export type categoriaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "created_at" | "nombre" | "encargado", ExtArgs["result"]["categoria"]>
   export type categoriaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    tickets?: boolean | categoria$ticketsArgs<ExtArgs>
     sub_categorias?: boolean | categoria$sub_categoriasArgs<ExtArgs>
+    tickets?: boolean | categoria$ticketsArgs<ExtArgs>
     _count?: boolean | CategoriaCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type categoriaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2261,13 +2063,14 @@ export namespace Prisma {
   export type $categoriaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "categoria"
     objects: {
-      tickets: Prisma.$ticketPayload<ExtArgs>[]
       sub_categorias: Prisma.$sub_categoriasPayload<ExtArgs>[]
+      tickets: Prisma.$ticketPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       created_at: Date
       nombre: string | null
+      encargado: number
     }, ExtArgs["result"]["categoria"]>
     composites: {}
   }
@@ -2662,8 +2465,8 @@ export namespace Prisma {
    */
   export interface Prisma__categoriaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    tickets<T extends categoria$ticketsArgs<ExtArgs> = {}>(args?: Subset<T, categoria$ticketsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ticketPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     sub_categorias<T extends categoria$sub_categoriasArgs<ExtArgs> = {}>(args?: Subset<T, categoria$sub_categoriasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sub_categoriasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    tickets<T extends categoria$ticketsArgs<ExtArgs> = {}>(args?: Subset<T, categoria$ticketsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ticketPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2696,6 +2499,7 @@ export namespace Prisma {
     readonly id: FieldRef<"categoria", 'Int'>
     readonly created_at: FieldRef<"categoria", 'DateTime'>
     readonly nombre: FieldRef<"categoria", 'String'>
+    readonly encargado: FieldRef<"categoria", 'Int'>
   }
     
 
@@ -2914,7 +2718,7 @@ export namespace Prisma {
     /**
      * The data needed to create a categoria.
      */
-    data?: XOR<categoriaCreateInput, categoriaUncheckedCreateInput>
+    data: XOR<categoriaCreateInput, categoriaUncheckedCreateInput>
   }
 
   /**
@@ -3084,30 +2888,6 @@ export namespace Prisma {
   }
 
   /**
-   * categoria.tickets
-   */
-  export type categoria$ticketsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ticket
-     */
-    select?: ticketSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ticket
-     */
-    omit?: ticketOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ticketInclude<ExtArgs> | null
-    where?: ticketWhereInput
-    orderBy?: ticketOrderByWithRelationInput | ticketOrderByWithRelationInput[]
-    cursor?: ticketWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: TicketScalarFieldEnum | TicketScalarFieldEnum[]
-  }
-
-  /**
    * categoria.sub_categorias
    */
   export type categoria$sub_categoriasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3129,6 +2909,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Sub_categoriasScalarFieldEnum | Sub_categoriasScalarFieldEnum[]
+  }
+
+  /**
+   * categoria.tickets
+   */
+  export type categoria$ticketsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ticket
+     */
+    select?: ticketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ticket
+     */
+    omit?: ticketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ticketInclude<ExtArgs> | null
+    where?: ticketWhereInput
+    orderBy?: ticketOrderByWithRelationInput | ticketOrderByWithRelationInput[]
+    cursor?: ticketWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TicketScalarFieldEnum | TicketScalarFieldEnum[]
   }
 
   /**
@@ -4225,1084 +4029,6 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: estadosInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model informe_link
-   */
-
-  export type AggregateInforme_link = {
-    _count: Informe_linkCountAggregateOutputType | null
-    _avg: Informe_linkAvgAggregateOutputType | null
-    _sum: Informe_linkSumAggregateOutputType | null
-    _min: Informe_linkMinAggregateOutputType | null
-    _max: Informe_linkMaxAggregateOutputType | null
-  }
-
-  export type Informe_linkAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type Informe_linkSumAggregateOutputType = {
-    id: number | null
-  }
-
-  export type Informe_linkMinAggregateOutputType = {
-    id: number | null
-    created_at: Date | null
-    link: string | null
-  }
-
-  export type Informe_linkMaxAggregateOutputType = {
-    id: number | null
-    created_at: Date | null
-    link: string | null
-  }
-
-  export type Informe_linkCountAggregateOutputType = {
-    id: number
-    created_at: number
-    link: number
-    _all: number
-  }
-
-
-  export type Informe_linkAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type Informe_linkSumAggregateInputType = {
-    id?: true
-  }
-
-  export type Informe_linkMinAggregateInputType = {
-    id?: true
-    created_at?: true
-    link?: true
-  }
-
-  export type Informe_linkMaxAggregateInputType = {
-    id?: true
-    created_at?: true
-    link?: true
-  }
-
-  export type Informe_linkCountAggregateInputType = {
-    id?: true
-    created_at?: true
-    link?: true
-    _all?: true
-  }
-
-  export type Informe_linkAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which informe_link to aggregate.
-     */
-    where?: informe_linkWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of informe_links to fetch.
-     */
-    orderBy?: informe_linkOrderByWithRelationInput | informe_linkOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: informe_linkWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` informe_links from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` informe_links.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned informe_links
-    **/
-    _count?: true | Informe_linkCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: Informe_linkAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Informe_linkSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: Informe_linkMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: Informe_linkMaxAggregateInputType
-  }
-
-  export type GetInforme_linkAggregateType<T extends Informe_linkAggregateArgs> = {
-        [P in keyof T & keyof AggregateInforme_link]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateInforme_link[P]>
-      : GetScalarType<T[P], AggregateInforme_link[P]>
-  }
-
-
-
-
-  export type informe_linkGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: informe_linkWhereInput
-    orderBy?: informe_linkOrderByWithAggregationInput | informe_linkOrderByWithAggregationInput[]
-    by: Informe_linkScalarFieldEnum[] | Informe_linkScalarFieldEnum
-    having?: informe_linkScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: Informe_linkCountAggregateInputType | true
-    _avg?: Informe_linkAvgAggregateInputType
-    _sum?: Informe_linkSumAggregateInputType
-    _min?: Informe_linkMinAggregateInputType
-    _max?: Informe_linkMaxAggregateInputType
-  }
-
-  export type Informe_linkGroupByOutputType = {
-    id: number
-    created_at: Date
-    link: string | null
-    _count: Informe_linkCountAggregateOutputType | null
-    _avg: Informe_linkAvgAggregateOutputType | null
-    _sum: Informe_linkSumAggregateOutputType | null
-    _min: Informe_linkMinAggregateOutputType | null
-    _max: Informe_linkMaxAggregateOutputType | null
-  }
-
-  type GetInforme_linkGroupByPayload<T extends informe_linkGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<Informe_linkGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof Informe_linkGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], Informe_linkGroupByOutputType[P]>
-            : GetScalarType<T[P], Informe_linkGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type informe_linkSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    created_at?: boolean
-    link?: boolean
-    user_informs?: boolean | informe_link$user_informsArgs<ExtArgs>
-    _count?: boolean | Informe_linkCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["informe_link"]>
-
-  export type informe_linkSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    created_at?: boolean
-    link?: boolean
-  }, ExtArgs["result"]["informe_link"]>
-
-  export type informe_linkSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    created_at?: boolean
-    link?: boolean
-  }, ExtArgs["result"]["informe_link"]>
-
-  export type informe_linkSelectScalar = {
-    id?: boolean
-    created_at?: boolean
-    link?: boolean
-  }
-
-  export type informe_linkOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "created_at" | "link", ExtArgs["result"]["informe_link"]>
-  export type informe_linkInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user_informs?: boolean | informe_link$user_informsArgs<ExtArgs>
-    _count?: boolean | Informe_linkCountOutputTypeDefaultArgs<ExtArgs>
-  }
-  export type informe_linkIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type informe_linkIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-
-  export type $informe_linkPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "informe_link"
-    objects: {
-      user_informs: Prisma.$user_informPayload<ExtArgs>[]
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      created_at: Date
-      link: string | null
-    }, ExtArgs["result"]["informe_link"]>
-    composites: {}
-  }
-
-  type informe_linkGetPayload<S extends boolean | null | undefined | informe_linkDefaultArgs> = $Result.GetResult<Prisma.$informe_linkPayload, S>
-
-  type informe_linkCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<informe_linkFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: Informe_linkCountAggregateInputType | true
-    }
-
-  export interface informe_linkDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['informe_link'], meta: { name: 'informe_link' } }
-    /**
-     * Find zero or one Informe_link that matches the filter.
-     * @param {informe_linkFindUniqueArgs} args - Arguments to find a Informe_link
-     * @example
-     * // Get one Informe_link
-     * const informe_link = await prisma.informe_link.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends informe_linkFindUniqueArgs>(args: SelectSubset<T, informe_linkFindUniqueArgs<ExtArgs>>): Prisma__informe_linkClient<$Result.GetResult<Prisma.$informe_linkPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Informe_link that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {informe_linkFindUniqueOrThrowArgs} args - Arguments to find a Informe_link
-     * @example
-     * // Get one Informe_link
-     * const informe_link = await prisma.informe_link.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends informe_linkFindUniqueOrThrowArgs>(args: SelectSubset<T, informe_linkFindUniqueOrThrowArgs<ExtArgs>>): Prisma__informe_linkClient<$Result.GetResult<Prisma.$informe_linkPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Informe_link that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {informe_linkFindFirstArgs} args - Arguments to find a Informe_link
-     * @example
-     * // Get one Informe_link
-     * const informe_link = await prisma.informe_link.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends informe_linkFindFirstArgs>(args?: SelectSubset<T, informe_linkFindFirstArgs<ExtArgs>>): Prisma__informe_linkClient<$Result.GetResult<Prisma.$informe_linkPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Informe_link that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {informe_linkFindFirstOrThrowArgs} args - Arguments to find a Informe_link
-     * @example
-     * // Get one Informe_link
-     * const informe_link = await prisma.informe_link.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends informe_linkFindFirstOrThrowArgs>(args?: SelectSubset<T, informe_linkFindFirstOrThrowArgs<ExtArgs>>): Prisma__informe_linkClient<$Result.GetResult<Prisma.$informe_linkPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Informe_links that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {informe_linkFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Informe_links
-     * const informe_links = await prisma.informe_link.findMany()
-     * 
-     * // Get first 10 Informe_links
-     * const informe_links = await prisma.informe_link.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const informe_linkWithIdOnly = await prisma.informe_link.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends informe_linkFindManyArgs>(args?: SelectSubset<T, informe_linkFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$informe_linkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Informe_link.
-     * @param {informe_linkCreateArgs} args - Arguments to create a Informe_link.
-     * @example
-     * // Create one Informe_link
-     * const Informe_link = await prisma.informe_link.create({
-     *   data: {
-     *     // ... data to create a Informe_link
-     *   }
-     * })
-     * 
-     */
-    create<T extends informe_linkCreateArgs>(args: SelectSubset<T, informe_linkCreateArgs<ExtArgs>>): Prisma__informe_linkClient<$Result.GetResult<Prisma.$informe_linkPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Informe_links.
-     * @param {informe_linkCreateManyArgs} args - Arguments to create many Informe_links.
-     * @example
-     * // Create many Informe_links
-     * const informe_link = await prisma.informe_link.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends informe_linkCreateManyArgs>(args?: SelectSubset<T, informe_linkCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Informe_links and returns the data saved in the database.
-     * @param {informe_linkCreateManyAndReturnArgs} args - Arguments to create many Informe_links.
-     * @example
-     * // Create many Informe_links
-     * const informe_link = await prisma.informe_link.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Informe_links and only return the `id`
-     * const informe_linkWithIdOnly = await prisma.informe_link.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends informe_linkCreateManyAndReturnArgs>(args?: SelectSubset<T, informe_linkCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$informe_linkPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a Informe_link.
-     * @param {informe_linkDeleteArgs} args - Arguments to delete one Informe_link.
-     * @example
-     * // Delete one Informe_link
-     * const Informe_link = await prisma.informe_link.delete({
-     *   where: {
-     *     // ... filter to delete one Informe_link
-     *   }
-     * })
-     * 
-     */
-    delete<T extends informe_linkDeleteArgs>(args: SelectSubset<T, informe_linkDeleteArgs<ExtArgs>>): Prisma__informe_linkClient<$Result.GetResult<Prisma.$informe_linkPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Informe_link.
-     * @param {informe_linkUpdateArgs} args - Arguments to update one Informe_link.
-     * @example
-     * // Update one Informe_link
-     * const informe_link = await prisma.informe_link.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends informe_linkUpdateArgs>(args: SelectSubset<T, informe_linkUpdateArgs<ExtArgs>>): Prisma__informe_linkClient<$Result.GetResult<Prisma.$informe_linkPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Informe_links.
-     * @param {informe_linkDeleteManyArgs} args - Arguments to filter Informe_links to delete.
-     * @example
-     * // Delete a few Informe_links
-     * const { count } = await prisma.informe_link.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends informe_linkDeleteManyArgs>(args?: SelectSubset<T, informe_linkDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Informe_links.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {informe_linkUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Informe_links
-     * const informe_link = await prisma.informe_link.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends informe_linkUpdateManyArgs>(args: SelectSubset<T, informe_linkUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Informe_links and returns the data updated in the database.
-     * @param {informe_linkUpdateManyAndReturnArgs} args - Arguments to update many Informe_links.
-     * @example
-     * // Update many Informe_links
-     * const informe_link = await prisma.informe_link.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more Informe_links and only return the `id`
-     * const informe_linkWithIdOnly = await prisma.informe_link.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends informe_linkUpdateManyAndReturnArgs>(args: SelectSubset<T, informe_linkUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$informe_linkPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one Informe_link.
-     * @param {informe_linkUpsertArgs} args - Arguments to update or create a Informe_link.
-     * @example
-     * // Update or create a Informe_link
-     * const informe_link = await prisma.informe_link.upsert({
-     *   create: {
-     *     // ... data to create a Informe_link
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Informe_link we want to update
-     *   }
-     * })
-     */
-    upsert<T extends informe_linkUpsertArgs>(args: SelectSubset<T, informe_linkUpsertArgs<ExtArgs>>): Prisma__informe_linkClient<$Result.GetResult<Prisma.$informe_linkPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Informe_links.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {informe_linkCountArgs} args - Arguments to filter Informe_links to count.
-     * @example
-     * // Count the number of Informe_links
-     * const count = await prisma.informe_link.count({
-     *   where: {
-     *     // ... the filter for the Informe_links we want to count
-     *   }
-     * })
-    **/
-    count<T extends informe_linkCountArgs>(
-      args?: Subset<T, informe_linkCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], Informe_linkCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Informe_link.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {Informe_linkAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends Informe_linkAggregateArgs>(args: Subset<T, Informe_linkAggregateArgs>): Prisma.PrismaPromise<GetInforme_linkAggregateType<T>>
-
-    /**
-     * Group by Informe_link.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {informe_linkGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends informe_linkGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: informe_linkGroupByArgs['orderBy'] }
-        : { orderBy?: informe_linkGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, informe_linkGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetInforme_linkGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the informe_link model
-   */
-  readonly fields: informe_linkFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for informe_link.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__informe_linkClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    user_informs<T extends informe_link$user_informsArgs<ExtArgs> = {}>(args?: Subset<T, informe_link$user_informsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$user_informPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the informe_link model
-   */
-  interface informe_linkFieldRefs {
-    readonly id: FieldRef<"informe_link", 'Int'>
-    readonly created_at: FieldRef<"informe_link", 'DateTime'>
-    readonly link: FieldRef<"informe_link", 'String'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * informe_link findUnique
-   */
-  export type informe_linkFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the informe_link
-     */
-    select?: informe_linkSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the informe_link
-     */
-    omit?: informe_linkOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: informe_linkInclude<ExtArgs> | null
-    /**
-     * Filter, which informe_link to fetch.
-     */
-    where: informe_linkWhereUniqueInput
-  }
-
-  /**
-   * informe_link findUniqueOrThrow
-   */
-  export type informe_linkFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the informe_link
-     */
-    select?: informe_linkSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the informe_link
-     */
-    omit?: informe_linkOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: informe_linkInclude<ExtArgs> | null
-    /**
-     * Filter, which informe_link to fetch.
-     */
-    where: informe_linkWhereUniqueInput
-  }
-
-  /**
-   * informe_link findFirst
-   */
-  export type informe_linkFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the informe_link
-     */
-    select?: informe_linkSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the informe_link
-     */
-    omit?: informe_linkOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: informe_linkInclude<ExtArgs> | null
-    /**
-     * Filter, which informe_link to fetch.
-     */
-    where?: informe_linkWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of informe_links to fetch.
-     */
-    orderBy?: informe_linkOrderByWithRelationInput | informe_linkOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for informe_links.
-     */
-    cursor?: informe_linkWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` informe_links from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` informe_links.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of informe_links.
-     */
-    distinct?: Informe_linkScalarFieldEnum | Informe_linkScalarFieldEnum[]
-  }
-
-  /**
-   * informe_link findFirstOrThrow
-   */
-  export type informe_linkFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the informe_link
-     */
-    select?: informe_linkSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the informe_link
-     */
-    omit?: informe_linkOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: informe_linkInclude<ExtArgs> | null
-    /**
-     * Filter, which informe_link to fetch.
-     */
-    where?: informe_linkWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of informe_links to fetch.
-     */
-    orderBy?: informe_linkOrderByWithRelationInput | informe_linkOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for informe_links.
-     */
-    cursor?: informe_linkWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` informe_links from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` informe_links.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of informe_links.
-     */
-    distinct?: Informe_linkScalarFieldEnum | Informe_linkScalarFieldEnum[]
-  }
-
-  /**
-   * informe_link findMany
-   */
-  export type informe_linkFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the informe_link
-     */
-    select?: informe_linkSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the informe_link
-     */
-    omit?: informe_linkOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: informe_linkInclude<ExtArgs> | null
-    /**
-     * Filter, which informe_links to fetch.
-     */
-    where?: informe_linkWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of informe_links to fetch.
-     */
-    orderBy?: informe_linkOrderByWithRelationInput | informe_linkOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing informe_links.
-     */
-    cursor?: informe_linkWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` informe_links from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` informe_links.
-     */
-    skip?: number
-    distinct?: Informe_linkScalarFieldEnum | Informe_linkScalarFieldEnum[]
-  }
-
-  /**
-   * informe_link create
-   */
-  export type informe_linkCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the informe_link
-     */
-    select?: informe_linkSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the informe_link
-     */
-    omit?: informe_linkOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: informe_linkInclude<ExtArgs> | null
-    /**
-     * The data needed to create a informe_link.
-     */
-    data?: XOR<informe_linkCreateInput, informe_linkUncheckedCreateInput>
-  }
-
-  /**
-   * informe_link createMany
-   */
-  export type informe_linkCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many informe_links.
-     */
-    data: informe_linkCreateManyInput | informe_linkCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * informe_link createManyAndReturn
-   */
-  export type informe_linkCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the informe_link
-     */
-    select?: informe_linkSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the informe_link
-     */
-    omit?: informe_linkOmit<ExtArgs> | null
-    /**
-     * The data used to create many informe_links.
-     */
-    data: informe_linkCreateManyInput | informe_linkCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * informe_link update
-   */
-  export type informe_linkUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the informe_link
-     */
-    select?: informe_linkSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the informe_link
-     */
-    omit?: informe_linkOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: informe_linkInclude<ExtArgs> | null
-    /**
-     * The data needed to update a informe_link.
-     */
-    data: XOR<informe_linkUpdateInput, informe_linkUncheckedUpdateInput>
-    /**
-     * Choose, which informe_link to update.
-     */
-    where: informe_linkWhereUniqueInput
-  }
-
-  /**
-   * informe_link updateMany
-   */
-  export type informe_linkUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update informe_links.
-     */
-    data: XOR<informe_linkUpdateManyMutationInput, informe_linkUncheckedUpdateManyInput>
-    /**
-     * Filter which informe_links to update
-     */
-    where?: informe_linkWhereInput
-    /**
-     * Limit how many informe_links to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * informe_link updateManyAndReturn
-   */
-  export type informe_linkUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the informe_link
-     */
-    select?: informe_linkSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the informe_link
-     */
-    omit?: informe_linkOmit<ExtArgs> | null
-    /**
-     * The data used to update informe_links.
-     */
-    data: XOR<informe_linkUpdateManyMutationInput, informe_linkUncheckedUpdateManyInput>
-    /**
-     * Filter which informe_links to update
-     */
-    where?: informe_linkWhereInput
-    /**
-     * Limit how many informe_links to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * informe_link upsert
-   */
-  export type informe_linkUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the informe_link
-     */
-    select?: informe_linkSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the informe_link
-     */
-    omit?: informe_linkOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: informe_linkInclude<ExtArgs> | null
-    /**
-     * The filter to search for the informe_link to update in case it exists.
-     */
-    where: informe_linkWhereUniqueInput
-    /**
-     * In case the informe_link found by the `where` argument doesn't exist, create a new informe_link with this data.
-     */
-    create: XOR<informe_linkCreateInput, informe_linkUncheckedCreateInput>
-    /**
-     * In case the informe_link was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<informe_linkUpdateInput, informe_linkUncheckedUpdateInput>
-  }
-
-  /**
-   * informe_link delete
-   */
-  export type informe_linkDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the informe_link
-     */
-    select?: informe_linkSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the informe_link
-     */
-    omit?: informe_linkOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: informe_linkInclude<ExtArgs> | null
-    /**
-     * Filter which informe_link to delete.
-     */
-    where: informe_linkWhereUniqueInput
-  }
-
-  /**
-   * informe_link deleteMany
-   */
-  export type informe_linkDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which informe_links to delete
-     */
-    where?: informe_linkWhereInput
-    /**
-     * Limit how many informe_links to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * informe_link.user_informs
-   */
-  export type informe_link$user_informsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the user_inform
-     */
-    select?: user_informSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the user_inform
-     */
-    omit?: user_informOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: user_informInclude<ExtArgs> | null
-    where?: user_informWhereInput
-    orderBy?: user_informOrderByWithRelationInput | user_informOrderByWithRelationInput[]
-    cursor?: user_informWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: User_informScalarFieldEnum | User_informScalarFieldEnum[]
-  }
-
-  /**
-   * informe_link without action
-   */
-  export type informe_linkDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the informe_link
-     */
-    select?: informe_linkSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the informe_link
-     */
-    omit?: informe_linkOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: informe_linkInclude<ExtArgs> | null
   }
 
 
@@ -10985,12 +9711,12 @@ export namespace Prisma {
     link_art?: boolean
     id_estado?: boolean
     fecha?: boolean
-    user?: boolean | ticket$userArgs<ExtArgs>
     categoria?: boolean | ticket$categoriaArgs<ExtArgs>
-    subcategoria?: boolean | ticket$subcategoriaArgs<ExtArgs>
+    estado?: boolean | ticket$estadoArgs<ExtArgs>
     prioridad?: boolean | ticket$prioridadArgs<ExtArgs>
     sector?: boolean | ticket$sectorArgs<ExtArgs>
-    estado?: boolean | ticket$estadoArgs<ExtArgs>
+    subcategoria?: boolean | ticket$subcategoriaArgs<ExtArgs>
+    user?: boolean | ticket$userArgs<ExtArgs>
   }, ExtArgs["result"]["ticket"]>
 
   export type ticketSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -11007,12 +9733,12 @@ export namespace Prisma {
     link_art?: boolean
     id_estado?: boolean
     fecha?: boolean
-    user?: boolean | ticket$userArgs<ExtArgs>
     categoria?: boolean | ticket$categoriaArgs<ExtArgs>
-    subcategoria?: boolean | ticket$subcategoriaArgs<ExtArgs>
+    estado?: boolean | ticket$estadoArgs<ExtArgs>
     prioridad?: boolean | ticket$prioridadArgs<ExtArgs>
     sector?: boolean | ticket$sectorArgs<ExtArgs>
-    estado?: boolean | ticket$estadoArgs<ExtArgs>
+    subcategoria?: boolean | ticket$subcategoriaArgs<ExtArgs>
+    user?: boolean | ticket$userArgs<ExtArgs>
   }, ExtArgs["result"]["ticket"]>
 
   export type ticketSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -11029,12 +9755,12 @@ export namespace Prisma {
     link_art?: boolean
     id_estado?: boolean
     fecha?: boolean
-    user?: boolean | ticket$userArgs<ExtArgs>
     categoria?: boolean | ticket$categoriaArgs<ExtArgs>
-    subcategoria?: boolean | ticket$subcategoriaArgs<ExtArgs>
+    estado?: boolean | ticket$estadoArgs<ExtArgs>
     prioridad?: boolean | ticket$prioridadArgs<ExtArgs>
     sector?: boolean | ticket$sectorArgs<ExtArgs>
-    estado?: boolean | ticket$estadoArgs<ExtArgs>
+    subcategoria?: boolean | ticket$subcategoriaArgs<ExtArgs>
+    user?: boolean | ticket$userArgs<ExtArgs>
   }, ExtArgs["result"]["ticket"]>
 
   export type ticketSelectScalar = {
@@ -11055,39 +9781,39 @@ export namespace Prisma {
 
   export type ticketOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "created_at" | "id_user" | "id_categoria" | "id_subcategoria" | "telefono" | "descripcion" | "id_prioridad" | "id_sector" | "valor" | "link_art" | "id_estado" | "fecha", ExtArgs["result"]["ticket"]>
   export type ticketInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | ticket$userArgs<ExtArgs>
     categoria?: boolean | ticket$categoriaArgs<ExtArgs>
-    subcategoria?: boolean | ticket$subcategoriaArgs<ExtArgs>
+    estado?: boolean | ticket$estadoArgs<ExtArgs>
     prioridad?: boolean | ticket$prioridadArgs<ExtArgs>
     sector?: boolean | ticket$sectorArgs<ExtArgs>
-    estado?: boolean | ticket$estadoArgs<ExtArgs>
+    subcategoria?: boolean | ticket$subcategoriaArgs<ExtArgs>
+    user?: boolean | ticket$userArgs<ExtArgs>
   }
   export type ticketIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | ticket$userArgs<ExtArgs>
     categoria?: boolean | ticket$categoriaArgs<ExtArgs>
-    subcategoria?: boolean | ticket$subcategoriaArgs<ExtArgs>
+    estado?: boolean | ticket$estadoArgs<ExtArgs>
     prioridad?: boolean | ticket$prioridadArgs<ExtArgs>
     sector?: boolean | ticket$sectorArgs<ExtArgs>
-    estado?: boolean | ticket$estadoArgs<ExtArgs>
+    subcategoria?: boolean | ticket$subcategoriaArgs<ExtArgs>
+    user?: boolean | ticket$userArgs<ExtArgs>
   }
   export type ticketIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | ticket$userArgs<ExtArgs>
     categoria?: boolean | ticket$categoriaArgs<ExtArgs>
-    subcategoria?: boolean | ticket$subcategoriaArgs<ExtArgs>
+    estado?: boolean | ticket$estadoArgs<ExtArgs>
     prioridad?: boolean | ticket$prioridadArgs<ExtArgs>
     sector?: boolean | ticket$sectorArgs<ExtArgs>
-    estado?: boolean | ticket$estadoArgs<ExtArgs>
+    subcategoria?: boolean | ticket$subcategoriaArgs<ExtArgs>
+    user?: boolean | ticket$userArgs<ExtArgs>
   }
 
   export type $ticketPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "ticket"
     objects: {
-      user: Prisma.$usersPayload<ExtArgs> | null
       categoria: Prisma.$categoriaPayload<ExtArgs> | null
-      subcategoria: Prisma.$sub_categoriasPayload<ExtArgs> | null
+      estado: Prisma.$estadosPayload<ExtArgs> | null
       prioridad: Prisma.$prioridadPayload<ExtArgs> | null
       sector: Prisma.$sectorPayload<ExtArgs> | null
-      estado: Prisma.$estadosPayload<ExtArgs> | null
+      subcategoria: Prisma.$sub_categoriasPayload<ExtArgs> | null
+      user: Prisma.$usersPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -11497,12 +10223,12 @@ export namespace Prisma {
    */
   export interface Prisma__ticketClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends ticket$userArgs<ExtArgs> = {}>(args?: Subset<T, ticket$userArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     categoria<T extends ticket$categoriaArgs<ExtArgs> = {}>(args?: Subset<T, ticket$categoriaArgs<ExtArgs>>): Prisma__categoriaClient<$Result.GetResult<Prisma.$categoriaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    subcategoria<T extends ticket$subcategoriaArgs<ExtArgs> = {}>(args?: Subset<T, ticket$subcategoriaArgs<ExtArgs>>): Prisma__sub_categoriasClient<$Result.GetResult<Prisma.$sub_categoriasPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    estado<T extends ticket$estadoArgs<ExtArgs> = {}>(args?: Subset<T, ticket$estadoArgs<ExtArgs>>): Prisma__estadosClient<$Result.GetResult<Prisma.$estadosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     prioridad<T extends ticket$prioridadArgs<ExtArgs> = {}>(args?: Subset<T, ticket$prioridadArgs<ExtArgs>>): Prisma__prioridadClient<$Result.GetResult<Prisma.$prioridadPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     sector<T extends ticket$sectorArgs<ExtArgs> = {}>(args?: Subset<T, ticket$sectorArgs<ExtArgs>>): Prisma__sectorClient<$Result.GetResult<Prisma.$sectorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    estado<T extends ticket$estadoArgs<ExtArgs> = {}>(args?: Subset<T, ticket$estadoArgs<ExtArgs>>): Prisma__estadosClient<$Result.GetResult<Prisma.$estadosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    subcategoria<T extends ticket$subcategoriaArgs<ExtArgs> = {}>(args?: Subset<T, ticket$subcategoriaArgs<ExtArgs>>): Prisma__sub_categoriasClient<$Result.GetResult<Prisma.$sub_categoriasPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    user<T extends ticket$userArgs<ExtArgs> = {}>(args?: Subset<T, ticket$userArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -11941,25 +10667,6 @@ export namespace Prisma {
   }
 
   /**
-   * ticket.user
-   */
-  export type ticket$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the users
-     */
-    select?: usersSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the users
-     */
-    omit?: usersOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: usersInclude<ExtArgs> | null
-    where?: usersWhereInput
-  }
-
-  /**
    * ticket.categoria
    */
   export type ticket$categoriaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -11979,22 +10686,22 @@ export namespace Prisma {
   }
 
   /**
-   * ticket.subcategoria
+   * ticket.estado
    */
-  export type ticket$subcategoriaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ticket$estadoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the sub_categorias
+     * Select specific fields to fetch from the estados
      */
-    select?: sub_categoriasSelect<ExtArgs> | null
+    select?: estadosSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the sub_categorias
+     * Omit specific fields from the estados
      */
-    omit?: sub_categoriasOmit<ExtArgs> | null
+    omit?: estadosOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: sub_categoriasInclude<ExtArgs> | null
-    where?: sub_categoriasWhereInput
+    include?: estadosInclude<ExtArgs> | null
+    where?: estadosWhereInput
   }
 
   /**
@@ -12036,22 +10743,41 @@ export namespace Prisma {
   }
 
   /**
-   * ticket.estado
+   * ticket.subcategoria
    */
-  export type ticket$estadoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ticket$subcategoriaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the estados
+     * Select specific fields to fetch from the sub_categorias
      */
-    select?: estadosSelect<ExtArgs> | null
+    select?: sub_categoriasSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the estados
+     * Omit specific fields from the sub_categorias
      */
-    omit?: estadosOmit<ExtArgs> | null
+    omit?: sub_categoriasOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: estadosInclude<ExtArgs> | null
-    where?: estadosWhereInput
+    include?: sub_categoriasInclude<ExtArgs> | null
+    where?: sub_categoriasWhereInput
+  }
+
+  /**
+   * ticket.user
+   */
+  export type ticket$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the users
+     */
+    select?: usersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the users
+     */
+    omit?: usersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: usersInclude<ExtArgs> | null
+    where?: usersWhereInput
   }
 
   /**
@@ -12070,1095 +10796,6 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: ticketInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model user_inform
-   */
-
-  export type AggregateUser_inform = {
-    _count: User_informCountAggregateOutputType | null
-    _avg: User_informAvgAggregateOutputType | null
-    _sum: User_informSumAggregateOutputType | null
-    _min: User_informMinAggregateOutputType | null
-    _max: User_informMaxAggregateOutputType | null
-  }
-
-  export type User_informAvgAggregateOutputType = {
-    id: number | null
-    id_informe_link: number | null
-  }
-
-  export type User_informSumAggregateOutputType = {
-    id: number | null
-    id_informe_link: number | null
-  }
-
-  export type User_informMinAggregateOutputType = {
-    id: number | null
-    created_at: Date | null
-    id_informe_link: number | null
-  }
-
-  export type User_informMaxAggregateOutputType = {
-    id: number | null
-    created_at: Date | null
-    id_informe_link: number | null
-  }
-
-  export type User_informCountAggregateOutputType = {
-    id: number
-    created_at: number
-    id_informe_link: number
-    _all: number
-  }
-
-
-  export type User_informAvgAggregateInputType = {
-    id?: true
-    id_informe_link?: true
-  }
-
-  export type User_informSumAggregateInputType = {
-    id?: true
-    id_informe_link?: true
-  }
-
-  export type User_informMinAggregateInputType = {
-    id?: true
-    created_at?: true
-    id_informe_link?: true
-  }
-
-  export type User_informMaxAggregateInputType = {
-    id?: true
-    created_at?: true
-    id_informe_link?: true
-  }
-
-  export type User_informCountAggregateInputType = {
-    id?: true
-    created_at?: true
-    id_informe_link?: true
-    _all?: true
-  }
-
-  export type User_informAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which user_inform to aggregate.
-     */
-    where?: user_informWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of user_informs to fetch.
-     */
-    orderBy?: user_informOrderByWithRelationInput | user_informOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: user_informWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` user_informs from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` user_informs.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned user_informs
-    **/
-    _count?: true | User_informCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: User_informAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: User_informSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: User_informMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: User_informMaxAggregateInputType
-  }
-
-  export type GetUser_informAggregateType<T extends User_informAggregateArgs> = {
-        [P in keyof T & keyof AggregateUser_inform]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateUser_inform[P]>
-      : GetScalarType<T[P], AggregateUser_inform[P]>
-  }
-
-
-
-
-  export type user_informGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: user_informWhereInput
-    orderBy?: user_informOrderByWithAggregationInput | user_informOrderByWithAggregationInput[]
-    by: User_informScalarFieldEnum[] | User_informScalarFieldEnum
-    having?: user_informScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: User_informCountAggregateInputType | true
-    _avg?: User_informAvgAggregateInputType
-    _sum?: User_informSumAggregateInputType
-    _min?: User_informMinAggregateInputType
-    _max?: User_informMaxAggregateInputType
-  }
-
-  export type User_informGroupByOutputType = {
-    id: number
-    created_at: Date
-    id_informe_link: number | null
-    _count: User_informCountAggregateOutputType | null
-    _avg: User_informAvgAggregateOutputType | null
-    _sum: User_informSumAggregateOutputType | null
-    _min: User_informMinAggregateOutputType | null
-    _max: User_informMaxAggregateOutputType | null
-  }
-
-  type GetUser_informGroupByPayload<T extends user_informGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<User_informGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof User_informGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], User_informGroupByOutputType[P]>
-            : GetScalarType<T[P], User_informGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type user_informSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    created_at?: boolean
-    id_informe_link?: boolean
-    informe_link?: boolean | user_inform$informe_linkArgs<ExtArgs>
-  }, ExtArgs["result"]["user_inform"]>
-
-  export type user_informSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    created_at?: boolean
-    id_informe_link?: boolean
-    informe_link?: boolean | user_inform$informe_linkArgs<ExtArgs>
-  }, ExtArgs["result"]["user_inform"]>
-
-  export type user_informSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    created_at?: boolean
-    id_informe_link?: boolean
-    informe_link?: boolean | user_inform$informe_linkArgs<ExtArgs>
-  }, ExtArgs["result"]["user_inform"]>
-
-  export type user_informSelectScalar = {
-    id?: boolean
-    created_at?: boolean
-    id_informe_link?: boolean
-  }
-
-  export type user_informOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "created_at" | "id_informe_link", ExtArgs["result"]["user_inform"]>
-  export type user_informInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    informe_link?: boolean | user_inform$informe_linkArgs<ExtArgs>
-  }
-  export type user_informIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    informe_link?: boolean | user_inform$informe_linkArgs<ExtArgs>
-  }
-  export type user_informIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    informe_link?: boolean | user_inform$informe_linkArgs<ExtArgs>
-  }
-
-  export type $user_informPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "user_inform"
-    objects: {
-      informe_link: Prisma.$informe_linkPayload<ExtArgs> | null
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      created_at: Date
-      id_informe_link: number | null
-    }, ExtArgs["result"]["user_inform"]>
-    composites: {}
-  }
-
-  type user_informGetPayload<S extends boolean | null | undefined | user_informDefaultArgs> = $Result.GetResult<Prisma.$user_informPayload, S>
-
-  type user_informCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<user_informFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: User_informCountAggregateInputType | true
-    }
-
-  export interface user_informDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['user_inform'], meta: { name: 'user_inform' } }
-    /**
-     * Find zero or one User_inform that matches the filter.
-     * @param {user_informFindUniqueArgs} args - Arguments to find a User_inform
-     * @example
-     * // Get one User_inform
-     * const user_inform = await prisma.user_inform.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends user_informFindUniqueArgs>(args: SelectSubset<T, user_informFindUniqueArgs<ExtArgs>>): Prisma__user_informClient<$Result.GetResult<Prisma.$user_informPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one User_inform that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {user_informFindUniqueOrThrowArgs} args - Arguments to find a User_inform
-     * @example
-     * // Get one User_inform
-     * const user_inform = await prisma.user_inform.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends user_informFindUniqueOrThrowArgs>(args: SelectSubset<T, user_informFindUniqueOrThrowArgs<ExtArgs>>): Prisma__user_informClient<$Result.GetResult<Prisma.$user_informPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first User_inform that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {user_informFindFirstArgs} args - Arguments to find a User_inform
-     * @example
-     * // Get one User_inform
-     * const user_inform = await prisma.user_inform.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends user_informFindFirstArgs>(args?: SelectSubset<T, user_informFindFirstArgs<ExtArgs>>): Prisma__user_informClient<$Result.GetResult<Prisma.$user_informPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first User_inform that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {user_informFindFirstOrThrowArgs} args - Arguments to find a User_inform
-     * @example
-     * // Get one User_inform
-     * const user_inform = await prisma.user_inform.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends user_informFindFirstOrThrowArgs>(args?: SelectSubset<T, user_informFindFirstOrThrowArgs<ExtArgs>>): Prisma__user_informClient<$Result.GetResult<Prisma.$user_informPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more User_informs that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {user_informFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all User_informs
-     * const user_informs = await prisma.user_inform.findMany()
-     * 
-     * // Get first 10 User_informs
-     * const user_informs = await prisma.user_inform.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const user_informWithIdOnly = await prisma.user_inform.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends user_informFindManyArgs>(args?: SelectSubset<T, user_informFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$user_informPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a User_inform.
-     * @param {user_informCreateArgs} args - Arguments to create a User_inform.
-     * @example
-     * // Create one User_inform
-     * const User_inform = await prisma.user_inform.create({
-     *   data: {
-     *     // ... data to create a User_inform
-     *   }
-     * })
-     * 
-     */
-    create<T extends user_informCreateArgs>(args: SelectSubset<T, user_informCreateArgs<ExtArgs>>): Prisma__user_informClient<$Result.GetResult<Prisma.$user_informPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many User_informs.
-     * @param {user_informCreateManyArgs} args - Arguments to create many User_informs.
-     * @example
-     * // Create many User_informs
-     * const user_inform = await prisma.user_inform.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends user_informCreateManyArgs>(args?: SelectSubset<T, user_informCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many User_informs and returns the data saved in the database.
-     * @param {user_informCreateManyAndReturnArgs} args - Arguments to create many User_informs.
-     * @example
-     * // Create many User_informs
-     * const user_inform = await prisma.user_inform.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many User_informs and only return the `id`
-     * const user_informWithIdOnly = await prisma.user_inform.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends user_informCreateManyAndReturnArgs>(args?: SelectSubset<T, user_informCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$user_informPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a User_inform.
-     * @param {user_informDeleteArgs} args - Arguments to delete one User_inform.
-     * @example
-     * // Delete one User_inform
-     * const User_inform = await prisma.user_inform.delete({
-     *   where: {
-     *     // ... filter to delete one User_inform
-     *   }
-     * })
-     * 
-     */
-    delete<T extends user_informDeleteArgs>(args: SelectSubset<T, user_informDeleteArgs<ExtArgs>>): Prisma__user_informClient<$Result.GetResult<Prisma.$user_informPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one User_inform.
-     * @param {user_informUpdateArgs} args - Arguments to update one User_inform.
-     * @example
-     * // Update one User_inform
-     * const user_inform = await prisma.user_inform.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends user_informUpdateArgs>(args: SelectSubset<T, user_informUpdateArgs<ExtArgs>>): Prisma__user_informClient<$Result.GetResult<Prisma.$user_informPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more User_informs.
-     * @param {user_informDeleteManyArgs} args - Arguments to filter User_informs to delete.
-     * @example
-     * // Delete a few User_informs
-     * const { count } = await prisma.user_inform.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends user_informDeleteManyArgs>(args?: SelectSubset<T, user_informDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more User_informs.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {user_informUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many User_informs
-     * const user_inform = await prisma.user_inform.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends user_informUpdateManyArgs>(args: SelectSubset<T, user_informUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more User_informs and returns the data updated in the database.
-     * @param {user_informUpdateManyAndReturnArgs} args - Arguments to update many User_informs.
-     * @example
-     * // Update many User_informs
-     * const user_inform = await prisma.user_inform.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more User_informs and only return the `id`
-     * const user_informWithIdOnly = await prisma.user_inform.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends user_informUpdateManyAndReturnArgs>(args: SelectSubset<T, user_informUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$user_informPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one User_inform.
-     * @param {user_informUpsertArgs} args - Arguments to update or create a User_inform.
-     * @example
-     * // Update or create a User_inform
-     * const user_inform = await prisma.user_inform.upsert({
-     *   create: {
-     *     // ... data to create a User_inform
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the User_inform we want to update
-     *   }
-     * })
-     */
-    upsert<T extends user_informUpsertArgs>(args: SelectSubset<T, user_informUpsertArgs<ExtArgs>>): Prisma__user_informClient<$Result.GetResult<Prisma.$user_informPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of User_informs.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {user_informCountArgs} args - Arguments to filter User_informs to count.
-     * @example
-     * // Count the number of User_informs
-     * const count = await prisma.user_inform.count({
-     *   where: {
-     *     // ... the filter for the User_informs we want to count
-     *   }
-     * })
-    **/
-    count<T extends user_informCountArgs>(
-      args?: Subset<T, user_informCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], User_informCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a User_inform.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {User_informAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends User_informAggregateArgs>(args: Subset<T, User_informAggregateArgs>): Prisma.PrismaPromise<GetUser_informAggregateType<T>>
-
-    /**
-     * Group by User_inform.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {user_informGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends user_informGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: user_informGroupByArgs['orderBy'] }
-        : { orderBy?: user_informGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, user_informGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUser_informGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the user_inform model
-   */
-  readonly fields: user_informFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for user_inform.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__user_informClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    informe_link<T extends user_inform$informe_linkArgs<ExtArgs> = {}>(args?: Subset<T, user_inform$informe_linkArgs<ExtArgs>>): Prisma__informe_linkClient<$Result.GetResult<Prisma.$informe_linkPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the user_inform model
-   */
-  interface user_informFieldRefs {
-    readonly id: FieldRef<"user_inform", 'Int'>
-    readonly created_at: FieldRef<"user_inform", 'DateTime'>
-    readonly id_informe_link: FieldRef<"user_inform", 'Int'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * user_inform findUnique
-   */
-  export type user_informFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the user_inform
-     */
-    select?: user_informSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the user_inform
-     */
-    omit?: user_informOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: user_informInclude<ExtArgs> | null
-    /**
-     * Filter, which user_inform to fetch.
-     */
-    where: user_informWhereUniqueInput
-  }
-
-  /**
-   * user_inform findUniqueOrThrow
-   */
-  export type user_informFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the user_inform
-     */
-    select?: user_informSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the user_inform
-     */
-    omit?: user_informOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: user_informInclude<ExtArgs> | null
-    /**
-     * Filter, which user_inform to fetch.
-     */
-    where: user_informWhereUniqueInput
-  }
-
-  /**
-   * user_inform findFirst
-   */
-  export type user_informFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the user_inform
-     */
-    select?: user_informSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the user_inform
-     */
-    omit?: user_informOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: user_informInclude<ExtArgs> | null
-    /**
-     * Filter, which user_inform to fetch.
-     */
-    where?: user_informWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of user_informs to fetch.
-     */
-    orderBy?: user_informOrderByWithRelationInput | user_informOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for user_informs.
-     */
-    cursor?: user_informWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` user_informs from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` user_informs.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of user_informs.
-     */
-    distinct?: User_informScalarFieldEnum | User_informScalarFieldEnum[]
-  }
-
-  /**
-   * user_inform findFirstOrThrow
-   */
-  export type user_informFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the user_inform
-     */
-    select?: user_informSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the user_inform
-     */
-    omit?: user_informOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: user_informInclude<ExtArgs> | null
-    /**
-     * Filter, which user_inform to fetch.
-     */
-    where?: user_informWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of user_informs to fetch.
-     */
-    orderBy?: user_informOrderByWithRelationInput | user_informOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for user_informs.
-     */
-    cursor?: user_informWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` user_informs from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` user_informs.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of user_informs.
-     */
-    distinct?: User_informScalarFieldEnum | User_informScalarFieldEnum[]
-  }
-
-  /**
-   * user_inform findMany
-   */
-  export type user_informFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the user_inform
-     */
-    select?: user_informSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the user_inform
-     */
-    omit?: user_informOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: user_informInclude<ExtArgs> | null
-    /**
-     * Filter, which user_informs to fetch.
-     */
-    where?: user_informWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of user_informs to fetch.
-     */
-    orderBy?: user_informOrderByWithRelationInput | user_informOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing user_informs.
-     */
-    cursor?: user_informWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` user_informs from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` user_informs.
-     */
-    skip?: number
-    distinct?: User_informScalarFieldEnum | User_informScalarFieldEnum[]
-  }
-
-  /**
-   * user_inform create
-   */
-  export type user_informCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the user_inform
-     */
-    select?: user_informSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the user_inform
-     */
-    omit?: user_informOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: user_informInclude<ExtArgs> | null
-    /**
-     * The data needed to create a user_inform.
-     */
-    data?: XOR<user_informCreateInput, user_informUncheckedCreateInput>
-  }
-
-  /**
-   * user_inform createMany
-   */
-  export type user_informCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many user_informs.
-     */
-    data: user_informCreateManyInput | user_informCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * user_inform createManyAndReturn
-   */
-  export type user_informCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the user_inform
-     */
-    select?: user_informSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the user_inform
-     */
-    omit?: user_informOmit<ExtArgs> | null
-    /**
-     * The data used to create many user_informs.
-     */
-    data: user_informCreateManyInput | user_informCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: user_informIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * user_inform update
-   */
-  export type user_informUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the user_inform
-     */
-    select?: user_informSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the user_inform
-     */
-    omit?: user_informOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: user_informInclude<ExtArgs> | null
-    /**
-     * The data needed to update a user_inform.
-     */
-    data: XOR<user_informUpdateInput, user_informUncheckedUpdateInput>
-    /**
-     * Choose, which user_inform to update.
-     */
-    where: user_informWhereUniqueInput
-  }
-
-  /**
-   * user_inform updateMany
-   */
-  export type user_informUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update user_informs.
-     */
-    data: XOR<user_informUpdateManyMutationInput, user_informUncheckedUpdateManyInput>
-    /**
-     * Filter which user_informs to update
-     */
-    where?: user_informWhereInput
-    /**
-     * Limit how many user_informs to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * user_inform updateManyAndReturn
-   */
-  export type user_informUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the user_inform
-     */
-    select?: user_informSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the user_inform
-     */
-    omit?: user_informOmit<ExtArgs> | null
-    /**
-     * The data used to update user_informs.
-     */
-    data: XOR<user_informUpdateManyMutationInput, user_informUncheckedUpdateManyInput>
-    /**
-     * Filter which user_informs to update
-     */
-    where?: user_informWhereInput
-    /**
-     * Limit how many user_informs to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: user_informIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * user_inform upsert
-   */
-  export type user_informUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the user_inform
-     */
-    select?: user_informSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the user_inform
-     */
-    omit?: user_informOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: user_informInclude<ExtArgs> | null
-    /**
-     * The filter to search for the user_inform to update in case it exists.
-     */
-    where: user_informWhereUniqueInput
-    /**
-     * In case the user_inform found by the `where` argument doesn't exist, create a new user_inform with this data.
-     */
-    create: XOR<user_informCreateInput, user_informUncheckedCreateInput>
-    /**
-     * In case the user_inform was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<user_informUpdateInput, user_informUncheckedUpdateInput>
-  }
-
-  /**
-   * user_inform delete
-   */
-  export type user_informDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the user_inform
-     */
-    select?: user_informSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the user_inform
-     */
-    omit?: user_informOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: user_informInclude<ExtArgs> | null
-    /**
-     * Filter which user_inform to delete.
-     */
-    where: user_informWhereUniqueInput
-  }
-
-  /**
-   * user_inform deleteMany
-   */
-  export type user_informDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which user_informs to delete
-     */
-    where?: user_informWhereInput
-    /**
-     * Limit how many user_informs to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * user_inform.informe_link
-   */
-  export type user_inform$informe_linkArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the informe_link
-     */
-    select?: informe_linkSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the informe_link
-     */
-    omit?: informe_linkOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: informe_linkInclude<ExtArgs> | null
-    where?: informe_linkWhereInput
-  }
-
-  /**
-   * user_inform without action
-   */
-  export type user_informDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the user_inform
-     */
-    select?: user_informSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the user_inform
-     */
-    omit?: user_informOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: user_informInclude<ExtArgs> | null
   }
 
 
@@ -13187,37 +10824,52 @@ export namespace Prisma {
   export type UsersMinAggregateOutputType = {
     id: string | null
     created_at: Date | null
-    username: string | null
+    nombre: string | null
     correo: string | null
     id_sector: number | null
     id_posicion: number | null
     id_autorizador: string | null
     rol: string | null
     telefono: string | null
+    iB1: string | null
+    iB2: string | null
+    iB3: string | null
+    iB4: string | null
+    iB5: string | null
   }
 
   export type UsersMaxAggregateOutputType = {
     id: string | null
     created_at: Date | null
-    username: string | null
+    nombre: string | null
     correo: string | null
     id_sector: number | null
     id_posicion: number | null
     id_autorizador: string | null
     rol: string | null
     telefono: string | null
+    iB1: string | null
+    iB2: string | null
+    iB3: string | null
+    iB4: string | null
+    iB5: string | null
   }
 
   export type UsersCountAggregateOutputType = {
     id: number
     created_at: number
-    username: number
+    nombre: number
     correo: number
     id_sector: number
     id_posicion: number
     id_autorizador: number
     rol: number
     telefono: number
+    iB1: number
+    iB2: number
+    iB3: number
+    iB4: number
+    iB5: number
     _all: number
   }
 
@@ -13235,37 +10887,52 @@ export namespace Prisma {
   export type UsersMinAggregateInputType = {
     id?: true
     created_at?: true
-    username?: true
+    nombre?: true
     correo?: true
     id_sector?: true
     id_posicion?: true
     id_autorizador?: true
     rol?: true
     telefono?: true
+    iB1?: true
+    iB2?: true
+    iB3?: true
+    iB4?: true
+    iB5?: true
   }
 
   export type UsersMaxAggregateInputType = {
     id?: true
     created_at?: true
-    username?: true
+    nombre?: true
     correo?: true
     id_sector?: true
     id_posicion?: true
     id_autorizador?: true
     rol?: true
     telefono?: true
+    iB1?: true
+    iB2?: true
+    iB3?: true
+    iB4?: true
+    iB5?: true
   }
 
   export type UsersCountAggregateInputType = {
     id?: true
     created_at?: true
-    username?: true
+    nombre?: true
     correo?: true
     id_sector?: true
     id_posicion?: true
     id_autorizador?: true
     rol?: true
     telefono?: true
+    iB1?: true
+    iB2?: true
+    iB3?: true
+    iB4?: true
+    iB5?: true
     _all?: true
   }
 
@@ -13358,13 +11025,18 @@ export namespace Prisma {
   export type UsersGroupByOutputType = {
     id: string
     created_at: Date
-    username: string | null
+    nombre: string
     correo: string | null
     id_sector: number | null
     id_posicion: number | null
     id_autorizador: string | null
     rol: string | null
     telefono: string | null
+    iB1: string | null
+    iB2: string | null
+    iB3: string | null
+    iB4: string | null
+    iB5: string | null
     _count: UsersCountAggregateOutputType | null
     _avg: UsersAvgAggregateOutputType | null
     _sum: UsersSumAggregateOutputType | null
@@ -13389,102 +11061,127 @@ export namespace Prisma {
   export type usersSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     created_at?: boolean
-    username?: boolean
+    nombre?: boolean
     correo?: boolean
     id_sector?: boolean
     id_posicion?: boolean
     id_autorizador?: boolean
     rol?: boolean
     telefono?: boolean
-    sector?: boolean | users$sectorArgs<ExtArgs>
-    posicion?: boolean | users$posicionArgs<ExtArgs>
+    iB1?: boolean
+    iB2?: boolean
+    iB3?: boolean
+    iB4?: boolean
+    iB5?: boolean
+    tickets?: boolean | users$ticketsArgs<ExtArgs>
     autorizador?: boolean | users$autorizadorArgs<ExtArgs>
     autorizados?: boolean | users$autorizadosArgs<ExtArgs>
-    tickets?: boolean | users$ticketsArgs<ExtArgs>
+    posicion?: boolean | users$posicionArgs<ExtArgs>
+    sector?: boolean | users$sectorArgs<ExtArgs>
     _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["users"]>
 
   export type usersSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     created_at?: boolean
-    username?: boolean
+    nombre?: boolean
     correo?: boolean
     id_sector?: boolean
     id_posicion?: boolean
     id_autorizador?: boolean
     rol?: boolean
     telefono?: boolean
-    sector?: boolean | users$sectorArgs<ExtArgs>
-    posicion?: boolean | users$posicionArgs<ExtArgs>
+    iB1?: boolean
+    iB2?: boolean
+    iB3?: boolean
+    iB4?: boolean
+    iB5?: boolean
     autorizador?: boolean | users$autorizadorArgs<ExtArgs>
+    posicion?: boolean | users$posicionArgs<ExtArgs>
+    sector?: boolean | users$sectorArgs<ExtArgs>
   }, ExtArgs["result"]["users"]>
 
   export type usersSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     created_at?: boolean
-    username?: boolean
+    nombre?: boolean
     correo?: boolean
     id_sector?: boolean
     id_posicion?: boolean
     id_autorizador?: boolean
     rol?: boolean
     telefono?: boolean
-    sector?: boolean | users$sectorArgs<ExtArgs>
-    posicion?: boolean | users$posicionArgs<ExtArgs>
+    iB1?: boolean
+    iB2?: boolean
+    iB3?: boolean
+    iB4?: boolean
+    iB5?: boolean
     autorizador?: boolean | users$autorizadorArgs<ExtArgs>
+    posicion?: boolean | users$posicionArgs<ExtArgs>
+    sector?: boolean | users$sectorArgs<ExtArgs>
   }, ExtArgs["result"]["users"]>
 
   export type usersSelectScalar = {
     id?: boolean
     created_at?: boolean
-    username?: boolean
+    nombre?: boolean
     correo?: boolean
     id_sector?: boolean
     id_posicion?: boolean
     id_autorizador?: boolean
     rol?: boolean
     telefono?: boolean
+    iB1?: boolean
+    iB2?: boolean
+    iB3?: boolean
+    iB4?: boolean
+    iB5?: boolean
   }
 
-  export type usersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "created_at" | "username" | "correo" | "id_sector" | "id_posicion" | "id_autorizador" | "rol" | "telefono", ExtArgs["result"]["users"]>
+  export type usersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "created_at" | "nombre" | "correo" | "id_sector" | "id_posicion" | "id_autorizador" | "rol" | "telefono" | "iB1" | "iB2" | "iB3" | "iB4" | "iB5", ExtArgs["result"]["users"]>
   export type usersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    sector?: boolean | users$sectorArgs<ExtArgs>
-    posicion?: boolean | users$posicionArgs<ExtArgs>
+    tickets?: boolean | users$ticketsArgs<ExtArgs>
     autorizador?: boolean | users$autorizadorArgs<ExtArgs>
     autorizados?: boolean | users$autorizadosArgs<ExtArgs>
-    tickets?: boolean | users$ticketsArgs<ExtArgs>
+    posicion?: boolean | users$posicionArgs<ExtArgs>
+    sector?: boolean | users$sectorArgs<ExtArgs>
     _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type usersIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    sector?: boolean | users$sectorArgs<ExtArgs>
-    posicion?: boolean | users$posicionArgs<ExtArgs>
     autorizador?: boolean | users$autorizadorArgs<ExtArgs>
+    posicion?: boolean | users$posicionArgs<ExtArgs>
+    sector?: boolean | users$sectorArgs<ExtArgs>
   }
   export type usersIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    sector?: boolean | users$sectorArgs<ExtArgs>
-    posicion?: boolean | users$posicionArgs<ExtArgs>
     autorizador?: boolean | users$autorizadorArgs<ExtArgs>
+    posicion?: boolean | users$posicionArgs<ExtArgs>
+    sector?: boolean | users$sectorArgs<ExtArgs>
   }
 
   export type $usersPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "users"
     objects: {
-      sector: Prisma.$sectorPayload<ExtArgs> | null
-      posicion: Prisma.$posicionPayload<ExtArgs> | null
+      tickets: Prisma.$ticketPayload<ExtArgs>[]
       autorizador: Prisma.$usersPayload<ExtArgs> | null
       autorizados: Prisma.$usersPayload<ExtArgs>[]
-      tickets: Prisma.$ticketPayload<ExtArgs>[]
+      posicion: Prisma.$posicionPayload<ExtArgs> | null
+      sector: Prisma.$sectorPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       created_at: Date
-      username: string | null
+      nombre: string
       correo: string | null
       id_sector: number | null
       id_posicion: number | null
       id_autorizador: string | null
       rol: string | null
       telefono: string | null
+      iB1: string | null
+      iB2: string | null
+      iB3: string | null
+      iB4: string | null
+      iB5: string | null
     }, ExtArgs["result"]["users"]>
     composites: {}
   }
@@ -13879,11 +11576,11 @@ export namespace Prisma {
    */
   export interface Prisma__usersClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    sector<T extends users$sectorArgs<ExtArgs> = {}>(args?: Subset<T, users$sectorArgs<ExtArgs>>): Prisma__sectorClient<$Result.GetResult<Prisma.$sectorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    posicion<T extends users$posicionArgs<ExtArgs> = {}>(args?: Subset<T, users$posicionArgs<ExtArgs>>): Prisma__posicionClient<$Result.GetResult<Prisma.$posicionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    tickets<T extends users$ticketsArgs<ExtArgs> = {}>(args?: Subset<T, users$ticketsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ticketPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     autorizador<T extends users$autorizadorArgs<ExtArgs> = {}>(args?: Subset<T, users$autorizadorArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     autorizados<T extends users$autorizadosArgs<ExtArgs> = {}>(args?: Subset<T, users$autorizadosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    tickets<T extends users$ticketsArgs<ExtArgs> = {}>(args?: Subset<T, users$ticketsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ticketPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    posicion<T extends users$posicionArgs<ExtArgs> = {}>(args?: Subset<T, users$posicionArgs<ExtArgs>>): Prisma__posicionClient<$Result.GetResult<Prisma.$posicionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    sector<T extends users$sectorArgs<ExtArgs> = {}>(args?: Subset<T, users$sectorArgs<ExtArgs>>): Prisma__sectorClient<$Result.GetResult<Prisma.$sectorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -13915,13 +11612,18 @@ export namespace Prisma {
   interface usersFieldRefs {
     readonly id: FieldRef<"users", 'String'>
     readonly created_at: FieldRef<"users", 'DateTime'>
-    readonly username: FieldRef<"users", 'String'>
+    readonly nombre: FieldRef<"users", 'String'>
     readonly correo: FieldRef<"users", 'String'>
     readonly id_sector: FieldRef<"users", 'Int'>
     readonly id_posicion: FieldRef<"users", 'Int'>
     readonly id_autorizador: FieldRef<"users", 'String'>
     readonly rol: FieldRef<"users", 'String'>
     readonly telefono: FieldRef<"users", 'String'>
+    readonly iB1: FieldRef<"users", 'String'>
+    readonly iB2: FieldRef<"users", 'String'>
+    readonly iB3: FieldRef<"users", 'String'>
+    readonly iB4: FieldRef<"users", 'String'>
+    readonly iB5: FieldRef<"users", 'String'>
   }
     
 
@@ -14318,41 +12020,27 @@ export namespace Prisma {
   }
 
   /**
-   * users.sector
+   * users.tickets
    */
-  export type users$sectorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type users$ticketsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the sector
+     * Select specific fields to fetch from the ticket
      */
-    select?: sectorSelect<ExtArgs> | null
+    select?: ticketSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the sector
+     * Omit specific fields from the ticket
      */
-    omit?: sectorOmit<ExtArgs> | null
+    omit?: ticketOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: sectorInclude<ExtArgs> | null
-    where?: sectorWhereInput
-  }
-
-  /**
-   * users.posicion
-   */
-  export type users$posicionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the posicion
-     */
-    select?: posicionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the posicion
-     */
-    omit?: posicionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: posicionInclude<ExtArgs> | null
-    where?: posicionWhereInput
+    include?: ticketInclude<ExtArgs> | null
+    where?: ticketWhereInput
+    orderBy?: ticketOrderByWithRelationInput | ticketOrderByWithRelationInput[]
+    cursor?: ticketWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TicketScalarFieldEnum | TicketScalarFieldEnum[]
   }
 
   /**
@@ -14399,27 +12087,41 @@ export namespace Prisma {
   }
 
   /**
-   * users.tickets
+   * users.posicion
    */
-  export type users$ticketsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type users$posicionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ticket
+     * Select specific fields to fetch from the posicion
      */
-    select?: ticketSelect<ExtArgs> | null
+    select?: posicionSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ticket
+     * Omit specific fields from the posicion
      */
-    omit?: ticketOmit<ExtArgs> | null
+    omit?: posicionOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ticketInclude<ExtArgs> | null
-    where?: ticketWhereInput
-    orderBy?: ticketOrderByWithRelationInput | ticketOrderByWithRelationInput[]
-    cursor?: ticketWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: TicketScalarFieldEnum | TicketScalarFieldEnum[]
+    include?: posicionInclude<ExtArgs> | null
+    where?: posicionWhereInput
+  }
+
+  /**
+   * users.sector
+   */
+  export type users$sectorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sector
+     */
+    select?: sectorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sector
+     */
+    omit?: sectorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sectorInclude<ExtArgs> | null
+    where?: sectorWhereInput
   }
 
   /**
@@ -14458,7 +12160,8 @@ export namespace Prisma {
   export const CategoriaScalarFieldEnum: {
     id: 'id',
     created_at: 'created_at',
-    nombre: 'nombre'
+    nombre: 'nombre',
+    encargado: 'encargado'
   };
 
   export type CategoriaScalarFieldEnum = (typeof CategoriaScalarFieldEnum)[keyof typeof CategoriaScalarFieldEnum]
@@ -14471,15 +12174,6 @@ export namespace Prisma {
   };
 
   export type EstadosScalarFieldEnum = (typeof EstadosScalarFieldEnum)[keyof typeof EstadosScalarFieldEnum]
-
-
-  export const Informe_linkScalarFieldEnum: {
-    id: 'id',
-    created_at: 'created_at',
-    link: 'link'
-  };
-
-  export type Informe_linkScalarFieldEnum = (typeof Informe_linkScalarFieldEnum)[keyof typeof Informe_linkScalarFieldEnum]
 
 
   export const PosicionScalarFieldEnum: {
@@ -14547,25 +12241,21 @@ export namespace Prisma {
   export type TicketScalarFieldEnum = (typeof TicketScalarFieldEnum)[keyof typeof TicketScalarFieldEnum]
 
 
-  export const User_informScalarFieldEnum: {
-    id: 'id',
-    created_at: 'created_at',
-    id_informe_link: 'id_informe_link'
-  };
-
-  export type User_informScalarFieldEnum = (typeof User_informScalarFieldEnum)[keyof typeof User_informScalarFieldEnum]
-
-
   export const UsersScalarFieldEnum: {
     id: 'id',
     created_at: 'created_at',
-    username: 'username',
+    nombre: 'nombre',
     correo: 'correo',
     id_sector: 'id_sector',
     id_posicion: 'id_posicion',
     id_autorizador: 'id_autorizador',
     rol: 'rol',
-    telefono: 'telefono'
+    telefono: 'telefono',
+    iB1: 'iB1',
+    iB2: 'iB2',
+    iB3: 'iB3',
+    iB4: 'iB4',
+    iB5: 'iB5'
   };
 
   export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
@@ -14666,16 +12356,18 @@ export namespace Prisma {
     id?: IntFilter<"categoria"> | number
     created_at?: DateTimeFilter<"categoria"> | Date | string
     nombre?: StringNullableFilter<"categoria"> | string | null
-    tickets?: TicketListRelationFilter
+    encargado?: IntFilter<"categoria"> | number
     sub_categorias?: Sub_categoriasListRelationFilter
+    tickets?: TicketListRelationFilter
   }
 
   export type categoriaOrderByWithRelationInput = {
     id?: SortOrder
     created_at?: SortOrder
     nombre?: SortOrderInput | SortOrder
-    tickets?: ticketOrderByRelationAggregateInput
+    encargado?: SortOrder
     sub_categorias?: sub_categoriasOrderByRelationAggregateInput
+    tickets?: ticketOrderByRelationAggregateInput
   }
 
   export type categoriaWhereUniqueInput = Prisma.AtLeast<{
@@ -14685,14 +12377,16 @@ export namespace Prisma {
     NOT?: categoriaWhereInput | categoriaWhereInput[]
     created_at?: DateTimeFilter<"categoria"> | Date | string
     nombre?: StringNullableFilter<"categoria"> | string | null
-    tickets?: TicketListRelationFilter
+    encargado?: IntFilter<"categoria"> | number
     sub_categorias?: Sub_categoriasListRelationFilter
+    tickets?: TicketListRelationFilter
   }, "id">
 
   export type categoriaOrderByWithAggregationInput = {
     id?: SortOrder
     created_at?: SortOrder
     nombre?: SortOrderInput | SortOrder
+    encargado?: SortOrder
     _count?: categoriaCountOrderByAggregateInput
     _avg?: categoriaAvgOrderByAggregateInput
     _max?: categoriaMaxOrderByAggregateInput
@@ -14707,6 +12401,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"categoria"> | number
     created_at?: DateTimeWithAggregatesFilter<"categoria"> | Date | string
     nombre?: StringNullableWithAggregatesFilter<"categoria"> | string | null
+    encargado?: IntWithAggregatesFilter<"categoria"> | number
   }
 
   export type estadosWhereInput = {
@@ -14754,53 +12449,6 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"estados"> | number
     created_at?: DateTimeWithAggregatesFilter<"estados"> | Date | string
     nombre?: StringNullableWithAggregatesFilter<"estados"> | string | null
-  }
-
-  export type informe_linkWhereInput = {
-    AND?: informe_linkWhereInput | informe_linkWhereInput[]
-    OR?: informe_linkWhereInput[]
-    NOT?: informe_linkWhereInput | informe_linkWhereInput[]
-    id?: IntFilter<"informe_link"> | number
-    created_at?: DateTimeFilter<"informe_link"> | Date | string
-    link?: StringNullableFilter<"informe_link"> | string | null
-    user_informs?: User_informListRelationFilter
-  }
-
-  export type informe_linkOrderByWithRelationInput = {
-    id?: SortOrder
-    created_at?: SortOrder
-    link?: SortOrderInput | SortOrder
-    user_informs?: user_informOrderByRelationAggregateInput
-  }
-
-  export type informe_linkWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    AND?: informe_linkWhereInput | informe_linkWhereInput[]
-    OR?: informe_linkWhereInput[]
-    NOT?: informe_linkWhereInput | informe_linkWhereInput[]
-    created_at?: DateTimeFilter<"informe_link"> | Date | string
-    link?: StringNullableFilter<"informe_link"> | string | null
-    user_informs?: User_informListRelationFilter
-  }, "id">
-
-  export type informe_linkOrderByWithAggregationInput = {
-    id?: SortOrder
-    created_at?: SortOrder
-    link?: SortOrderInput | SortOrder
-    _count?: informe_linkCountOrderByAggregateInput
-    _avg?: informe_linkAvgOrderByAggregateInput
-    _max?: informe_linkMaxOrderByAggregateInput
-    _min?: informe_linkMinOrderByAggregateInput
-    _sum?: informe_linkSumOrderByAggregateInput
-  }
-
-  export type informe_linkScalarWhereWithAggregatesInput = {
-    AND?: informe_linkScalarWhereWithAggregatesInput | informe_linkScalarWhereWithAggregatesInput[]
-    OR?: informe_linkScalarWhereWithAggregatesInput[]
-    NOT?: informe_linkScalarWhereWithAggregatesInput | informe_linkScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"informe_link"> | number
-    created_at?: DateTimeWithAggregatesFilter<"informe_link"> | Date | string
-    link?: StringNullableWithAggregatesFilter<"informe_link"> | string | null
   }
 
   export type posicionWhereInput = {
@@ -15063,12 +12711,12 @@ export namespace Prisma {
     link_art?: StringNullableFilter<"ticket"> | string | null
     id_estado?: IntNullableFilter<"ticket"> | number | null
     fecha?: StringNullableFilter<"ticket"> | string | null
-    user?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
     categoria?: XOR<CategoriaNullableScalarRelationFilter, categoriaWhereInput> | null
-    subcategoria?: XOR<Sub_categoriasNullableScalarRelationFilter, sub_categoriasWhereInput> | null
+    estado?: XOR<EstadosNullableScalarRelationFilter, estadosWhereInput> | null
     prioridad?: XOR<PrioridadNullableScalarRelationFilter, prioridadWhereInput> | null
     sector?: XOR<SectorNullableScalarRelationFilter, sectorWhereInput> | null
-    estado?: XOR<EstadosNullableScalarRelationFilter, estadosWhereInput> | null
+    subcategoria?: XOR<Sub_categoriasNullableScalarRelationFilter, sub_categoriasWhereInput> | null
+    user?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
   }
 
   export type ticketOrderByWithRelationInput = {
@@ -15085,12 +12733,12 @@ export namespace Prisma {
     link_art?: SortOrderInput | SortOrder
     id_estado?: SortOrderInput | SortOrder
     fecha?: SortOrderInput | SortOrder
-    user?: usersOrderByWithRelationInput
     categoria?: categoriaOrderByWithRelationInput
-    subcategoria?: sub_categoriasOrderByWithRelationInput
+    estado?: estadosOrderByWithRelationInput
     prioridad?: prioridadOrderByWithRelationInput
     sector?: sectorOrderByWithRelationInput
-    estado?: estadosOrderByWithRelationInput
+    subcategoria?: sub_categoriasOrderByWithRelationInput
+    user?: usersOrderByWithRelationInput
   }
 
   export type ticketWhereUniqueInput = Prisma.AtLeast<{
@@ -15110,12 +12758,12 @@ export namespace Prisma {
     link_art?: StringNullableFilter<"ticket"> | string | null
     id_estado?: IntNullableFilter<"ticket"> | number | null
     fecha?: StringNullableFilter<"ticket"> | string | null
-    user?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
     categoria?: XOR<CategoriaNullableScalarRelationFilter, categoriaWhereInput> | null
-    subcategoria?: XOR<Sub_categoriasNullableScalarRelationFilter, sub_categoriasWhereInput> | null
+    estado?: XOR<EstadosNullableScalarRelationFilter, estadosWhereInput> | null
     prioridad?: XOR<PrioridadNullableScalarRelationFilter, prioridadWhereInput> | null
     sector?: XOR<SectorNullableScalarRelationFilter, sectorWhereInput> | null
-    estado?: XOR<EstadosNullableScalarRelationFilter, estadosWhereInput> | null
+    subcategoria?: XOR<Sub_categoriasNullableScalarRelationFilter, sub_categoriasWhereInput> | null
+    user?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
   }, "id">
 
   export type ticketOrderByWithAggregationInput = {
@@ -15158,120 +12806,93 @@ export namespace Prisma {
     fecha?: StringNullableWithAggregatesFilter<"ticket"> | string | null
   }
 
-  export type user_informWhereInput = {
-    AND?: user_informWhereInput | user_informWhereInput[]
-    OR?: user_informWhereInput[]
-    NOT?: user_informWhereInput | user_informWhereInput[]
-    id?: IntFilter<"user_inform"> | number
-    created_at?: DateTimeFilter<"user_inform"> | Date | string
-    id_informe_link?: IntNullableFilter<"user_inform"> | number | null
-    informe_link?: XOR<Informe_linkNullableScalarRelationFilter, informe_linkWhereInput> | null
-  }
-
-  export type user_informOrderByWithRelationInput = {
-    id?: SortOrder
-    created_at?: SortOrder
-    id_informe_link?: SortOrderInput | SortOrder
-    informe_link?: informe_linkOrderByWithRelationInput
-  }
-
-  export type user_informWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    AND?: user_informWhereInput | user_informWhereInput[]
-    OR?: user_informWhereInput[]
-    NOT?: user_informWhereInput | user_informWhereInput[]
-    created_at?: DateTimeFilter<"user_inform"> | Date | string
-    id_informe_link?: IntNullableFilter<"user_inform"> | number | null
-    informe_link?: XOR<Informe_linkNullableScalarRelationFilter, informe_linkWhereInput> | null
-  }, "id">
-
-  export type user_informOrderByWithAggregationInput = {
-    id?: SortOrder
-    created_at?: SortOrder
-    id_informe_link?: SortOrderInput | SortOrder
-    _count?: user_informCountOrderByAggregateInput
-    _avg?: user_informAvgOrderByAggregateInput
-    _max?: user_informMaxOrderByAggregateInput
-    _min?: user_informMinOrderByAggregateInput
-    _sum?: user_informSumOrderByAggregateInput
-  }
-
-  export type user_informScalarWhereWithAggregatesInput = {
-    AND?: user_informScalarWhereWithAggregatesInput | user_informScalarWhereWithAggregatesInput[]
-    OR?: user_informScalarWhereWithAggregatesInput[]
-    NOT?: user_informScalarWhereWithAggregatesInput | user_informScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"user_inform"> | number
-    created_at?: DateTimeWithAggregatesFilter<"user_inform"> | Date | string
-    id_informe_link?: IntNullableWithAggregatesFilter<"user_inform"> | number | null
-  }
-
   export type usersWhereInput = {
     AND?: usersWhereInput | usersWhereInput[]
     OR?: usersWhereInput[]
     NOT?: usersWhereInput | usersWhereInput[]
     id?: StringFilter<"users"> | string
     created_at?: DateTimeFilter<"users"> | Date | string
-    username?: StringNullableFilter<"users"> | string | null
+    nombre?: StringFilter<"users"> | string
     correo?: StringNullableFilter<"users"> | string | null
     id_sector?: IntNullableFilter<"users"> | number | null
     id_posicion?: IntNullableFilter<"users"> | number | null
     id_autorizador?: StringNullableFilter<"users"> | string | null
     rol?: StringNullableFilter<"users"> | string | null
     telefono?: StringNullableFilter<"users"> | string | null
-    sector?: XOR<SectorNullableScalarRelationFilter, sectorWhereInput> | null
-    posicion?: XOR<PosicionNullableScalarRelationFilter, posicionWhereInput> | null
+    iB1?: StringNullableFilter<"users"> | string | null
+    iB2?: StringNullableFilter<"users"> | string | null
+    iB3?: StringNullableFilter<"users"> | string | null
+    iB4?: StringNullableFilter<"users"> | string | null
+    iB5?: StringNullableFilter<"users"> | string | null
+    tickets?: TicketListRelationFilter
     autorizador?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
     autorizados?: UsersListRelationFilter
-    tickets?: TicketListRelationFilter
+    posicion?: XOR<PosicionNullableScalarRelationFilter, posicionWhereInput> | null
+    sector?: XOR<SectorNullableScalarRelationFilter, sectorWhereInput> | null
   }
 
   export type usersOrderByWithRelationInput = {
     id?: SortOrder
     created_at?: SortOrder
-    username?: SortOrderInput | SortOrder
+    nombre?: SortOrder
     correo?: SortOrderInput | SortOrder
     id_sector?: SortOrderInput | SortOrder
     id_posicion?: SortOrderInput | SortOrder
     id_autorizador?: SortOrderInput | SortOrder
     rol?: SortOrderInput | SortOrder
     telefono?: SortOrderInput | SortOrder
-    sector?: sectorOrderByWithRelationInput
-    posicion?: posicionOrderByWithRelationInput
+    iB1?: SortOrderInput | SortOrder
+    iB2?: SortOrderInput | SortOrder
+    iB3?: SortOrderInput | SortOrder
+    iB4?: SortOrderInput | SortOrder
+    iB5?: SortOrderInput | SortOrder
+    tickets?: ticketOrderByRelationAggregateInput
     autorizador?: usersOrderByWithRelationInput
     autorizados?: usersOrderByRelationAggregateInput
-    tickets?: ticketOrderByRelationAggregateInput
+    posicion?: posicionOrderByWithRelationInput
+    sector?: sectorOrderByWithRelationInput
   }
 
   export type usersWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    username?: string
     correo?: string
     AND?: usersWhereInput | usersWhereInput[]
     OR?: usersWhereInput[]
     NOT?: usersWhereInput | usersWhereInput[]
     created_at?: DateTimeFilter<"users"> | Date | string
+    nombre?: StringFilter<"users"> | string
     id_sector?: IntNullableFilter<"users"> | number | null
     id_posicion?: IntNullableFilter<"users"> | number | null
     id_autorizador?: StringNullableFilter<"users"> | string | null
     rol?: StringNullableFilter<"users"> | string | null
     telefono?: StringNullableFilter<"users"> | string | null
-    sector?: XOR<SectorNullableScalarRelationFilter, sectorWhereInput> | null
-    posicion?: XOR<PosicionNullableScalarRelationFilter, posicionWhereInput> | null
+    iB1?: StringNullableFilter<"users"> | string | null
+    iB2?: StringNullableFilter<"users"> | string | null
+    iB3?: StringNullableFilter<"users"> | string | null
+    iB4?: StringNullableFilter<"users"> | string | null
+    iB5?: StringNullableFilter<"users"> | string | null
+    tickets?: TicketListRelationFilter
     autorizador?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
     autorizados?: UsersListRelationFilter
-    tickets?: TicketListRelationFilter
-  }, "id" | "username" | "correo">
+    posicion?: XOR<PosicionNullableScalarRelationFilter, posicionWhereInput> | null
+    sector?: XOR<SectorNullableScalarRelationFilter, sectorWhereInput> | null
+  }, "id" | "correo">
 
   export type usersOrderByWithAggregationInput = {
     id?: SortOrder
     created_at?: SortOrder
-    username?: SortOrderInput | SortOrder
+    nombre?: SortOrder
     correo?: SortOrderInput | SortOrder
     id_sector?: SortOrderInput | SortOrder
     id_posicion?: SortOrderInput | SortOrder
     id_autorizador?: SortOrderInput | SortOrder
     rol?: SortOrderInput | SortOrder
     telefono?: SortOrderInput | SortOrder
+    iB1?: SortOrderInput | SortOrder
+    iB2?: SortOrderInput | SortOrder
+    iB3?: SortOrderInput | SortOrder
+    iB4?: SortOrderInput | SortOrder
+    iB5?: SortOrderInput | SortOrder
     _count?: usersCountOrderByAggregateInput
     _avg?: usersAvgOrderByAggregateInput
     _max?: usersMaxOrderByAggregateInput
@@ -15285,60 +12906,72 @@ export namespace Prisma {
     NOT?: usersScalarWhereWithAggregatesInput | usersScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"users"> | string
     created_at?: DateTimeWithAggregatesFilter<"users"> | Date | string
-    username?: StringNullableWithAggregatesFilter<"users"> | string | null
+    nombre?: StringWithAggregatesFilter<"users"> | string
     correo?: StringNullableWithAggregatesFilter<"users"> | string | null
     id_sector?: IntNullableWithAggregatesFilter<"users"> | number | null
     id_posicion?: IntNullableWithAggregatesFilter<"users"> | number | null
     id_autorizador?: StringNullableWithAggregatesFilter<"users"> | string | null
     rol?: StringNullableWithAggregatesFilter<"users"> | string | null
     telefono?: StringNullableWithAggregatesFilter<"users"> | string | null
+    iB1?: StringNullableWithAggregatesFilter<"users"> | string | null
+    iB2?: StringNullableWithAggregatesFilter<"users"> | string | null
+    iB3?: StringNullableWithAggregatesFilter<"users"> | string | null
+    iB4?: StringNullableWithAggregatesFilter<"users"> | string | null
+    iB5?: StringNullableWithAggregatesFilter<"users"> | string | null
   }
 
   export type categoriaCreateInput = {
     created_at?: Date | string
     nombre?: string | null
-    tickets?: ticketCreateNestedManyWithoutCategoriaInput
+    encargado: number
     sub_categorias?: sub_categoriasCreateNestedManyWithoutCategoriaInput
+    tickets?: ticketCreateNestedManyWithoutCategoriaInput
   }
 
   export type categoriaUncheckedCreateInput = {
     id?: number
     created_at?: Date | string
     nombre?: string | null
-    tickets?: ticketUncheckedCreateNestedManyWithoutCategoriaInput
+    encargado: number
     sub_categorias?: sub_categoriasUncheckedCreateNestedManyWithoutCategoriaInput
+    tickets?: ticketUncheckedCreateNestedManyWithoutCategoriaInput
   }
 
   export type categoriaUpdateInput = {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    tickets?: ticketUpdateManyWithoutCategoriaNestedInput
+    encargado?: IntFieldUpdateOperationsInput | number
     sub_categorias?: sub_categoriasUpdateManyWithoutCategoriaNestedInput
+    tickets?: ticketUpdateManyWithoutCategoriaNestedInput
   }
 
   export type categoriaUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    tickets?: ticketUncheckedUpdateManyWithoutCategoriaNestedInput
+    encargado?: IntFieldUpdateOperationsInput | number
     sub_categorias?: sub_categoriasUncheckedUpdateManyWithoutCategoriaNestedInput
+    tickets?: ticketUncheckedUpdateManyWithoutCategoriaNestedInput
   }
 
   export type categoriaCreateManyInput = {
     id?: number
     created_at?: Date | string
     nombre?: string | null
+    encargado: number
   }
 
   export type categoriaUpdateManyMutationInput = {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    encargado?: IntFieldUpdateOperationsInput | number
   }
 
   export type categoriaUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    encargado?: IntFieldUpdateOperationsInput | number
   }
 
   export type estadosCreateInput = {
@@ -15382,49 +13015,6 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type informe_linkCreateInput = {
-    created_at?: Date | string
-    link?: string | null
-    user_informs?: user_informCreateNestedManyWithoutInforme_linkInput
-  }
-
-  export type informe_linkUncheckedCreateInput = {
-    id?: number
-    created_at?: Date | string
-    link?: string | null
-    user_informs?: user_informUncheckedCreateNestedManyWithoutInforme_linkInput
-  }
-
-  export type informe_linkUpdateInput = {
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    link?: NullableStringFieldUpdateOperationsInput | string | null
-    user_informs?: user_informUpdateManyWithoutInforme_linkNestedInput
-  }
-
-  export type informe_linkUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    link?: NullableStringFieldUpdateOperationsInput | string | null
-    user_informs?: user_informUncheckedUpdateManyWithoutInforme_linkNestedInput
-  }
-
-  export type informe_linkCreateManyInput = {
-    id?: number
-    created_at?: Date | string
-    link?: string | null
-  }
-
-  export type informe_linkUpdateManyMutationInput = {
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    link?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type informe_linkUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    link?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type posicionCreateInput = {
@@ -15655,12 +13245,12 @@ export namespace Prisma {
     valor?: string | null
     link_art?: string | null
     fecha?: string | null
-    user?: usersCreateNestedOneWithoutTicketsInput
     categoria?: categoriaCreateNestedOneWithoutTicketsInput
-    subcategoria?: sub_categoriasCreateNestedOneWithoutTicketsInput
+    estado?: estadosCreateNestedOneWithoutTicketsInput
     prioridad?: prioridadCreateNestedOneWithoutTicketsInput
     sector?: sectorCreateNestedOneWithoutTicketsInput
-    estado?: estadosCreateNestedOneWithoutTicketsInput
+    subcategoria?: sub_categoriasCreateNestedOneWithoutTicketsInput
+    user?: usersCreateNestedOneWithoutTicketsInput
   }
 
   export type ticketUncheckedCreateInput = {
@@ -15686,12 +13276,12 @@ export namespace Prisma {
     valor?: NullableStringFieldUpdateOperationsInput | string | null
     link_art?: NullableStringFieldUpdateOperationsInput | string | null
     fecha?: NullableStringFieldUpdateOperationsInput | string | null
-    user?: usersUpdateOneWithoutTicketsNestedInput
     categoria?: categoriaUpdateOneWithoutTicketsNestedInput
-    subcategoria?: sub_categoriasUpdateOneWithoutTicketsNestedInput
+    estado?: estadosUpdateOneWithoutTicketsNestedInput
     prioridad?: prioridadUpdateOneWithoutTicketsNestedInput
     sector?: sectorUpdateOneWithoutTicketsNestedInput
-    estado?: estadosUpdateOneWithoutTicketsNestedInput
+    subcategoria?: sub_categoriasUpdateOneWithoutTicketsNestedInput
+    user?: usersUpdateOneWithoutTicketsNestedInput
   }
 
   export type ticketUncheckedUpdateInput = {
@@ -15751,131 +13341,128 @@ export namespace Prisma {
     fecha?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type user_informCreateInput = {
-    created_at?: Date | string
-    informe_link?: informe_linkCreateNestedOneWithoutUser_informsInput
-  }
-
-  export type user_informUncheckedCreateInput = {
-    id?: number
-    created_at?: Date | string
-    id_informe_link?: number | null
-  }
-
-  export type user_informUpdateInput = {
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    informe_link?: informe_linkUpdateOneWithoutUser_informsNestedInput
-  }
-
-  export type user_informUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    id_informe_link?: NullableIntFieldUpdateOperationsInput | number | null
-  }
-
-  export type user_informCreateManyInput = {
-    id?: number
-    created_at?: Date | string
-    id_informe_link?: number | null
-  }
-
-  export type user_informUpdateManyMutationInput = {
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type user_informUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    id_informe_link?: NullableIntFieldUpdateOperationsInput | number | null
-  }
-
   export type usersCreateInput = {
-    id: string
+    id?: string
     created_at?: Date | string
-    username?: string | null
+    nombre: string
     correo?: string | null
     rol?: string | null
     telefono?: string | null
-    sector?: sectorCreateNestedOneWithoutUsersInput
-    posicion?: posicionCreateNestedOneWithoutUsersInput
+    iB1?: string | null
+    iB2?: string | null
+    iB3?: string | null
+    iB4?: string | null
+    iB5?: string | null
+    tickets?: ticketCreateNestedManyWithoutUserInput
     autorizador?: usersCreateNestedOneWithoutAutorizadosInput
     autorizados?: usersCreateNestedManyWithoutAutorizadorInput
-    tickets?: ticketCreateNestedManyWithoutUserInput
+    posicion?: posicionCreateNestedOneWithoutUsersInput
+    sector?: sectorCreateNestedOneWithoutUsersInput
   }
 
   export type usersUncheckedCreateInput = {
-    id: string
+    id?: string
     created_at?: Date | string
-    username?: string | null
+    nombre: string
     correo?: string | null
     id_sector?: number | null
     id_posicion?: number | null
     id_autorizador?: string | null
     rol?: string | null
     telefono?: string | null
-    autorizados?: usersUncheckedCreateNestedManyWithoutAutorizadorInput
+    iB1?: string | null
+    iB2?: string | null
+    iB3?: string | null
+    iB4?: string | null
+    iB5?: string | null
     tickets?: ticketUncheckedCreateNestedManyWithoutUserInput
+    autorizados?: usersUncheckedCreateNestedManyWithoutAutorizadorInput
   }
 
   export type usersUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    username?: NullableStringFieldUpdateOperationsInput | string | null
+    nombre?: StringFieldUpdateOperationsInput | string
     correo?: NullableStringFieldUpdateOperationsInput | string | null
     rol?: NullableStringFieldUpdateOperationsInput | string | null
     telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    sector?: sectorUpdateOneWithoutUsersNestedInput
-    posicion?: posicionUpdateOneWithoutUsersNestedInput
+    iB1?: NullableStringFieldUpdateOperationsInput | string | null
+    iB2?: NullableStringFieldUpdateOperationsInput | string | null
+    iB3?: NullableStringFieldUpdateOperationsInput | string | null
+    iB4?: NullableStringFieldUpdateOperationsInput | string | null
+    iB5?: NullableStringFieldUpdateOperationsInput | string | null
+    tickets?: ticketUpdateManyWithoutUserNestedInput
     autorizador?: usersUpdateOneWithoutAutorizadosNestedInput
     autorizados?: usersUpdateManyWithoutAutorizadorNestedInput
-    tickets?: ticketUpdateManyWithoutUserNestedInput
+    posicion?: posicionUpdateOneWithoutUsersNestedInput
+    sector?: sectorUpdateOneWithoutUsersNestedInput
   }
 
   export type usersUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    username?: NullableStringFieldUpdateOperationsInput | string | null
+    nombre?: StringFieldUpdateOperationsInput | string
     correo?: NullableStringFieldUpdateOperationsInput | string | null
     id_sector?: NullableIntFieldUpdateOperationsInput | number | null
     id_posicion?: NullableIntFieldUpdateOperationsInput | number | null
     id_autorizador?: NullableStringFieldUpdateOperationsInput | string | null
     rol?: NullableStringFieldUpdateOperationsInput | string | null
     telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    autorizados?: usersUncheckedUpdateManyWithoutAutorizadorNestedInput
+    iB1?: NullableStringFieldUpdateOperationsInput | string | null
+    iB2?: NullableStringFieldUpdateOperationsInput | string | null
+    iB3?: NullableStringFieldUpdateOperationsInput | string | null
+    iB4?: NullableStringFieldUpdateOperationsInput | string | null
+    iB5?: NullableStringFieldUpdateOperationsInput | string | null
     tickets?: ticketUncheckedUpdateManyWithoutUserNestedInput
+    autorizados?: usersUncheckedUpdateManyWithoutAutorizadorNestedInput
   }
 
   export type usersCreateManyInput = {
-    id: string
+    id?: string
     created_at?: Date | string
-    username?: string | null
+    nombre: string
     correo?: string | null
     id_sector?: number | null
     id_posicion?: number | null
     id_autorizador?: string | null
     rol?: string | null
     telefono?: string | null
+    iB1?: string | null
+    iB2?: string | null
+    iB3?: string | null
+    iB4?: string | null
+    iB5?: string | null
   }
 
   export type usersUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    username?: NullableStringFieldUpdateOperationsInput | string | null
+    nombre?: StringFieldUpdateOperationsInput | string
     correo?: NullableStringFieldUpdateOperationsInput | string | null
     rol?: NullableStringFieldUpdateOperationsInput | string | null
     telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    iB1?: NullableStringFieldUpdateOperationsInput | string | null
+    iB2?: NullableStringFieldUpdateOperationsInput | string | null
+    iB3?: NullableStringFieldUpdateOperationsInput | string | null
+    iB4?: NullableStringFieldUpdateOperationsInput | string | null
+    iB5?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type usersUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    username?: NullableStringFieldUpdateOperationsInput | string | null
+    nombre?: StringFieldUpdateOperationsInput | string
     correo?: NullableStringFieldUpdateOperationsInput | string | null
     id_sector?: NullableIntFieldUpdateOperationsInput | number | null
     id_posicion?: NullableIntFieldUpdateOperationsInput | number | null
     id_autorizador?: NullableStringFieldUpdateOperationsInput | string | null
     rol?: NullableStringFieldUpdateOperationsInput | string | null
     telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    iB1?: NullableStringFieldUpdateOperationsInput | string | null
+    iB2?: NullableStringFieldUpdateOperationsInput | string | null
+    iB3?: NullableStringFieldUpdateOperationsInput | string | null
+    iB4?: NullableStringFieldUpdateOperationsInput | string | null
+    iB5?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -15915,16 +13502,16 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type TicketListRelationFilter = {
-    every?: ticketWhereInput
-    some?: ticketWhereInput
-    none?: ticketWhereInput
-  }
-
   export type Sub_categoriasListRelationFilter = {
     every?: sub_categoriasWhereInput
     some?: sub_categoriasWhereInput
     none?: sub_categoriasWhereInput
+  }
+
+  export type TicketListRelationFilter = {
+    every?: ticketWhereInput
+    some?: ticketWhereInput
+    none?: ticketWhereInput
   }
 
   export type SortOrderInput = {
@@ -15932,11 +13519,11 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
-  export type ticketOrderByRelationAggregateInput = {
+  export type sub_categoriasOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type sub_categoriasOrderByRelationAggregateInput = {
+  export type ticketOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -15944,26 +13531,31 @@ export namespace Prisma {
     id?: SortOrder
     created_at?: SortOrder
     nombre?: SortOrder
+    encargado?: SortOrder
   }
 
   export type categoriaAvgOrderByAggregateInput = {
     id?: SortOrder
+    encargado?: SortOrder
   }
 
   export type categoriaMaxOrderByAggregateInput = {
     id?: SortOrder
     created_at?: SortOrder
     nombre?: SortOrder
+    encargado?: SortOrder
   }
 
   export type categoriaMinOrderByAggregateInput = {
     id?: SortOrder
     created_at?: SortOrder
     nombre?: SortOrder
+    encargado?: SortOrder
   }
 
   export type categoriaSumOrderByAggregateInput = {
     id?: SortOrder
+    encargado?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -16037,42 +13629,6 @@ export namespace Prisma {
   }
 
   export type estadosSumOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type User_informListRelationFilter = {
-    every?: user_informWhereInput
-    some?: user_informWhereInput
-    none?: user_informWhereInput
-  }
-
-  export type user_informOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type informe_linkCountOrderByAggregateInput = {
-    id?: SortOrder
-    created_at?: SortOrder
-    link?: SortOrder
-  }
-
-  export type informe_linkAvgOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type informe_linkMaxOrderByAggregateInput = {
-    id?: SortOrder
-    created_at?: SortOrder
-    link?: SortOrder
-  }
-
-  export type informe_linkMinOrderByAggregateInput = {
-    id?: SortOrder
-    created_at?: SortOrder
-    link?: SortOrder
-  }
-
-  export type informe_linkSumOrderByAggregateInput = {
     id?: SortOrder
   }
 
@@ -16253,14 +13809,9 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
-  export type UsersNullableScalarRelationFilter = {
-    is?: usersWhereInput | null
-    isNot?: usersWhereInput | null
-  }
-
-  export type Sub_categoriasNullableScalarRelationFilter = {
-    is?: sub_categoriasWhereInput | null
-    isNot?: sub_categoriasWhereInput | null
+  export type EstadosNullableScalarRelationFilter = {
+    is?: estadosWhereInput | null
+    isNot?: estadosWhereInput | null
   }
 
   export type PrioridadNullableScalarRelationFilter = {
@@ -16273,9 +13824,14 @@ export namespace Prisma {
     isNot?: sectorWhereInput | null
   }
 
-  export type EstadosNullableScalarRelationFilter = {
-    is?: estadosWhereInput | null
-    isNot?: estadosWhereInput | null
+  export type Sub_categoriasNullableScalarRelationFilter = {
+    is?: sub_categoriasWhereInput | null
+    isNot?: sub_categoriasWhereInput | null
+  }
+
+  export type UsersNullableScalarRelationFilter = {
+    is?: usersWhereInput | null
+    isNot?: usersWhereInput | null
   }
 
   export type ticketCountOrderByAggregateInput = {
@@ -16344,39 +13900,6 @@ export namespace Prisma {
     id_estado?: SortOrder
   }
 
-  export type Informe_linkNullableScalarRelationFilter = {
-    is?: informe_linkWhereInput | null
-    isNot?: informe_linkWhereInput | null
-  }
-
-  export type user_informCountOrderByAggregateInput = {
-    id?: SortOrder
-    created_at?: SortOrder
-    id_informe_link?: SortOrder
-  }
-
-  export type user_informAvgOrderByAggregateInput = {
-    id?: SortOrder
-    id_informe_link?: SortOrder
-  }
-
-  export type user_informMaxOrderByAggregateInput = {
-    id?: SortOrder
-    created_at?: SortOrder
-    id_informe_link?: SortOrder
-  }
-
-  export type user_informMinOrderByAggregateInput = {
-    id?: SortOrder
-    created_at?: SortOrder
-    id_informe_link?: SortOrder
-  }
-
-  export type user_informSumOrderByAggregateInput = {
-    id?: SortOrder
-    id_informe_link?: SortOrder
-  }
-
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -16400,13 +13923,18 @@ export namespace Prisma {
   export type usersCountOrderByAggregateInput = {
     id?: SortOrder
     created_at?: SortOrder
-    username?: SortOrder
+    nombre?: SortOrder
     correo?: SortOrder
     id_sector?: SortOrder
     id_posicion?: SortOrder
     id_autorizador?: SortOrder
     rol?: SortOrder
     telefono?: SortOrder
+    iB1?: SortOrder
+    iB2?: SortOrder
+    iB3?: SortOrder
+    iB4?: SortOrder
+    iB5?: SortOrder
   }
 
   export type usersAvgOrderByAggregateInput = {
@@ -16417,25 +13945,35 @@ export namespace Prisma {
   export type usersMaxOrderByAggregateInput = {
     id?: SortOrder
     created_at?: SortOrder
-    username?: SortOrder
+    nombre?: SortOrder
     correo?: SortOrder
     id_sector?: SortOrder
     id_posicion?: SortOrder
     id_autorizador?: SortOrder
     rol?: SortOrder
     telefono?: SortOrder
+    iB1?: SortOrder
+    iB2?: SortOrder
+    iB3?: SortOrder
+    iB4?: SortOrder
+    iB5?: SortOrder
   }
 
   export type usersMinOrderByAggregateInput = {
     id?: SortOrder
     created_at?: SortOrder
-    username?: SortOrder
+    nombre?: SortOrder
     correo?: SortOrder
     id_sector?: SortOrder
     id_posicion?: SortOrder
     id_autorizador?: SortOrder
     rol?: SortOrder
     telefono?: SortOrder
+    iB1?: SortOrder
+    iB2?: SortOrder
+    iB3?: SortOrder
+    iB4?: SortOrder
+    iB5?: SortOrder
   }
 
   export type usersSumOrderByAggregateInput = {
@@ -16461,13 +13999,6 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type ticketCreateNestedManyWithoutCategoriaInput = {
-    create?: XOR<ticketCreateWithoutCategoriaInput, ticketUncheckedCreateWithoutCategoriaInput> | ticketCreateWithoutCategoriaInput[] | ticketUncheckedCreateWithoutCategoriaInput[]
-    connectOrCreate?: ticketCreateOrConnectWithoutCategoriaInput | ticketCreateOrConnectWithoutCategoriaInput[]
-    createMany?: ticketCreateManyCategoriaInputEnvelope
-    connect?: ticketWhereUniqueInput | ticketWhereUniqueInput[]
-  }
-
   export type sub_categoriasCreateNestedManyWithoutCategoriaInput = {
     create?: XOR<sub_categoriasCreateWithoutCategoriaInput, sub_categoriasUncheckedCreateWithoutCategoriaInput> | sub_categoriasCreateWithoutCategoriaInput[] | sub_categoriasUncheckedCreateWithoutCategoriaInput[]
     connectOrCreate?: sub_categoriasCreateOrConnectWithoutCategoriaInput | sub_categoriasCreateOrConnectWithoutCategoriaInput[]
@@ -16475,7 +14006,7 @@ export namespace Prisma {
     connect?: sub_categoriasWhereUniqueInput | sub_categoriasWhereUniqueInput[]
   }
 
-  export type ticketUncheckedCreateNestedManyWithoutCategoriaInput = {
+  export type ticketCreateNestedManyWithoutCategoriaInput = {
     create?: XOR<ticketCreateWithoutCategoriaInput, ticketUncheckedCreateWithoutCategoriaInput> | ticketCreateWithoutCategoriaInput[] | ticketUncheckedCreateWithoutCategoriaInput[]
     connectOrCreate?: ticketCreateOrConnectWithoutCategoriaInput | ticketCreateOrConnectWithoutCategoriaInput[]
     createMany?: ticketCreateManyCategoriaInputEnvelope
@@ -16489,6 +14020,13 @@ export namespace Prisma {
     connect?: sub_categoriasWhereUniqueInput | sub_categoriasWhereUniqueInput[]
   }
 
+  export type ticketUncheckedCreateNestedManyWithoutCategoriaInput = {
+    create?: XOR<ticketCreateWithoutCategoriaInput, ticketUncheckedCreateWithoutCategoriaInput> | ticketCreateWithoutCategoriaInput[] | ticketUncheckedCreateWithoutCategoriaInput[]
+    connectOrCreate?: ticketCreateOrConnectWithoutCategoriaInput | ticketCreateOrConnectWithoutCategoriaInput[]
+    createMany?: ticketCreateManyCategoriaInputEnvelope
+    connect?: ticketWhereUniqueInput | ticketWhereUniqueInput[]
+  }
+
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
   }
@@ -16497,18 +14035,12 @@ export namespace Prisma {
     set?: string | null
   }
 
-  export type ticketUpdateManyWithoutCategoriaNestedInput = {
-    create?: XOR<ticketCreateWithoutCategoriaInput, ticketUncheckedCreateWithoutCategoriaInput> | ticketCreateWithoutCategoriaInput[] | ticketUncheckedCreateWithoutCategoriaInput[]
-    connectOrCreate?: ticketCreateOrConnectWithoutCategoriaInput | ticketCreateOrConnectWithoutCategoriaInput[]
-    upsert?: ticketUpsertWithWhereUniqueWithoutCategoriaInput | ticketUpsertWithWhereUniqueWithoutCategoriaInput[]
-    createMany?: ticketCreateManyCategoriaInputEnvelope
-    set?: ticketWhereUniqueInput | ticketWhereUniqueInput[]
-    disconnect?: ticketWhereUniqueInput | ticketWhereUniqueInput[]
-    delete?: ticketWhereUniqueInput | ticketWhereUniqueInput[]
-    connect?: ticketWhereUniqueInput | ticketWhereUniqueInput[]
-    update?: ticketUpdateWithWhereUniqueWithoutCategoriaInput | ticketUpdateWithWhereUniqueWithoutCategoriaInput[]
-    updateMany?: ticketUpdateManyWithWhereWithoutCategoriaInput | ticketUpdateManyWithWhereWithoutCategoriaInput[]
-    deleteMany?: ticketScalarWhereInput | ticketScalarWhereInput[]
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type sub_categoriasUpdateManyWithoutCategoriaNestedInput = {
@@ -16525,15 +14057,7 @@ export namespace Prisma {
     deleteMany?: sub_categoriasScalarWhereInput | sub_categoriasScalarWhereInput[]
   }
 
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
-  export type ticketUncheckedUpdateManyWithoutCategoriaNestedInput = {
+  export type ticketUpdateManyWithoutCategoriaNestedInput = {
     create?: XOR<ticketCreateWithoutCategoriaInput, ticketUncheckedCreateWithoutCategoriaInput> | ticketCreateWithoutCategoriaInput[] | ticketUncheckedCreateWithoutCategoriaInput[]
     connectOrCreate?: ticketCreateOrConnectWithoutCategoriaInput | ticketCreateOrConnectWithoutCategoriaInput[]
     upsert?: ticketUpsertWithWhereUniqueWithoutCategoriaInput | ticketUpsertWithWhereUniqueWithoutCategoriaInput[]
@@ -16559,6 +14083,20 @@ export namespace Prisma {
     update?: sub_categoriasUpdateWithWhereUniqueWithoutCategoriaInput | sub_categoriasUpdateWithWhereUniqueWithoutCategoriaInput[]
     updateMany?: sub_categoriasUpdateManyWithWhereWithoutCategoriaInput | sub_categoriasUpdateManyWithWhereWithoutCategoriaInput[]
     deleteMany?: sub_categoriasScalarWhereInput | sub_categoriasScalarWhereInput[]
+  }
+
+  export type ticketUncheckedUpdateManyWithoutCategoriaNestedInput = {
+    create?: XOR<ticketCreateWithoutCategoriaInput, ticketUncheckedCreateWithoutCategoriaInput> | ticketCreateWithoutCategoriaInput[] | ticketUncheckedCreateWithoutCategoriaInput[]
+    connectOrCreate?: ticketCreateOrConnectWithoutCategoriaInput | ticketCreateOrConnectWithoutCategoriaInput[]
+    upsert?: ticketUpsertWithWhereUniqueWithoutCategoriaInput | ticketUpsertWithWhereUniqueWithoutCategoriaInput[]
+    createMany?: ticketCreateManyCategoriaInputEnvelope
+    set?: ticketWhereUniqueInput | ticketWhereUniqueInput[]
+    disconnect?: ticketWhereUniqueInput | ticketWhereUniqueInput[]
+    delete?: ticketWhereUniqueInput | ticketWhereUniqueInput[]
+    connect?: ticketWhereUniqueInput | ticketWhereUniqueInput[]
+    update?: ticketUpdateWithWhereUniqueWithoutCategoriaInput | ticketUpdateWithWhereUniqueWithoutCategoriaInput[]
+    updateMany?: ticketUpdateManyWithWhereWithoutCategoriaInput | ticketUpdateManyWithWhereWithoutCategoriaInput[]
+    deleteMany?: ticketScalarWhereInput | ticketScalarWhereInput[]
   }
 
   export type ticketCreateNestedManyWithoutEstadoInput = {
@@ -16601,48 +14139,6 @@ export namespace Prisma {
     update?: ticketUpdateWithWhereUniqueWithoutEstadoInput | ticketUpdateWithWhereUniqueWithoutEstadoInput[]
     updateMany?: ticketUpdateManyWithWhereWithoutEstadoInput | ticketUpdateManyWithWhereWithoutEstadoInput[]
     deleteMany?: ticketScalarWhereInput | ticketScalarWhereInput[]
-  }
-
-  export type user_informCreateNestedManyWithoutInforme_linkInput = {
-    create?: XOR<user_informCreateWithoutInforme_linkInput, user_informUncheckedCreateWithoutInforme_linkInput> | user_informCreateWithoutInforme_linkInput[] | user_informUncheckedCreateWithoutInforme_linkInput[]
-    connectOrCreate?: user_informCreateOrConnectWithoutInforme_linkInput | user_informCreateOrConnectWithoutInforme_linkInput[]
-    createMany?: user_informCreateManyInforme_linkInputEnvelope
-    connect?: user_informWhereUniqueInput | user_informWhereUniqueInput[]
-  }
-
-  export type user_informUncheckedCreateNestedManyWithoutInforme_linkInput = {
-    create?: XOR<user_informCreateWithoutInforme_linkInput, user_informUncheckedCreateWithoutInforme_linkInput> | user_informCreateWithoutInforme_linkInput[] | user_informUncheckedCreateWithoutInforme_linkInput[]
-    connectOrCreate?: user_informCreateOrConnectWithoutInforme_linkInput | user_informCreateOrConnectWithoutInforme_linkInput[]
-    createMany?: user_informCreateManyInforme_linkInputEnvelope
-    connect?: user_informWhereUniqueInput | user_informWhereUniqueInput[]
-  }
-
-  export type user_informUpdateManyWithoutInforme_linkNestedInput = {
-    create?: XOR<user_informCreateWithoutInforme_linkInput, user_informUncheckedCreateWithoutInforme_linkInput> | user_informCreateWithoutInforme_linkInput[] | user_informUncheckedCreateWithoutInforme_linkInput[]
-    connectOrCreate?: user_informCreateOrConnectWithoutInforme_linkInput | user_informCreateOrConnectWithoutInforme_linkInput[]
-    upsert?: user_informUpsertWithWhereUniqueWithoutInforme_linkInput | user_informUpsertWithWhereUniqueWithoutInforme_linkInput[]
-    createMany?: user_informCreateManyInforme_linkInputEnvelope
-    set?: user_informWhereUniqueInput | user_informWhereUniqueInput[]
-    disconnect?: user_informWhereUniqueInput | user_informWhereUniqueInput[]
-    delete?: user_informWhereUniqueInput | user_informWhereUniqueInput[]
-    connect?: user_informWhereUniqueInput | user_informWhereUniqueInput[]
-    update?: user_informUpdateWithWhereUniqueWithoutInforme_linkInput | user_informUpdateWithWhereUniqueWithoutInforme_linkInput[]
-    updateMany?: user_informUpdateManyWithWhereWithoutInforme_linkInput | user_informUpdateManyWithWhereWithoutInforme_linkInput[]
-    deleteMany?: user_informScalarWhereInput | user_informScalarWhereInput[]
-  }
-
-  export type user_informUncheckedUpdateManyWithoutInforme_linkNestedInput = {
-    create?: XOR<user_informCreateWithoutInforme_linkInput, user_informUncheckedCreateWithoutInforme_linkInput> | user_informCreateWithoutInforme_linkInput[] | user_informUncheckedCreateWithoutInforme_linkInput[]
-    connectOrCreate?: user_informCreateOrConnectWithoutInforme_linkInput | user_informCreateOrConnectWithoutInforme_linkInput[]
-    upsert?: user_informUpsertWithWhereUniqueWithoutInforme_linkInput | user_informUpsertWithWhereUniqueWithoutInforme_linkInput[]
-    createMany?: user_informCreateManyInforme_linkInputEnvelope
-    set?: user_informWhereUniqueInput | user_informWhereUniqueInput[]
-    disconnect?: user_informWhereUniqueInput | user_informWhereUniqueInput[]
-    delete?: user_informWhereUniqueInput | user_informWhereUniqueInput[]
-    connect?: user_informWhereUniqueInput | user_informWhereUniqueInput[]
-    update?: user_informUpdateWithWhereUniqueWithoutInforme_linkInput | user_informUpdateWithWhereUniqueWithoutInforme_linkInput[]
-    updateMany?: user_informUpdateManyWithWhereWithoutInforme_linkInput | user_informUpdateManyWithWhereWithoutInforme_linkInput[]
-    deleteMany?: user_informScalarWhereInput | user_informScalarWhereInput[]
   }
 
   export type usersCreateNestedManyWithoutPosicionInput = {
@@ -16879,22 +14375,16 @@ export namespace Prisma {
     deleteMany?: ticketScalarWhereInput | ticketScalarWhereInput[]
   }
 
-  export type usersCreateNestedOneWithoutTicketsInput = {
-    create?: XOR<usersCreateWithoutTicketsInput, usersUncheckedCreateWithoutTicketsInput>
-    connectOrCreate?: usersCreateOrConnectWithoutTicketsInput
-    connect?: usersWhereUniqueInput
-  }
-
   export type categoriaCreateNestedOneWithoutTicketsInput = {
     create?: XOR<categoriaCreateWithoutTicketsInput, categoriaUncheckedCreateWithoutTicketsInput>
     connectOrCreate?: categoriaCreateOrConnectWithoutTicketsInput
     connect?: categoriaWhereUniqueInput
   }
 
-  export type sub_categoriasCreateNestedOneWithoutTicketsInput = {
-    create?: XOR<sub_categoriasCreateWithoutTicketsInput, sub_categoriasUncheckedCreateWithoutTicketsInput>
-    connectOrCreate?: sub_categoriasCreateOrConnectWithoutTicketsInput
-    connect?: sub_categoriasWhereUniqueInput
+  export type estadosCreateNestedOneWithoutTicketsInput = {
+    create?: XOR<estadosCreateWithoutTicketsInput, estadosUncheckedCreateWithoutTicketsInput>
+    connectOrCreate?: estadosCreateOrConnectWithoutTicketsInput
+    connect?: estadosWhereUniqueInput
   }
 
   export type prioridadCreateNestedOneWithoutTicketsInput = {
@@ -16909,20 +14399,16 @@ export namespace Prisma {
     connect?: sectorWhereUniqueInput
   }
 
-  export type estadosCreateNestedOneWithoutTicketsInput = {
-    create?: XOR<estadosCreateWithoutTicketsInput, estadosUncheckedCreateWithoutTicketsInput>
-    connectOrCreate?: estadosCreateOrConnectWithoutTicketsInput
-    connect?: estadosWhereUniqueInput
+  export type sub_categoriasCreateNestedOneWithoutTicketsInput = {
+    create?: XOR<sub_categoriasCreateWithoutTicketsInput, sub_categoriasUncheckedCreateWithoutTicketsInput>
+    connectOrCreate?: sub_categoriasCreateOrConnectWithoutTicketsInput
+    connect?: sub_categoriasWhereUniqueInput
   }
 
-  export type usersUpdateOneWithoutTicketsNestedInput = {
+  export type usersCreateNestedOneWithoutTicketsInput = {
     create?: XOR<usersCreateWithoutTicketsInput, usersUncheckedCreateWithoutTicketsInput>
     connectOrCreate?: usersCreateOrConnectWithoutTicketsInput
-    upsert?: usersUpsertWithoutTicketsInput
-    disconnect?: usersWhereInput | boolean
-    delete?: usersWhereInput | boolean
     connect?: usersWhereUniqueInput
-    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutTicketsInput, usersUpdateWithoutTicketsInput>, usersUncheckedUpdateWithoutTicketsInput>
   }
 
   export type categoriaUpdateOneWithoutTicketsNestedInput = {
@@ -16935,14 +14421,14 @@ export namespace Prisma {
     update?: XOR<XOR<categoriaUpdateToOneWithWhereWithoutTicketsInput, categoriaUpdateWithoutTicketsInput>, categoriaUncheckedUpdateWithoutTicketsInput>
   }
 
-  export type sub_categoriasUpdateOneWithoutTicketsNestedInput = {
-    create?: XOR<sub_categoriasCreateWithoutTicketsInput, sub_categoriasUncheckedCreateWithoutTicketsInput>
-    connectOrCreate?: sub_categoriasCreateOrConnectWithoutTicketsInput
-    upsert?: sub_categoriasUpsertWithoutTicketsInput
-    disconnect?: sub_categoriasWhereInput | boolean
-    delete?: sub_categoriasWhereInput | boolean
-    connect?: sub_categoriasWhereUniqueInput
-    update?: XOR<XOR<sub_categoriasUpdateToOneWithWhereWithoutTicketsInput, sub_categoriasUpdateWithoutTicketsInput>, sub_categoriasUncheckedUpdateWithoutTicketsInput>
+  export type estadosUpdateOneWithoutTicketsNestedInput = {
+    create?: XOR<estadosCreateWithoutTicketsInput, estadosUncheckedCreateWithoutTicketsInput>
+    connectOrCreate?: estadosCreateOrConnectWithoutTicketsInput
+    upsert?: estadosUpsertWithoutTicketsInput
+    disconnect?: estadosWhereInput | boolean
+    delete?: estadosWhereInput | boolean
+    connect?: estadosWhereUniqueInput
+    update?: XOR<XOR<estadosUpdateToOneWithWhereWithoutTicketsInput, estadosUpdateWithoutTicketsInput>, estadosUncheckedUpdateWithoutTicketsInput>
   }
 
   export type prioridadUpdateOneWithoutTicketsNestedInput = {
@@ -16965,42 +14451,31 @@ export namespace Prisma {
     update?: XOR<XOR<sectorUpdateToOneWithWhereWithoutTicketsInput, sectorUpdateWithoutTicketsInput>, sectorUncheckedUpdateWithoutTicketsInput>
   }
 
-  export type estadosUpdateOneWithoutTicketsNestedInput = {
-    create?: XOR<estadosCreateWithoutTicketsInput, estadosUncheckedCreateWithoutTicketsInput>
-    connectOrCreate?: estadosCreateOrConnectWithoutTicketsInput
-    upsert?: estadosUpsertWithoutTicketsInput
-    disconnect?: estadosWhereInput | boolean
-    delete?: estadosWhereInput | boolean
-    connect?: estadosWhereUniqueInput
-    update?: XOR<XOR<estadosUpdateToOneWithWhereWithoutTicketsInput, estadosUpdateWithoutTicketsInput>, estadosUncheckedUpdateWithoutTicketsInput>
+  export type sub_categoriasUpdateOneWithoutTicketsNestedInput = {
+    create?: XOR<sub_categoriasCreateWithoutTicketsInput, sub_categoriasUncheckedCreateWithoutTicketsInput>
+    connectOrCreate?: sub_categoriasCreateOrConnectWithoutTicketsInput
+    upsert?: sub_categoriasUpsertWithoutTicketsInput
+    disconnect?: sub_categoriasWhereInput | boolean
+    delete?: sub_categoriasWhereInput | boolean
+    connect?: sub_categoriasWhereUniqueInput
+    update?: XOR<XOR<sub_categoriasUpdateToOneWithWhereWithoutTicketsInput, sub_categoriasUpdateWithoutTicketsInput>, sub_categoriasUncheckedUpdateWithoutTicketsInput>
   }
 
-  export type informe_linkCreateNestedOneWithoutUser_informsInput = {
-    create?: XOR<informe_linkCreateWithoutUser_informsInput, informe_linkUncheckedCreateWithoutUser_informsInput>
-    connectOrCreate?: informe_linkCreateOrConnectWithoutUser_informsInput
-    connect?: informe_linkWhereUniqueInput
+  export type usersUpdateOneWithoutTicketsNestedInput = {
+    create?: XOR<usersCreateWithoutTicketsInput, usersUncheckedCreateWithoutTicketsInput>
+    connectOrCreate?: usersCreateOrConnectWithoutTicketsInput
+    upsert?: usersUpsertWithoutTicketsInput
+    disconnect?: usersWhereInput | boolean
+    delete?: usersWhereInput | boolean
+    connect?: usersWhereUniqueInput
+    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutTicketsInput, usersUpdateWithoutTicketsInput>, usersUncheckedUpdateWithoutTicketsInput>
   }
 
-  export type informe_linkUpdateOneWithoutUser_informsNestedInput = {
-    create?: XOR<informe_linkCreateWithoutUser_informsInput, informe_linkUncheckedCreateWithoutUser_informsInput>
-    connectOrCreate?: informe_linkCreateOrConnectWithoutUser_informsInput
-    upsert?: informe_linkUpsertWithoutUser_informsInput
-    disconnect?: informe_linkWhereInput | boolean
-    delete?: informe_linkWhereInput | boolean
-    connect?: informe_linkWhereUniqueInput
-    update?: XOR<XOR<informe_linkUpdateToOneWithWhereWithoutUser_informsInput, informe_linkUpdateWithoutUser_informsInput>, informe_linkUncheckedUpdateWithoutUser_informsInput>
-  }
-
-  export type sectorCreateNestedOneWithoutUsersInput = {
-    create?: XOR<sectorCreateWithoutUsersInput, sectorUncheckedCreateWithoutUsersInput>
-    connectOrCreate?: sectorCreateOrConnectWithoutUsersInput
-    connect?: sectorWhereUniqueInput
-  }
-
-  export type posicionCreateNestedOneWithoutUsersInput = {
-    create?: XOR<posicionCreateWithoutUsersInput, posicionUncheckedCreateWithoutUsersInput>
-    connectOrCreate?: posicionCreateOrConnectWithoutUsersInput
-    connect?: posicionWhereUniqueInput
+  export type ticketCreateNestedManyWithoutUserInput = {
+    create?: XOR<ticketCreateWithoutUserInput, ticketUncheckedCreateWithoutUserInput> | ticketCreateWithoutUserInput[] | ticketUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ticketCreateOrConnectWithoutUserInput | ticketCreateOrConnectWithoutUserInput[]
+    createMany?: ticketCreateManyUserInputEnvelope
+    connect?: ticketWhereUniqueInput | ticketWhereUniqueInput[]
   }
 
   export type usersCreateNestedOneWithoutAutorizadosInput = {
@@ -17016,7 +14491,19 @@ export namespace Prisma {
     connect?: usersWhereUniqueInput | usersWhereUniqueInput[]
   }
 
-  export type ticketCreateNestedManyWithoutUserInput = {
+  export type posicionCreateNestedOneWithoutUsersInput = {
+    create?: XOR<posicionCreateWithoutUsersInput, posicionUncheckedCreateWithoutUsersInput>
+    connectOrCreate?: posicionCreateOrConnectWithoutUsersInput
+    connect?: posicionWhereUniqueInput
+  }
+
+  export type sectorCreateNestedOneWithoutUsersInput = {
+    create?: XOR<sectorCreateWithoutUsersInput, sectorUncheckedCreateWithoutUsersInput>
+    connectOrCreate?: sectorCreateOrConnectWithoutUsersInput
+    connect?: sectorWhereUniqueInput
+  }
+
+  export type ticketUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<ticketCreateWithoutUserInput, ticketUncheckedCreateWithoutUserInput> | ticketCreateWithoutUserInput[] | ticketUncheckedCreateWithoutUserInput[]
     connectOrCreate?: ticketCreateOrConnectWithoutUserInput | ticketCreateOrConnectWithoutUserInput[]
     createMany?: ticketCreateManyUserInputEnvelope
@@ -17030,35 +14517,22 @@ export namespace Prisma {
     connect?: usersWhereUniqueInput | usersWhereUniqueInput[]
   }
 
-  export type ticketUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<ticketCreateWithoutUserInput, ticketUncheckedCreateWithoutUserInput> | ticketCreateWithoutUserInput[] | ticketUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ticketCreateOrConnectWithoutUserInput | ticketCreateOrConnectWithoutUserInput[]
-    createMany?: ticketCreateManyUserInputEnvelope
-    connect?: ticketWhereUniqueInput | ticketWhereUniqueInput[]
-  }
-
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
 
-  export type sectorUpdateOneWithoutUsersNestedInput = {
-    create?: XOR<sectorCreateWithoutUsersInput, sectorUncheckedCreateWithoutUsersInput>
-    connectOrCreate?: sectorCreateOrConnectWithoutUsersInput
-    upsert?: sectorUpsertWithoutUsersInput
-    disconnect?: sectorWhereInput | boolean
-    delete?: sectorWhereInput | boolean
-    connect?: sectorWhereUniqueInput
-    update?: XOR<XOR<sectorUpdateToOneWithWhereWithoutUsersInput, sectorUpdateWithoutUsersInput>, sectorUncheckedUpdateWithoutUsersInput>
-  }
-
-  export type posicionUpdateOneWithoutUsersNestedInput = {
-    create?: XOR<posicionCreateWithoutUsersInput, posicionUncheckedCreateWithoutUsersInput>
-    connectOrCreate?: posicionCreateOrConnectWithoutUsersInput
-    upsert?: posicionUpsertWithoutUsersInput
-    disconnect?: posicionWhereInput | boolean
-    delete?: posicionWhereInput | boolean
-    connect?: posicionWhereUniqueInput
-    update?: XOR<XOR<posicionUpdateToOneWithWhereWithoutUsersInput, posicionUpdateWithoutUsersInput>, posicionUncheckedUpdateWithoutUsersInput>
+  export type ticketUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ticketCreateWithoutUserInput, ticketUncheckedCreateWithoutUserInput> | ticketCreateWithoutUserInput[] | ticketUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ticketCreateOrConnectWithoutUserInput | ticketCreateOrConnectWithoutUserInput[]
+    upsert?: ticketUpsertWithWhereUniqueWithoutUserInput | ticketUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ticketCreateManyUserInputEnvelope
+    set?: ticketWhereUniqueInput | ticketWhereUniqueInput[]
+    disconnect?: ticketWhereUniqueInput | ticketWhereUniqueInput[]
+    delete?: ticketWhereUniqueInput | ticketWhereUniqueInput[]
+    connect?: ticketWhereUniqueInput | ticketWhereUniqueInput[]
+    update?: ticketUpdateWithWhereUniqueWithoutUserInput | ticketUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ticketUpdateManyWithWhereWithoutUserInput | ticketUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ticketScalarWhereInput | ticketScalarWhereInput[]
   }
 
   export type usersUpdateOneWithoutAutorizadosNestedInput = {
@@ -17085,7 +14559,27 @@ export namespace Prisma {
     deleteMany?: usersScalarWhereInput | usersScalarWhereInput[]
   }
 
-  export type ticketUpdateManyWithoutUserNestedInput = {
+  export type posicionUpdateOneWithoutUsersNestedInput = {
+    create?: XOR<posicionCreateWithoutUsersInput, posicionUncheckedCreateWithoutUsersInput>
+    connectOrCreate?: posicionCreateOrConnectWithoutUsersInput
+    upsert?: posicionUpsertWithoutUsersInput
+    disconnect?: posicionWhereInput | boolean
+    delete?: posicionWhereInput | boolean
+    connect?: posicionWhereUniqueInput
+    update?: XOR<XOR<posicionUpdateToOneWithWhereWithoutUsersInput, posicionUpdateWithoutUsersInput>, posicionUncheckedUpdateWithoutUsersInput>
+  }
+
+  export type sectorUpdateOneWithoutUsersNestedInput = {
+    create?: XOR<sectorCreateWithoutUsersInput, sectorUncheckedCreateWithoutUsersInput>
+    connectOrCreate?: sectorCreateOrConnectWithoutUsersInput
+    upsert?: sectorUpsertWithoutUsersInput
+    disconnect?: sectorWhereInput | boolean
+    delete?: sectorWhereInput | boolean
+    connect?: sectorWhereUniqueInput
+    update?: XOR<XOR<sectorUpdateToOneWithWhereWithoutUsersInput, sectorUpdateWithoutUsersInput>, sectorUncheckedUpdateWithoutUsersInput>
+  }
+
+  export type ticketUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<ticketCreateWithoutUserInput, ticketUncheckedCreateWithoutUserInput> | ticketCreateWithoutUserInput[] | ticketUncheckedCreateWithoutUserInput[]
     connectOrCreate?: ticketCreateOrConnectWithoutUserInput | ticketCreateOrConnectWithoutUserInput[]
     upsert?: ticketUpsertWithWhereUniqueWithoutUserInput | ticketUpsertWithWhereUniqueWithoutUserInput[]
@@ -17111,20 +14605,6 @@ export namespace Prisma {
     update?: usersUpdateWithWhereUniqueWithoutAutorizadorInput | usersUpdateWithWhereUniqueWithoutAutorizadorInput[]
     updateMany?: usersUpdateManyWithWhereWithoutAutorizadorInput | usersUpdateManyWithWhereWithoutAutorizadorInput[]
     deleteMany?: usersScalarWhereInput | usersScalarWhereInput[]
-  }
-
-  export type ticketUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<ticketCreateWithoutUserInput, ticketUncheckedCreateWithoutUserInput> | ticketCreateWithoutUserInput[] | ticketUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ticketCreateOrConnectWithoutUserInput | ticketCreateOrConnectWithoutUserInput[]
-    upsert?: ticketUpsertWithWhereUniqueWithoutUserInput | ticketUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: ticketCreateManyUserInputEnvelope
-    set?: ticketWhereUniqueInput | ticketWhereUniqueInput[]
-    disconnect?: ticketWhereUniqueInput | ticketWhereUniqueInput[]
-    delete?: ticketWhereUniqueInput | ticketWhereUniqueInput[]
-    connect?: ticketWhereUniqueInput | ticketWhereUniqueInput[]
-    update?: ticketUpdateWithWhereUniqueWithoutUserInput | ticketUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: ticketUpdateManyWithWhereWithoutUserInput | ticketUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: ticketScalarWhereInput | ticketScalarWhereInput[]
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -17290,6 +14770,29 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type sub_categoriasCreateWithoutCategoriaInput = {
+    created_at?: Date | string
+    nombre?: string | null
+    tickets?: ticketCreateNestedManyWithoutSubcategoriaInput
+  }
+
+  export type sub_categoriasUncheckedCreateWithoutCategoriaInput = {
+    id?: number
+    created_at?: Date | string
+    nombre?: string | null
+    tickets?: ticketUncheckedCreateNestedManyWithoutSubcategoriaInput
+  }
+
+  export type sub_categoriasCreateOrConnectWithoutCategoriaInput = {
+    where: sub_categoriasWhereUniqueInput
+    create: XOR<sub_categoriasCreateWithoutCategoriaInput, sub_categoriasUncheckedCreateWithoutCategoriaInput>
+  }
+
+  export type sub_categoriasCreateManyCategoriaInputEnvelope = {
+    data: sub_categoriasCreateManyCategoriaInput | sub_categoriasCreateManyCategoriaInput[]
+    skipDuplicates?: boolean
+  }
+
   export type ticketCreateWithoutCategoriaInput = {
     created_at?: Date | string
     telefono?: string | null
@@ -17297,11 +14800,11 @@ export namespace Prisma {
     valor?: string | null
     link_art?: string | null
     fecha?: string | null
-    user?: usersCreateNestedOneWithoutTicketsInput
-    subcategoria?: sub_categoriasCreateNestedOneWithoutTicketsInput
+    estado?: estadosCreateNestedOneWithoutTicketsInput
     prioridad?: prioridadCreateNestedOneWithoutTicketsInput
     sector?: sectorCreateNestedOneWithoutTicketsInput
-    estado?: estadosCreateNestedOneWithoutTicketsInput
+    subcategoria?: sub_categoriasCreateNestedOneWithoutTicketsInput
+    user?: usersCreateNestedOneWithoutTicketsInput
   }
 
   export type ticketUncheckedCreateWithoutCategoriaInput = {
@@ -17329,27 +14832,30 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type sub_categoriasCreateWithoutCategoriaInput = {
-    created_at?: Date | string
-    nombre?: string | null
-    tickets?: ticketCreateNestedManyWithoutSubcategoriaInput
-  }
-
-  export type sub_categoriasUncheckedCreateWithoutCategoriaInput = {
-    id?: number
-    created_at?: Date | string
-    nombre?: string | null
-    tickets?: ticketUncheckedCreateNestedManyWithoutSubcategoriaInput
-  }
-
-  export type sub_categoriasCreateOrConnectWithoutCategoriaInput = {
+  export type sub_categoriasUpsertWithWhereUniqueWithoutCategoriaInput = {
     where: sub_categoriasWhereUniqueInput
+    update: XOR<sub_categoriasUpdateWithoutCategoriaInput, sub_categoriasUncheckedUpdateWithoutCategoriaInput>
     create: XOR<sub_categoriasCreateWithoutCategoriaInput, sub_categoriasUncheckedCreateWithoutCategoriaInput>
   }
 
-  export type sub_categoriasCreateManyCategoriaInputEnvelope = {
-    data: sub_categoriasCreateManyCategoriaInput | sub_categoriasCreateManyCategoriaInput[]
-    skipDuplicates?: boolean
+  export type sub_categoriasUpdateWithWhereUniqueWithoutCategoriaInput = {
+    where: sub_categoriasWhereUniqueInput
+    data: XOR<sub_categoriasUpdateWithoutCategoriaInput, sub_categoriasUncheckedUpdateWithoutCategoriaInput>
+  }
+
+  export type sub_categoriasUpdateManyWithWhereWithoutCategoriaInput = {
+    where: sub_categoriasScalarWhereInput
+    data: XOR<sub_categoriasUpdateManyMutationInput, sub_categoriasUncheckedUpdateManyWithoutCategoriaInput>
+  }
+
+  export type sub_categoriasScalarWhereInput = {
+    AND?: sub_categoriasScalarWhereInput | sub_categoriasScalarWhereInput[]
+    OR?: sub_categoriasScalarWhereInput[]
+    NOT?: sub_categoriasScalarWhereInput | sub_categoriasScalarWhereInput[]
+    id?: IntFilter<"sub_categorias"> | number
+    created_at?: DateTimeFilter<"sub_categorias"> | Date | string
+    nombre?: StringNullableFilter<"sub_categorias"> | string | null
+    id_categorias?: IntNullableFilter<"sub_categorias"> | number | null
   }
 
   export type ticketUpsertWithWhereUniqueWithoutCategoriaInput = {
@@ -17387,32 +14893,6 @@ export namespace Prisma {
     fecha?: StringNullableFilter<"ticket"> | string | null
   }
 
-  export type sub_categoriasUpsertWithWhereUniqueWithoutCategoriaInput = {
-    where: sub_categoriasWhereUniqueInput
-    update: XOR<sub_categoriasUpdateWithoutCategoriaInput, sub_categoriasUncheckedUpdateWithoutCategoriaInput>
-    create: XOR<sub_categoriasCreateWithoutCategoriaInput, sub_categoriasUncheckedCreateWithoutCategoriaInput>
-  }
-
-  export type sub_categoriasUpdateWithWhereUniqueWithoutCategoriaInput = {
-    where: sub_categoriasWhereUniqueInput
-    data: XOR<sub_categoriasUpdateWithoutCategoriaInput, sub_categoriasUncheckedUpdateWithoutCategoriaInput>
-  }
-
-  export type sub_categoriasUpdateManyWithWhereWithoutCategoriaInput = {
-    where: sub_categoriasScalarWhereInput
-    data: XOR<sub_categoriasUpdateManyMutationInput, sub_categoriasUncheckedUpdateManyWithoutCategoriaInput>
-  }
-
-  export type sub_categoriasScalarWhereInput = {
-    AND?: sub_categoriasScalarWhereInput | sub_categoriasScalarWhereInput[]
-    OR?: sub_categoriasScalarWhereInput[]
-    NOT?: sub_categoriasScalarWhereInput | sub_categoriasScalarWhereInput[]
-    id?: IntFilter<"sub_categorias"> | number
-    created_at?: DateTimeFilter<"sub_categorias"> | Date | string
-    nombre?: StringNullableFilter<"sub_categorias"> | string | null
-    id_categorias?: IntNullableFilter<"sub_categorias"> | number | null
-  }
-
   export type ticketCreateWithoutEstadoInput = {
     created_at?: Date | string
     telefono?: string | null
@@ -17420,11 +14900,11 @@ export namespace Prisma {
     valor?: string | null
     link_art?: string | null
     fecha?: string | null
-    user?: usersCreateNestedOneWithoutTicketsInput
     categoria?: categoriaCreateNestedOneWithoutTicketsInput
-    subcategoria?: sub_categoriasCreateNestedOneWithoutTicketsInput
     prioridad?: prioridadCreateNestedOneWithoutTicketsInput
     sector?: sectorCreateNestedOneWithoutTicketsInput
+    subcategoria?: sub_categoriasCreateNestedOneWithoutTicketsInput
+    user?: usersCreateNestedOneWithoutTicketsInput
   }
 
   export type ticketUncheckedCreateWithoutEstadoInput = {
@@ -17468,74 +14948,40 @@ export namespace Prisma {
     data: XOR<ticketUpdateManyMutationInput, ticketUncheckedUpdateManyWithoutEstadoInput>
   }
 
-  export type user_informCreateWithoutInforme_linkInput = {
-    created_at?: Date | string
-  }
-
-  export type user_informUncheckedCreateWithoutInforme_linkInput = {
-    id?: number
-    created_at?: Date | string
-  }
-
-  export type user_informCreateOrConnectWithoutInforme_linkInput = {
-    where: user_informWhereUniqueInput
-    create: XOR<user_informCreateWithoutInforme_linkInput, user_informUncheckedCreateWithoutInforme_linkInput>
-  }
-
-  export type user_informCreateManyInforme_linkInputEnvelope = {
-    data: user_informCreateManyInforme_linkInput | user_informCreateManyInforme_linkInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type user_informUpsertWithWhereUniqueWithoutInforme_linkInput = {
-    where: user_informWhereUniqueInput
-    update: XOR<user_informUpdateWithoutInforme_linkInput, user_informUncheckedUpdateWithoutInforme_linkInput>
-    create: XOR<user_informCreateWithoutInforme_linkInput, user_informUncheckedCreateWithoutInforme_linkInput>
-  }
-
-  export type user_informUpdateWithWhereUniqueWithoutInforme_linkInput = {
-    where: user_informWhereUniqueInput
-    data: XOR<user_informUpdateWithoutInforme_linkInput, user_informUncheckedUpdateWithoutInforme_linkInput>
-  }
-
-  export type user_informUpdateManyWithWhereWithoutInforme_linkInput = {
-    where: user_informScalarWhereInput
-    data: XOR<user_informUpdateManyMutationInput, user_informUncheckedUpdateManyWithoutInforme_linkInput>
-  }
-
-  export type user_informScalarWhereInput = {
-    AND?: user_informScalarWhereInput | user_informScalarWhereInput[]
-    OR?: user_informScalarWhereInput[]
-    NOT?: user_informScalarWhereInput | user_informScalarWhereInput[]
-    id?: IntFilter<"user_inform"> | number
-    created_at?: DateTimeFilter<"user_inform"> | Date | string
-    id_informe_link?: IntNullableFilter<"user_inform"> | number | null
-  }
-
   export type usersCreateWithoutPosicionInput = {
-    id: string
+    id?: string
     created_at?: Date | string
-    username?: string | null
+    nombre: string
     correo?: string | null
     rol?: string | null
     telefono?: string | null
-    sector?: sectorCreateNestedOneWithoutUsersInput
+    iB1?: string | null
+    iB2?: string | null
+    iB3?: string | null
+    iB4?: string | null
+    iB5?: string | null
+    tickets?: ticketCreateNestedManyWithoutUserInput
     autorizador?: usersCreateNestedOneWithoutAutorizadosInput
     autorizados?: usersCreateNestedManyWithoutAutorizadorInput
-    tickets?: ticketCreateNestedManyWithoutUserInput
+    sector?: sectorCreateNestedOneWithoutUsersInput
   }
 
   export type usersUncheckedCreateWithoutPosicionInput = {
-    id: string
+    id?: string
     created_at?: Date | string
-    username?: string | null
+    nombre: string
     correo?: string | null
     id_sector?: number | null
     id_autorizador?: string | null
     rol?: string | null
     telefono?: string | null
-    autorizados?: usersUncheckedCreateNestedManyWithoutAutorizadorInput
+    iB1?: string | null
+    iB2?: string | null
+    iB3?: string | null
+    iB4?: string | null
+    iB5?: string | null
     tickets?: ticketUncheckedCreateNestedManyWithoutUserInput
+    autorizados?: usersUncheckedCreateNestedManyWithoutAutorizadorInput
   }
 
   export type usersCreateOrConnectWithoutPosicionInput = {
@@ -17570,13 +15016,18 @@ export namespace Prisma {
     NOT?: usersScalarWhereInput | usersScalarWhereInput[]
     id?: StringFilter<"users"> | string
     created_at?: DateTimeFilter<"users"> | Date | string
-    username?: StringNullableFilter<"users"> | string | null
+    nombre?: StringFilter<"users"> | string
     correo?: StringNullableFilter<"users"> | string | null
     id_sector?: IntNullableFilter<"users"> | number | null
     id_posicion?: IntNullableFilter<"users"> | number | null
     id_autorizador?: StringNullableFilter<"users"> | string | null
     rol?: StringNullableFilter<"users"> | string | null
     telefono?: StringNullableFilter<"users"> | string | null
+    iB1?: StringNullableFilter<"users"> | string | null
+    iB2?: StringNullableFilter<"users"> | string | null
+    iB3?: StringNullableFilter<"users"> | string | null
+    iB4?: StringNullableFilter<"users"> | string | null
+    iB5?: StringNullableFilter<"users"> | string | null
   }
 
   export type ticketCreateWithoutPrioridadInput = {
@@ -17586,11 +15037,11 @@ export namespace Prisma {
     valor?: string | null
     link_art?: string | null
     fecha?: string | null
-    user?: usersCreateNestedOneWithoutTicketsInput
     categoria?: categoriaCreateNestedOneWithoutTicketsInput
-    subcategoria?: sub_categoriasCreateNestedOneWithoutTicketsInput
-    sector?: sectorCreateNestedOneWithoutTicketsInput
     estado?: estadosCreateNestedOneWithoutTicketsInput
+    sector?: sectorCreateNestedOneWithoutTicketsInput
+    subcategoria?: sub_categoriasCreateNestedOneWithoutTicketsInput
+    user?: usersCreateNestedOneWithoutTicketsInput
   }
 
   export type ticketUncheckedCreateWithoutPrioridadInput = {
@@ -17641,11 +15092,11 @@ export namespace Prisma {
     valor?: string | null
     link_art?: string | null
     fecha?: string | null
-    user?: usersCreateNestedOneWithoutTicketsInput
     categoria?: categoriaCreateNestedOneWithoutTicketsInput
-    subcategoria?: sub_categoriasCreateNestedOneWithoutTicketsInput
-    prioridad?: prioridadCreateNestedOneWithoutTicketsInput
     estado?: estadosCreateNestedOneWithoutTicketsInput
+    prioridad?: prioridadCreateNestedOneWithoutTicketsInput
+    subcategoria?: sub_categoriasCreateNestedOneWithoutTicketsInput
+    user?: usersCreateNestedOneWithoutTicketsInput
   }
 
   export type ticketUncheckedCreateWithoutSectorInput = {
@@ -17674,29 +15125,39 @@ export namespace Prisma {
   }
 
   export type usersCreateWithoutSectorInput = {
-    id: string
+    id?: string
     created_at?: Date | string
-    username?: string | null
+    nombre: string
     correo?: string | null
     rol?: string | null
     telefono?: string | null
-    posicion?: posicionCreateNestedOneWithoutUsersInput
+    iB1?: string | null
+    iB2?: string | null
+    iB3?: string | null
+    iB4?: string | null
+    iB5?: string | null
+    tickets?: ticketCreateNestedManyWithoutUserInput
     autorizador?: usersCreateNestedOneWithoutAutorizadosInput
     autorizados?: usersCreateNestedManyWithoutAutorizadorInput
-    tickets?: ticketCreateNestedManyWithoutUserInput
+    posicion?: posicionCreateNestedOneWithoutUsersInput
   }
 
   export type usersUncheckedCreateWithoutSectorInput = {
-    id: string
+    id?: string
     created_at?: Date | string
-    username?: string | null
+    nombre: string
     correo?: string | null
     id_posicion?: number | null
     id_autorizador?: string | null
     rol?: string | null
     telefono?: string | null
-    autorizados?: usersUncheckedCreateNestedManyWithoutAutorizadorInput
+    iB1?: string | null
+    iB2?: string | null
+    iB3?: string | null
+    iB4?: string | null
+    iB5?: string | null
     tickets?: ticketUncheckedCreateNestedManyWithoutUserInput
+    autorizados?: usersUncheckedCreateNestedManyWithoutAutorizadorInput
   }
 
   export type usersCreateOrConnectWithoutSectorInput = {
@@ -17744,6 +15205,7 @@ export namespace Prisma {
   export type categoriaCreateWithoutSub_categoriasInput = {
     created_at?: Date | string
     nombre?: string | null
+    encargado: number
     tickets?: ticketCreateNestedManyWithoutCategoriaInput
   }
 
@@ -17751,6 +15213,7 @@ export namespace Prisma {
     id?: number
     created_at?: Date | string
     nombre?: string | null
+    encargado: number
     tickets?: ticketUncheckedCreateNestedManyWithoutCategoriaInput
   }
 
@@ -17766,11 +15229,11 @@ export namespace Prisma {
     valor?: string | null
     link_art?: string | null
     fecha?: string | null
-    user?: usersCreateNestedOneWithoutTicketsInput
     categoria?: categoriaCreateNestedOneWithoutTicketsInput
+    estado?: estadosCreateNestedOneWithoutTicketsInput
     prioridad?: prioridadCreateNestedOneWithoutTicketsInput
     sector?: sectorCreateNestedOneWithoutTicketsInput
-    estado?: estadosCreateNestedOneWithoutTicketsInput
+    user?: usersCreateNestedOneWithoutTicketsInput
   }
 
   export type ticketUncheckedCreateWithoutSubcategoriaInput = {
@@ -17812,6 +15275,7 @@ export namespace Prisma {
   export type categoriaUpdateWithoutSub_categoriasInput = {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    encargado?: IntFieldUpdateOperationsInput | number
     tickets?: ticketUpdateManyWithoutCategoriaNestedInput
   }
 
@@ -17819,6 +15283,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    encargado?: IntFieldUpdateOperationsInput | number
     tickets?: ticketUncheckedUpdateManyWithoutCategoriaNestedInput
   }
 
@@ -17838,40 +15303,10 @@ export namespace Prisma {
     data: XOR<ticketUpdateManyMutationInput, ticketUncheckedUpdateManyWithoutSubcategoriaInput>
   }
 
-  export type usersCreateWithoutTicketsInput = {
-    id: string
-    created_at?: Date | string
-    username?: string | null
-    correo?: string | null
-    rol?: string | null
-    telefono?: string | null
-    sector?: sectorCreateNestedOneWithoutUsersInput
-    posicion?: posicionCreateNestedOneWithoutUsersInput
-    autorizador?: usersCreateNestedOneWithoutAutorizadosInput
-    autorizados?: usersCreateNestedManyWithoutAutorizadorInput
-  }
-
-  export type usersUncheckedCreateWithoutTicketsInput = {
-    id: string
-    created_at?: Date | string
-    username?: string | null
-    correo?: string | null
-    id_sector?: number | null
-    id_posicion?: number | null
-    id_autorizador?: string | null
-    rol?: string | null
-    telefono?: string | null
-    autorizados?: usersUncheckedCreateNestedManyWithoutAutorizadorInput
-  }
-
-  export type usersCreateOrConnectWithoutTicketsInput = {
-    where: usersWhereUniqueInput
-    create: XOR<usersCreateWithoutTicketsInput, usersUncheckedCreateWithoutTicketsInput>
-  }
-
   export type categoriaCreateWithoutTicketsInput = {
     created_at?: Date | string
     nombre?: string | null
+    encargado: number
     sub_categorias?: sub_categoriasCreateNestedManyWithoutCategoriaInput
   }
 
@@ -17879,6 +15314,7 @@ export namespace Prisma {
     id?: number
     created_at?: Date | string
     nombre?: string | null
+    encargado: number
     sub_categorias?: sub_categoriasUncheckedCreateNestedManyWithoutCategoriaInput
   }
 
@@ -17887,22 +15323,20 @@ export namespace Prisma {
     create: XOR<categoriaCreateWithoutTicketsInput, categoriaUncheckedCreateWithoutTicketsInput>
   }
 
-  export type sub_categoriasCreateWithoutTicketsInput = {
+  export type estadosCreateWithoutTicketsInput = {
     created_at?: Date | string
     nombre?: string | null
-    categoria?: categoriaCreateNestedOneWithoutSub_categoriasInput
   }
 
-  export type sub_categoriasUncheckedCreateWithoutTicketsInput = {
+  export type estadosUncheckedCreateWithoutTicketsInput = {
     id?: number
     created_at?: Date | string
     nombre?: string | null
-    id_categorias?: number | null
   }
 
-  export type sub_categoriasCreateOrConnectWithoutTicketsInput = {
-    where: sub_categoriasWhereUniqueInput
-    create: XOR<sub_categoriasCreateWithoutTicketsInput, sub_categoriasUncheckedCreateWithoutTicketsInput>
+  export type estadosCreateOrConnectWithoutTicketsInput = {
+    where: estadosWhereUniqueInput
+    create: XOR<estadosCreateWithoutTicketsInput, estadosUncheckedCreateWithoutTicketsInput>
   }
 
   export type prioridadCreateWithoutTicketsInput = {
@@ -17939,57 +15373,63 @@ export namespace Prisma {
     create: XOR<sectorCreateWithoutTicketsInput, sectorUncheckedCreateWithoutTicketsInput>
   }
 
-  export type estadosCreateWithoutTicketsInput = {
+  export type sub_categoriasCreateWithoutTicketsInput = {
     created_at?: Date | string
     nombre?: string | null
+    categoria?: categoriaCreateNestedOneWithoutSub_categoriasInput
   }
 
-  export type estadosUncheckedCreateWithoutTicketsInput = {
+  export type sub_categoriasUncheckedCreateWithoutTicketsInput = {
     id?: number
     created_at?: Date | string
     nombre?: string | null
+    id_categorias?: number | null
   }
 
-  export type estadosCreateOrConnectWithoutTicketsInput = {
-    where: estadosWhereUniqueInput
-    create: XOR<estadosCreateWithoutTicketsInput, estadosUncheckedCreateWithoutTicketsInput>
+  export type sub_categoriasCreateOrConnectWithoutTicketsInput = {
+    where: sub_categoriasWhereUniqueInput
+    create: XOR<sub_categoriasCreateWithoutTicketsInput, sub_categoriasUncheckedCreateWithoutTicketsInput>
   }
 
-  export type usersUpsertWithoutTicketsInput = {
-    update: XOR<usersUpdateWithoutTicketsInput, usersUncheckedUpdateWithoutTicketsInput>
+  export type usersCreateWithoutTicketsInput = {
+    id?: string
+    created_at?: Date | string
+    nombre: string
+    correo?: string | null
+    rol?: string | null
+    telefono?: string | null
+    iB1?: string | null
+    iB2?: string | null
+    iB3?: string | null
+    iB4?: string | null
+    iB5?: string | null
+    autorizador?: usersCreateNestedOneWithoutAutorizadosInput
+    autorizados?: usersCreateNestedManyWithoutAutorizadorInput
+    posicion?: posicionCreateNestedOneWithoutUsersInput
+    sector?: sectorCreateNestedOneWithoutUsersInput
+  }
+
+  export type usersUncheckedCreateWithoutTicketsInput = {
+    id?: string
+    created_at?: Date | string
+    nombre: string
+    correo?: string | null
+    id_sector?: number | null
+    id_posicion?: number | null
+    id_autorizador?: string | null
+    rol?: string | null
+    telefono?: string | null
+    iB1?: string | null
+    iB2?: string | null
+    iB3?: string | null
+    iB4?: string | null
+    iB5?: string | null
+    autorizados?: usersUncheckedCreateNestedManyWithoutAutorizadorInput
+  }
+
+  export type usersCreateOrConnectWithoutTicketsInput = {
+    where: usersWhereUniqueInput
     create: XOR<usersCreateWithoutTicketsInput, usersUncheckedCreateWithoutTicketsInput>
-    where?: usersWhereInput
-  }
-
-  export type usersUpdateToOneWithWhereWithoutTicketsInput = {
-    where?: usersWhereInput
-    data: XOR<usersUpdateWithoutTicketsInput, usersUncheckedUpdateWithoutTicketsInput>
-  }
-
-  export type usersUpdateWithoutTicketsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    username?: NullableStringFieldUpdateOperationsInput | string | null
-    correo?: NullableStringFieldUpdateOperationsInput | string | null
-    rol?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    sector?: sectorUpdateOneWithoutUsersNestedInput
-    posicion?: posicionUpdateOneWithoutUsersNestedInput
-    autorizador?: usersUpdateOneWithoutAutorizadosNestedInput
-    autorizados?: usersUpdateManyWithoutAutorizadorNestedInput
-  }
-
-  export type usersUncheckedUpdateWithoutTicketsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    username?: NullableStringFieldUpdateOperationsInput | string | null
-    correo?: NullableStringFieldUpdateOperationsInput | string | null
-    id_sector?: NullableIntFieldUpdateOperationsInput | number | null
-    id_posicion?: NullableIntFieldUpdateOperationsInput | number | null
-    id_autorizador?: NullableStringFieldUpdateOperationsInput | string | null
-    rol?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    autorizados?: usersUncheckedUpdateManyWithoutAutorizadorNestedInput
   }
 
   export type categoriaUpsertWithoutTicketsInput = {
@@ -18006,6 +15446,7 @@ export namespace Prisma {
   export type categoriaUpdateWithoutTicketsInput = {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    encargado?: IntFieldUpdateOperationsInput | number
     sub_categorias?: sub_categoriasUpdateManyWithoutCategoriaNestedInput
   }
 
@@ -18013,31 +15454,30 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    encargado?: IntFieldUpdateOperationsInput | number
     sub_categorias?: sub_categoriasUncheckedUpdateManyWithoutCategoriaNestedInput
   }
 
-  export type sub_categoriasUpsertWithoutTicketsInput = {
-    update: XOR<sub_categoriasUpdateWithoutTicketsInput, sub_categoriasUncheckedUpdateWithoutTicketsInput>
-    create: XOR<sub_categoriasCreateWithoutTicketsInput, sub_categoriasUncheckedCreateWithoutTicketsInput>
-    where?: sub_categoriasWhereInput
+  export type estadosUpsertWithoutTicketsInput = {
+    update: XOR<estadosUpdateWithoutTicketsInput, estadosUncheckedUpdateWithoutTicketsInput>
+    create: XOR<estadosCreateWithoutTicketsInput, estadosUncheckedCreateWithoutTicketsInput>
+    where?: estadosWhereInput
   }
 
-  export type sub_categoriasUpdateToOneWithWhereWithoutTicketsInput = {
-    where?: sub_categoriasWhereInput
-    data: XOR<sub_categoriasUpdateWithoutTicketsInput, sub_categoriasUncheckedUpdateWithoutTicketsInput>
+  export type estadosUpdateToOneWithWhereWithoutTicketsInput = {
+    where?: estadosWhereInput
+    data: XOR<estadosUpdateWithoutTicketsInput, estadosUncheckedUpdateWithoutTicketsInput>
   }
 
-  export type sub_categoriasUpdateWithoutTicketsInput = {
+  export type estadosUpdateWithoutTicketsInput = {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    categoria?: categoriaUpdateOneWithoutSub_categoriasNestedInput
   }
 
-  export type sub_categoriasUncheckedUpdateWithoutTicketsInput = {
+  export type estadosUncheckedUpdateWithoutTicketsInput = {
     id?: IntFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    id_categorias?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type prioridadUpsertWithoutTicketsInput = {
@@ -18086,165 +15526,75 @@ export namespace Prisma {
     users?: usersUncheckedUpdateManyWithoutSectorNestedInput
   }
 
-  export type estadosUpsertWithoutTicketsInput = {
-    update: XOR<estadosUpdateWithoutTicketsInput, estadosUncheckedUpdateWithoutTicketsInput>
-    create: XOR<estadosCreateWithoutTicketsInput, estadosUncheckedCreateWithoutTicketsInput>
-    where?: estadosWhereInput
+  export type sub_categoriasUpsertWithoutTicketsInput = {
+    update: XOR<sub_categoriasUpdateWithoutTicketsInput, sub_categoriasUncheckedUpdateWithoutTicketsInput>
+    create: XOR<sub_categoriasCreateWithoutTicketsInput, sub_categoriasUncheckedCreateWithoutTicketsInput>
+    where?: sub_categoriasWhereInput
   }
 
-  export type estadosUpdateToOneWithWhereWithoutTicketsInput = {
-    where?: estadosWhereInput
-    data: XOR<estadosUpdateWithoutTicketsInput, estadosUncheckedUpdateWithoutTicketsInput>
+  export type sub_categoriasUpdateToOneWithWhereWithoutTicketsInput = {
+    where?: sub_categoriasWhereInput
+    data: XOR<sub_categoriasUpdateWithoutTicketsInput, sub_categoriasUncheckedUpdateWithoutTicketsInput>
   }
 
-  export type estadosUpdateWithoutTicketsInput = {
+  export type sub_categoriasUpdateWithoutTicketsInput = {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    categoria?: categoriaUpdateOneWithoutSub_categoriasNestedInput
   }
 
-  export type estadosUncheckedUpdateWithoutTicketsInput = {
+  export type sub_categoriasUncheckedUpdateWithoutTicketsInput = {
     id?: IntFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    id_categorias?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
-  export type informe_linkCreateWithoutUser_informsInput = {
-    created_at?: Date | string
-    link?: string | null
+  export type usersUpsertWithoutTicketsInput = {
+    update: XOR<usersUpdateWithoutTicketsInput, usersUncheckedUpdateWithoutTicketsInput>
+    create: XOR<usersCreateWithoutTicketsInput, usersUncheckedCreateWithoutTicketsInput>
+    where?: usersWhereInput
   }
 
-  export type informe_linkUncheckedCreateWithoutUser_informsInput = {
-    id?: number
-    created_at?: Date | string
-    link?: string | null
+  export type usersUpdateToOneWithWhereWithoutTicketsInput = {
+    where?: usersWhereInput
+    data: XOR<usersUpdateWithoutTicketsInput, usersUncheckedUpdateWithoutTicketsInput>
   }
 
-  export type informe_linkCreateOrConnectWithoutUser_informsInput = {
-    where: informe_linkWhereUniqueInput
-    create: XOR<informe_linkCreateWithoutUser_informsInput, informe_linkUncheckedCreateWithoutUser_informsInput>
-  }
-
-  export type informe_linkUpsertWithoutUser_informsInput = {
-    update: XOR<informe_linkUpdateWithoutUser_informsInput, informe_linkUncheckedUpdateWithoutUser_informsInput>
-    create: XOR<informe_linkCreateWithoutUser_informsInput, informe_linkUncheckedCreateWithoutUser_informsInput>
-    where?: informe_linkWhereInput
-  }
-
-  export type informe_linkUpdateToOneWithWhereWithoutUser_informsInput = {
-    where?: informe_linkWhereInput
-    data: XOR<informe_linkUpdateWithoutUser_informsInput, informe_linkUncheckedUpdateWithoutUser_informsInput>
-  }
-
-  export type informe_linkUpdateWithoutUser_informsInput = {
+  export type usersUpdateWithoutTicketsInput = {
+    id?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    link?: NullableStringFieldUpdateOperationsInput | string | null
+    nombre?: StringFieldUpdateOperationsInput | string
+    correo?: NullableStringFieldUpdateOperationsInput | string | null
+    rol?: NullableStringFieldUpdateOperationsInput | string | null
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    iB1?: NullableStringFieldUpdateOperationsInput | string | null
+    iB2?: NullableStringFieldUpdateOperationsInput | string | null
+    iB3?: NullableStringFieldUpdateOperationsInput | string | null
+    iB4?: NullableStringFieldUpdateOperationsInput | string | null
+    iB5?: NullableStringFieldUpdateOperationsInput | string | null
+    autorizador?: usersUpdateOneWithoutAutorizadosNestedInput
+    autorizados?: usersUpdateManyWithoutAutorizadorNestedInput
+    posicion?: posicionUpdateOneWithoutUsersNestedInput
+    sector?: sectorUpdateOneWithoutUsersNestedInput
   }
 
-  export type informe_linkUncheckedUpdateWithoutUser_informsInput = {
-    id?: IntFieldUpdateOperationsInput | number
+  export type usersUncheckedUpdateWithoutTicketsInput = {
+    id?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    link?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type sectorCreateWithoutUsersInput = {
-    created_at?: Date | string
-    nombre?: string | null
-    tickets?: ticketCreateNestedManyWithoutSectorInput
-  }
-
-  export type sectorUncheckedCreateWithoutUsersInput = {
-    id?: number
-    created_at?: Date | string
-    nombre?: string | null
-    tickets?: ticketUncheckedCreateNestedManyWithoutSectorInput
-  }
-
-  export type sectorCreateOrConnectWithoutUsersInput = {
-    where: sectorWhereUniqueInput
-    create: XOR<sectorCreateWithoutUsersInput, sectorUncheckedCreateWithoutUsersInput>
-  }
-
-  export type posicionCreateWithoutUsersInput = {
-    created_at?: Date | string
-    nombre?: string | null
-  }
-
-  export type posicionUncheckedCreateWithoutUsersInput = {
-    id?: number
-    created_at?: Date | string
-    nombre?: string | null
-  }
-
-  export type posicionCreateOrConnectWithoutUsersInput = {
-    where: posicionWhereUniqueInput
-    create: XOR<posicionCreateWithoutUsersInput, posicionUncheckedCreateWithoutUsersInput>
-  }
-
-  export type usersCreateWithoutAutorizadosInput = {
-    id: string
-    created_at?: Date | string
-    username?: string | null
-    correo?: string | null
-    rol?: string | null
-    telefono?: string | null
-    sector?: sectorCreateNestedOneWithoutUsersInput
-    posicion?: posicionCreateNestedOneWithoutUsersInput
-    autorizador?: usersCreateNestedOneWithoutAutorizadosInput
-    tickets?: ticketCreateNestedManyWithoutUserInput
-  }
-
-  export type usersUncheckedCreateWithoutAutorizadosInput = {
-    id: string
-    created_at?: Date | string
-    username?: string | null
-    correo?: string | null
-    id_sector?: number | null
-    id_posicion?: number | null
-    id_autorizador?: string | null
-    rol?: string | null
-    telefono?: string | null
-    tickets?: ticketUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type usersCreateOrConnectWithoutAutorizadosInput = {
-    where: usersWhereUniqueInput
-    create: XOR<usersCreateWithoutAutorizadosInput, usersUncheckedCreateWithoutAutorizadosInput>
-  }
-
-  export type usersCreateWithoutAutorizadorInput = {
-    id: string
-    created_at?: Date | string
-    username?: string | null
-    correo?: string | null
-    rol?: string | null
-    telefono?: string | null
-    sector?: sectorCreateNestedOneWithoutUsersInput
-    posicion?: posicionCreateNestedOneWithoutUsersInput
-    autorizados?: usersCreateNestedManyWithoutAutorizadorInput
-    tickets?: ticketCreateNestedManyWithoutUserInput
-  }
-
-  export type usersUncheckedCreateWithoutAutorizadorInput = {
-    id: string
-    created_at?: Date | string
-    username?: string | null
-    correo?: string | null
-    id_sector?: number | null
-    id_posicion?: number | null
-    rol?: string | null
-    telefono?: string | null
-    autorizados?: usersUncheckedCreateNestedManyWithoutAutorizadorInput
-    tickets?: ticketUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type usersCreateOrConnectWithoutAutorizadorInput = {
-    where: usersWhereUniqueInput
-    create: XOR<usersCreateWithoutAutorizadorInput, usersUncheckedCreateWithoutAutorizadorInput>
-  }
-
-  export type usersCreateManyAutorizadorInputEnvelope = {
-    data: usersCreateManyAutorizadorInput | usersCreateManyAutorizadorInput[]
-    skipDuplicates?: boolean
+    nombre?: StringFieldUpdateOperationsInput | string
+    correo?: NullableStringFieldUpdateOperationsInput | string | null
+    id_sector?: NullableIntFieldUpdateOperationsInput | number | null
+    id_posicion?: NullableIntFieldUpdateOperationsInput | number | null
+    id_autorizador?: NullableStringFieldUpdateOperationsInput | string | null
+    rol?: NullableStringFieldUpdateOperationsInput | string | null
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    iB1?: NullableStringFieldUpdateOperationsInput | string | null
+    iB2?: NullableStringFieldUpdateOperationsInput | string | null
+    iB3?: NullableStringFieldUpdateOperationsInput | string | null
+    iB4?: NullableStringFieldUpdateOperationsInput | string | null
+    iB5?: NullableStringFieldUpdateOperationsInput | string | null
+    autorizados?: usersUncheckedUpdateManyWithoutAutorizadorNestedInput
   }
 
   export type ticketCreateWithoutUserInput = {
@@ -18255,10 +15605,10 @@ export namespace Prisma {
     link_art?: string | null
     fecha?: string | null
     categoria?: categoriaCreateNestedOneWithoutTicketsInput
-    subcategoria?: sub_categoriasCreateNestedOneWithoutTicketsInput
+    estado?: estadosCreateNestedOneWithoutTicketsInput
     prioridad?: prioridadCreateNestedOneWithoutTicketsInput
     sector?: sectorCreateNestedOneWithoutTicketsInput
-    estado?: estadosCreateNestedOneWithoutTicketsInput
+    subcategoria?: sub_categoriasCreateNestedOneWithoutTicketsInput
   }
 
   export type ticketUncheckedCreateWithoutUserInput = {
@@ -18286,28 +15636,204 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type sectorUpsertWithoutUsersInput = {
-    update: XOR<sectorUpdateWithoutUsersInput, sectorUncheckedUpdateWithoutUsersInput>
+  export type usersCreateWithoutAutorizadosInput = {
+    id?: string
+    created_at?: Date | string
+    nombre: string
+    correo?: string | null
+    rol?: string | null
+    telefono?: string | null
+    iB1?: string | null
+    iB2?: string | null
+    iB3?: string | null
+    iB4?: string | null
+    iB5?: string | null
+    tickets?: ticketCreateNestedManyWithoutUserInput
+    autorizador?: usersCreateNestedOneWithoutAutorizadosInput
+    posicion?: posicionCreateNestedOneWithoutUsersInput
+    sector?: sectorCreateNestedOneWithoutUsersInput
+  }
+
+  export type usersUncheckedCreateWithoutAutorizadosInput = {
+    id?: string
+    created_at?: Date | string
+    nombre: string
+    correo?: string | null
+    id_sector?: number | null
+    id_posicion?: number | null
+    id_autorizador?: string | null
+    rol?: string | null
+    telefono?: string | null
+    iB1?: string | null
+    iB2?: string | null
+    iB3?: string | null
+    iB4?: string | null
+    iB5?: string | null
+    tickets?: ticketUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type usersCreateOrConnectWithoutAutorizadosInput = {
+    where: usersWhereUniqueInput
+    create: XOR<usersCreateWithoutAutorizadosInput, usersUncheckedCreateWithoutAutorizadosInput>
+  }
+
+  export type usersCreateWithoutAutorizadorInput = {
+    id?: string
+    created_at?: Date | string
+    nombre: string
+    correo?: string | null
+    rol?: string | null
+    telefono?: string | null
+    iB1?: string | null
+    iB2?: string | null
+    iB3?: string | null
+    iB4?: string | null
+    iB5?: string | null
+    tickets?: ticketCreateNestedManyWithoutUserInput
+    autorizados?: usersCreateNestedManyWithoutAutorizadorInput
+    posicion?: posicionCreateNestedOneWithoutUsersInput
+    sector?: sectorCreateNestedOneWithoutUsersInput
+  }
+
+  export type usersUncheckedCreateWithoutAutorizadorInput = {
+    id?: string
+    created_at?: Date | string
+    nombre: string
+    correo?: string | null
+    id_sector?: number | null
+    id_posicion?: number | null
+    rol?: string | null
+    telefono?: string | null
+    iB1?: string | null
+    iB2?: string | null
+    iB3?: string | null
+    iB4?: string | null
+    iB5?: string | null
+    tickets?: ticketUncheckedCreateNestedManyWithoutUserInput
+    autorizados?: usersUncheckedCreateNestedManyWithoutAutorizadorInput
+  }
+
+  export type usersCreateOrConnectWithoutAutorizadorInput = {
+    where: usersWhereUniqueInput
+    create: XOR<usersCreateWithoutAutorizadorInput, usersUncheckedCreateWithoutAutorizadorInput>
+  }
+
+  export type usersCreateManyAutorizadorInputEnvelope = {
+    data: usersCreateManyAutorizadorInput | usersCreateManyAutorizadorInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type posicionCreateWithoutUsersInput = {
+    created_at?: Date | string
+    nombre?: string | null
+  }
+
+  export type posicionUncheckedCreateWithoutUsersInput = {
+    id?: number
+    created_at?: Date | string
+    nombre?: string | null
+  }
+
+  export type posicionCreateOrConnectWithoutUsersInput = {
+    where: posicionWhereUniqueInput
+    create: XOR<posicionCreateWithoutUsersInput, posicionUncheckedCreateWithoutUsersInput>
+  }
+
+  export type sectorCreateWithoutUsersInput = {
+    created_at?: Date | string
+    nombre?: string | null
+    tickets?: ticketCreateNestedManyWithoutSectorInput
+  }
+
+  export type sectorUncheckedCreateWithoutUsersInput = {
+    id?: number
+    created_at?: Date | string
+    nombre?: string | null
+    tickets?: ticketUncheckedCreateNestedManyWithoutSectorInput
+  }
+
+  export type sectorCreateOrConnectWithoutUsersInput = {
+    where: sectorWhereUniqueInput
     create: XOR<sectorCreateWithoutUsersInput, sectorUncheckedCreateWithoutUsersInput>
-    where?: sectorWhereInput
   }
 
-  export type sectorUpdateToOneWithWhereWithoutUsersInput = {
-    where?: sectorWhereInput
-    data: XOR<sectorUpdateWithoutUsersInput, sectorUncheckedUpdateWithoutUsersInput>
+  export type ticketUpsertWithWhereUniqueWithoutUserInput = {
+    where: ticketWhereUniqueInput
+    update: XOR<ticketUpdateWithoutUserInput, ticketUncheckedUpdateWithoutUserInput>
+    create: XOR<ticketCreateWithoutUserInput, ticketUncheckedCreateWithoutUserInput>
   }
 
-  export type sectorUpdateWithoutUsersInput = {
+  export type ticketUpdateWithWhereUniqueWithoutUserInput = {
+    where: ticketWhereUniqueInput
+    data: XOR<ticketUpdateWithoutUserInput, ticketUncheckedUpdateWithoutUserInput>
+  }
+
+  export type ticketUpdateManyWithWhereWithoutUserInput = {
+    where: ticketScalarWhereInput
+    data: XOR<ticketUpdateManyMutationInput, ticketUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type usersUpsertWithoutAutorizadosInput = {
+    update: XOR<usersUpdateWithoutAutorizadosInput, usersUncheckedUpdateWithoutAutorizadosInput>
+    create: XOR<usersCreateWithoutAutorizadosInput, usersUncheckedCreateWithoutAutorizadosInput>
+    where?: usersWhereInput
+  }
+
+  export type usersUpdateToOneWithWhereWithoutAutorizadosInput = {
+    where?: usersWhereInput
+    data: XOR<usersUpdateWithoutAutorizadosInput, usersUncheckedUpdateWithoutAutorizadosInput>
+  }
+
+  export type usersUpdateWithoutAutorizadosInput = {
+    id?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    tickets?: ticketUpdateManyWithoutSectorNestedInput
+    nombre?: StringFieldUpdateOperationsInput | string
+    correo?: NullableStringFieldUpdateOperationsInput | string | null
+    rol?: NullableStringFieldUpdateOperationsInput | string | null
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    iB1?: NullableStringFieldUpdateOperationsInput | string | null
+    iB2?: NullableStringFieldUpdateOperationsInput | string | null
+    iB3?: NullableStringFieldUpdateOperationsInput | string | null
+    iB4?: NullableStringFieldUpdateOperationsInput | string | null
+    iB5?: NullableStringFieldUpdateOperationsInput | string | null
+    tickets?: ticketUpdateManyWithoutUserNestedInput
+    autorizador?: usersUpdateOneWithoutAutorizadosNestedInput
+    posicion?: posicionUpdateOneWithoutUsersNestedInput
+    sector?: sectorUpdateOneWithoutUsersNestedInput
   }
 
-  export type sectorUncheckedUpdateWithoutUsersInput = {
-    id?: IntFieldUpdateOperationsInput | number
+  export type usersUncheckedUpdateWithoutAutorizadosInput = {
+    id?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    tickets?: ticketUncheckedUpdateManyWithoutSectorNestedInput
+    nombre?: StringFieldUpdateOperationsInput | string
+    correo?: NullableStringFieldUpdateOperationsInput | string | null
+    id_sector?: NullableIntFieldUpdateOperationsInput | number | null
+    id_posicion?: NullableIntFieldUpdateOperationsInput | number | null
+    id_autorizador?: NullableStringFieldUpdateOperationsInput | string | null
+    rol?: NullableStringFieldUpdateOperationsInput | string | null
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    iB1?: NullableStringFieldUpdateOperationsInput | string | null
+    iB2?: NullableStringFieldUpdateOperationsInput | string | null
+    iB3?: NullableStringFieldUpdateOperationsInput | string | null
+    iB4?: NullableStringFieldUpdateOperationsInput | string | null
+    iB5?: NullableStringFieldUpdateOperationsInput | string | null
+    tickets?: ticketUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type usersUpsertWithWhereUniqueWithoutAutorizadorInput = {
+    where: usersWhereUniqueInput
+    update: XOR<usersUpdateWithoutAutorizadorInput, usersUncheckedUpdateWithoutAutorizadorInput>
+    create: XOR<usersCreateWithoutAutorizadorInput, usersUncheckedCreateWithoutAutorizadorInput>
+  }
+
+  export type usersUpdateWithWhereUniqueWithoutAutorizadorInput = {
+    where: usersWhereUniqueInput
+    data: XOR<usersUpdateWithoutAutorizadorInput, usersUncheckedUpdateWithoutAutorizadorInput>
+  }
+
+  export type usersUpdateManyWithWhereWithoutAutorizadorInput = {
+    where: usersScalarWhereInput
+    data: XOR<usersUpdateManyMutationInput, usersUncheckedUpdateManyWithoutAutorizadorInput>
   }
 
   export type posicionUpsertWithoutUsersInput = {
@@ -18332,73 +15858,34 @@ export namespace Prisma {
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type usersUpsertWithoutAutorizadosInput = {
-    update: XOR<usersUpdateWithoutAutorizadosInput, usersUncheckedUpdateWithoutAutorizadosInput>
-    create: XOR<usersCreateWithoutAutorizadosInput, usersUncheckedCreateWithoutAutorizadosInput>
-    where?: usersWhereInput
+  export type sectorUpsertWithoutUsersInput = {
+    update: XOR<sectorUpdateWithoutUsersInput, sectorUncheckedUpdateWithoutUsersInput>
+    create: XOR<sectorCreateWithoutUsersInput, sectorUncheckedCreateWithoutUsersInput>
+    where?: sectorWhereInput
   }
 
-  export type usersUpdateToOneWithWhereWithoutAutorizadosInput = {
-    where?: usersWhereInput
-    data: XOR<usersUpdateWithoutAutorizadosInput, usersUncheckedUpdateWithoutAutorizadosInput>
+  export type sectorUpdateToOneWithWhereWithoutUsersInput = {
+    where?: sectorWhereInput
+    data: XOR<sectorUpdateWithoutUsersInput, sectorUncheckedUpdateWithoutUsersInput>
   }
 
-  export type usersUpdateWithoutAutorizadosInput = {
-    id?: StringFieldUpdateOperationsInput | string
+  export type sectorUpdateWithoutUsersInput = {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    username?: NullableStringFieldUpdateOperationsInput | string | null
-    correo?: NullableStringFieldUpdateOperationsInput | string | null
-    rol?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    sector?: sectorUpdateOneWithoutUsersNestedInput
-    posicion?: posicionUpdateOneWithoutUsersNestedInput
-    autorizador?: usersUpdateOneWithoutAutorizadosNestedInput
-    tickets?: ticketUpdateManyWithoutUserNestedInput
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    tickets?: ticketUpdateManyWithoutSectorNestedInput
   }
 
-  export type usersUncheckedUpdateWithoutAutorizadosInput = {
-    id?: StringFieldUpdateOperationsInput | string
+  export type sectorUncheckedUpdateWithoutUsersInput = {
+    id?: IntFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    username?: NullableStringFieldUpdateOperationsInput | string | null
-    correo?: NullableStringFieldUpdateOperationsInput | string | null
-    id_sector?: NullableIntFieldUpdateOperationsInput | number | null
-    id_posicion?: NullableIntFieldUpdateOperationsInput | number | null
-    id_autorizador?: NullableStringFieldUpdateOperationsInput | string | null
-    rol?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    tickets?: ticketUncheckedUpdateManyWithoutUserNestedInput
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    tickets?: ticketUncheckedUpdateManyWithoutSectorNestedInput
   }
 
-  export type usersUpsertWithWhereUniqueWithoutAutorizadorInput = {
-    where: usersWhereUniqueInput
-    update: XOR<usersUpdateWithoutAutorizadorInput, usersUncheckedUpdateWithoutAutorizadorInput>
-    create: XOR<usersCreateWithoutAutorizadorInput, usersUncheckedCreateWithoutAutorizadorInput>
-  }
-
-  export type usersUpdateWithWhereUniqueWithoutAutorizadorInput = {
-    where: usersWhereUniqueInput
-    data: XOR<usersUpdateWithoutAutorizadorInput, usersUncheckedUpdateWithoutAutorizadorInput>
-  }
-
-  export type usersUpdateManyWithWhereWithoutAutorizadorInput = {
-    where: usersScalarWhereInput
-    data: XOR<usersUpdateManyMutationInput, usersUncheckedUpdateManyWithoutAutorizadorInput>
-  }
-
-  export type ticketUpsertWithWhereUniqueWithoutUserInput = {
-    where: ticketWhereUniqueInput
-    update: XOR<ticketUpdateWithoutUserInput, ticketUncheckedUpdateWithoutUserInput>
-    create: XOR<ticketCreateWithoutUserInput, ticketUncheckedCreateWithoutUserInput>
-  }
-
-  export type ticketUpdateWithWhereUniqueWithoutUserInput = {
-    where: ticketWhereUniqueInput
-    data: XOR<ticketUpdateWithoutUserInput, ticketUncheckedUpdateWithoutUserInput>
-  }
-
-  export type ticketUpdateManyWithWhereWithoutUserInput = {
-    where: ticketScalarWhereInput
-    data: XOR<ticketUpdateManyMutationInput, ticketUncheckedUpdateManyWithoutUserInput>
+  export type sub_categoriasCreateManyCategoriaInput = {
+    id?: number
+    created_at?: Date | string
+    nombre?: string | null
   }
 
   export type ticketCreateManyCategoriaInput = {
@@ -18416,10 +15903,23 @@ export namespace Prisma {
     fecha?: string | null
   }
 
-  export type sub_categoriasCreateManyCategoriaInput = {
-    id?: number
-    created_at?: Date | string
-    nombre?: string | null
+  export type sub_categoriasUpdateWithoutCategoriaInput = {
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    tickets?: ticketUpdateManyWithoutSubcategoriaNestedInput
+  }
+
+  export type sub_categoriasUncheckedUpdateWithoutCategoriaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    tickets?: ticketUncheckedUpdateManyWithoutSubcategoriaNestedInput
+  }
+
+  export type sub_categoriasUncheckedUpdateManyWithoutCategoriaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ticketUpdateWithoutCategoriaInput = {
@@ -18429,11 +15929,11 @@ export namespace Prisma {
     valor?: NullableStringFieldUpdateOperationsInput | string | null
     link_art?: NullableStringFieldUpdateOperationsInput | string | null
     fecha?: NullableStringFieldUpdateOperationsInput | string | null
-    user?: usersUpdateOneWithoutTicketsNestedInput
-    subcategoria?: sub_categoriasUpdateOneWithoutTicketsNestedInput
+    estado?: estadosUpdateOneWithoutTicketsNestedInput
     prioridad?: prioridadUpdateOneWithoutTicketsNestedInput
     sector?: sectorUpdateOneWithoutTicketsNestedInput
-    estado?: estadosUpdateOneWithoutTicketsNestedInput
+    subcategoria?: sub_categoriasUpdateOneWithoutTicketsNestedInput
+    user?: usersUpdateOneWithoutTicketsNestedInput
   }
 
   export type ticketUncheckedUpdateWithoutCategoriaInput = {
@@ -18466,25 +15966,6 @@ export namespace Prisma {
     fecha?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type sub_categoriasUpdateWithoutCategoriaInput = {
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    tickets?: ticketUpdateManyWithoutSubcategoriaNestedInput
-  }
-
-  export type sub_categoriasUncheckedUpdateWithoutCategoriaInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    tickets?: ticketUncheckedUpdateManyWithoutSubcategoriaNestedInput
-  }
-
-  export type sub_categoriasUncheckedUpdateManyWithoutCategoriaInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
   export type ticketCreateManyEstadoInput = {
     id?: number
     created_at?: Date | string
@@ -18507,11 +15988,11 @@ export namespace Prisma {
     valor?: NullableStringFieldUpdateOperationsInput | string | null
     link_art?: NullableStringFieldUpdateOperationsInput | string | null
     fecha?: NullableStringFieldUpdateOperationsInput | string | null
-    user?: usersUpdateOneWithoutTicketsNestedInput
     categoria?: categoriaUpdateOneWithoutTicketsNestedInput
-    subcategoria?: sub_categoriasUpdateOneWithoutTicketsNestedInput
     prioridad?: prioridadUpdateOneWithoutTicketsNestedInput
     sector?: sectorUpdateOneWithoutTicketsNestedInput
+    subcategoria?: sub_categoriasUpdateOneWithoutTicketsNestedInput
+    user?: usersUpdateOneWithoutTicketsNestedInput
   }
 
   export type ticketUncheckedUpdateWithoutEstadoInput = {
@@ -18544,71 +16025,72 @@ export namespace Prisma {
     fecha?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type user_informCreateManyInforme_linkInput = {
-    id?: number
-    created_at?: Date | string
-  }
-
-  export type user_informUpdateWithoutInforme_linkInput = {
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type user_informUncheckedUpdateWithoutInforme_linkInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type user_informUncheckedUpdateManyWithoutInforme_linkInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
   export type usersCreateManyPosicionInput = {
-    id: string
+    id?: string
     created_at?: Date | string
-    username?: string | null
+    nombre: string
     correo?: string | null
     id_sector?: number | null
     id_autorizador?: string | null
     rol?: string | null
     telefono?: string | null
+    iB1?: string | null
+    iB2?: string | null
+    iB3?: string | null
+    iB4?: string | null
+    iB5?: string | null
   }
 
   export type usersUpdateWithoutPosicionInput = {
     id?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    username?: NullableStringFieldUpdateOperationsInput | string | null
+    nombre?: StringFieldUpdateOperationsInput | string
     correo?: NullableStringFieldUpdateOperationsInput | string | null
     rol?: NullableStringFieldUpdateOperationsInput | string | null
     telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    sector?: sectorUpdateOneWithoutUsersNestedInput
+    iB1?: NullableStringFieldUpdateOperationsInput | string | null
+    iB2?: NullableStringFieldUpdateOperationsInput | string | null
+    iB3?: NullableStringFieldUpdateOperationsInput | string | null
+    iB4?: NullableStringFieldUpdateOperationsInput | string | null
+    iB5?: NullableStringFieldUpdateOperationsInput | string | null
+    tickets?: ticketUpdateManyWithoutUserNestedInput
     autorizador?: usersUpdateOneWithoutAutorizadosNestedInput
     autorizados?: usersUpdateManyWithoutAutorizadorNestedInput
-    tickets?: ticketUpdateManyWithoutUserNestedInput
+    sector?: sectorUpdateOneWithoutUsersNestedInput
   }
 
   export type usersUncheckedUpdateWithoutPosicionInput = {
     id?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    username?: NullableStringFieldUpdateOperationsInput | string | null
+    nombre?: StringFieldUpdateOperationsInput | string
     correo?: NullableStringFieldUpdateOperationsInput | string | null
     id_sector?: NullableIntFieldUpdateOperationsInput | number | null
     id_autorizador?: NullableStringFieldUpdateOperationsInput | string | null
     rol?: NullableStringFieldUpdateOperationsInput | string | null
     telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    autorizados?: usersUncheckedUpdateManyWithoutAutorizadorNestedInput
+    iB1?: NullableStringFieldUpdateOperationsInput | string | null
+    iB2?: NullableStringFieldUpdateOperationsInput | string | null
+    iB3?: NullableStringFieldUpdateOperationsInput | string | null
+    iB4?: NullableStringFieldUpdateOperationsInput | string | null
+    iB5?: NullableStringFieldUpdateOperationsInput | string | null
     tickets?: ticketUncheckedUpdateManyWithoutUserNestedInput
+    autorizados?: usersUncheckedUpdateManyWithoutAutorizadorNestedInput
   }
 
   export type usersUncheckedUpdateManyWithoutPosicionInput = {
     id?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    username?: NullableStringFieldUpdateOperationsInput | string | null
+    nombre?: StringFieldUpdateOperationsInput | string
     correo?: NullableStringFieldUpdateOperationsInput | string | null
     id_sector?: NullableIntFieldUpdateOperationsInput | number | null
     id_autorizador?: NullableStringFieldUpdateOperationsInput | string | null
     rol?: NullableStringFieldUpdateOperationsInput | string | null
     telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    iB1?: NullableStringFieldUpdateOperationsInput | string | null
+    iB2?: NullableStringFieldUpdateOperationsInput | string | null
+    iB3?: NullableStringFieldUpdateOperationsInput | string | null
+    iB4?: NullableStringFieldUpdateOperationsInput | string | null
+    iB5?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ticketCreateManyPrioridadInput = {
@@ -18633,11 +16115,11 @@ export namespace Prisma {
     valor?: NullableStringFieldUpdateOperationsInput | string | null
     link_art?: NullableStringFieldUpdateOperationsInput | string | null
     fecha?: NullableStringFieldUpdateOperationsInput | string | null
-    user?: usersUpdateOneWithoutTicketsNestedInput
     categoria?: categoriaUpdateOneWithoutTicketsNestedInput
-    subcategoria?: sub_categoriasUpdateOneWithoutTicketsNestedInput
-    sector?: sectorUpdateOneWithoutTicketsNestedInput
     estado?: estadosUpdateOneWithoutTicketsNestedInput
+    sector?: sectorUpdateOneWithoutTicketsNestedInput
+    subcategoria?: sub_categoriasUpdateOneWithoutTicketsNestedInput
+    user?: usersUpdateOneWithoutTicketsNestedInput
   }
 
   export type ticketUncheckedUpdateWithoutPrioridadInput = {
@@ -18686,14 +16168,19 @@ export namespace Prisma {
   }
 
   export type usersCreateManySectorInput = {
-    id: string
+    id?: string
     created_at?: Date | string
-    username?: string | null
+    nombre: string
     correo?: string | null
     id_posicion?: number | null
     id_autorizador?: string | null
     rol?: string | null
     telefono?: string | null
+    iB1?: string | null
+    iB2?: string | null
+    iB3?: string | null
+    iB4?: string | null
+    iB5?: string | null
   }
 
   export type ticketUpdateWithoutSectorInput = {
@@ -18703,11 +16190,11 @@ export namespace Prisma {
     valor?: NullableStringFieldUpdateOperationsInput | string | null
     link_art?: NullableStringFieldUpdateOperationsInput | string | null
     fecha?: NullableStringFieldUpdateOperationsInput | string | null
-    user?: usersUpdateOneWithoutTicketsNestedInput
     categoria?: categoriaUpdateOneWithoutTicketsNestedInput
-    subcategoria?: sub_categoriasUpdateOneWithoutTicketsNestedInput
-    prioridad?: prioridadUpdateOneWithoutTicketsNestedInput
     estado?: estadosUpdateOneWithoutTicketsNestedInput
+    prioridad?: prioridadUpdateOneWithoutTicketsNestedInput
+    subcategoria?: sub_categoriasUpdateOneWithoutTicketsNestedInput
+    user?: usersUpdateOneWithoutTicketsNestedInput
   }
 
   export type ticketUncheckedUpdateWithoutSectorInput = {
@@ -18743,38 +16230,53 @@ export namespace Prisma {
   export type usersUpdateWithoutSectorInput = {
     id?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    username?: NullableStringFieldUpdateOperationsInput | string | null
+    nombre?: StringFieldUpdateOperationsInput | string
     correo?: NullableStringFieldUpdateOperationsInput | string | null
     rol?: NullableStringFieldUpdateOperationsInput | string | null
     telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    posicion?: posicionUpdateOneWithoutUsersNestedInput
+    iB1?: NullableStringFieldUpdateOperationsInput | string | null
+    iB2?: NullableStringFieldUpdateOperationsInput | string | null
+    iB3?: NullableStringFieldUpdateOperationsInput | string | null
+    iB4?: NullableStringFieldUpdateOperationsInput | string | null
+    iB5?: NullableStringFieldUpdateOperationsInput | string | null
+    tickets?: ticketUpdateManyWithoutUserNestedInput
     autorizador?: usersUpdateOneWithoutAutorizadosNestedInput
     autorizados?: usersUpdateManyWithoutAutorizadorNestedInput
-    tickets?: ticketUpdateManyWithoutUserNestedInput
+    posicion?: posicionUpdateOneWithoutUsersNestedInput
   }
 
   export type usersUncheckedUpdateWithoutSectorInput = {
     id?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    username?: NullableStringFieldUpdateOperationsInput | string | null
+    nombre?: StringFieldUpdateOperationsInput | string
     correo?: NullableStringFieldUpdateOperationsInput | string | null
     id_posicion?: NullableIntFieldUpdateOperationsInput | number | null
     id_autorizador?: NullableStringFieldUpdateOperationsInput | string | null
     rol?: NullableStringFieldUpdateOperationsInput | string | null
     telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    autorizados?: usersUncheckedUpdateManyWithoutAutorizadorNestedInput
+    iB1?: NullableStringFieldUpdateOperationsInput | string | null
+    iB2?: NullableStringFieldUpdateOperationsInput | string | null
+    iB3?: NullableStringFieldUpdateOperationsInput | string | null
+    iB4?: NullableStringFieldUpdateOperationsInput | string | null
+    iB5?: NullableStringFieldUpdateOperationsInput | string | null
     tickets?: ticketUncheckedUpdateManyWithoutUserNestedInput
+    autorizados?: usersUncheckedUpdateManyWithoutAutorizadorNestedInput
   }
 
   export type usersUncheckedUpdateManyWithoutSectorInput = {
     id?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    username?: NullableStringFieldUpdateOperationsInput | string | null
+    nombre?: StringFieldUpdateOperationsInput | string
     correo?: NullableStringFieldUpdateOperationsInput | string | null
     id_posicion?: NullableIntFieldUpdateOperationsInput | number | null
     id_autorizador?: NullableStringFieldUpdateOperationsInput | string | null
     rol?: NullableStringFieldUpdateOperationsInput | string | null
     telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    iB1?: NullableStringFieldUpdateOperationsInput | string | null
+    iB2?: NullableStringFieldUpdateOperationsInput | string | null
+    iB3?: NullableStringFieldUpdateOperationsInput | string | null
+    iB4?: NullableStringFieldUpdateOperationsInput | string | null
+    iB5?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ticketCreateManySubcategoriaInput = {
@@ -18799,11 +16301,11 @@ export namespace Prisma {
     valor?: NullableStringFieldUpdateOperationsInput | string | null
     link_art?: NullableStringFieldUpdateOperationsInput | string | null
     fecha?: NullableStringFieldUpdateOperationsInput | string | null
-    user?: usersUpdateOneWithoutTicketsNestedInput
     categoria?: categoriaUpdateOneWithoutTicketsNestedInput
+    estado?: estadosUpdateOneWithoutTicketsNestedInput
     prioridad?: prioridadUpdateOneWithoutTicketsNestedInput
     sector?: sectorUpdateOneWithoutTicketsNestedInput
-    estado?: estadosUpdateOneWithoutTicketsNestedInput
+    user?: usersUpdateOneWithoutTicketsNestedInput
   }
 
   export type ticketUncheckedUpdateWithoutSubcategoriaInput = {
@@ -18836,17 +16338,6 @@ export namespace Prisma {
     fecha?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type usersCreateManyAutorizadorInput = {
-    id: string
-    created_at?: Date | string
-    username?: string | null
-    correo?: string | null
-    id_sector?: number | null
-    id_posicion?: number | null
-    rol?: string | null
-    telefono?: string | null
-  }
-
   export type ticketCreateManyUserInput = {
     id?: number
     created_at?: Date | string
@@ -18862,41 +16353,20 @@ export namespace Prisma {
     fecha?: string | null
   }
 
-  export type usersUpdateWithoutAutorizadorInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    username?: NullableStringFieldUpdateOperationsInput | string | null
-    correo?: NullableStringFieldUpdateOperationsInput | string | null
-    rol?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    sector?: sectorUpdateOneWithoutUsersNestedInput
-    posicion?: posicionUpdateOneWithoutUsersNestedInput
-    autorizados?: usersUpdateManyWithoutAutorizadorNestedInput
-    tickets?: ticketUpdateManyWithoutUserNestedInput
-  }
-
-  export type usersUncheckedUpdateWithoutAutorizadorInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    username?: NullableStringFieldUpdateOperationsInput | string | null
-    correo?: NullableStringFieldUpdateOperationsInput | string | null
-    id_sector?: NullableIntFieldUpdateOperationsInput | number | null
-    id_posicion?: NullableIntFieldUpdateOperationsInput | number | null
-    rol?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    autorizados?: usersUncheckedUpdateManyWithoutAutorizadorNestedInput
-    tickets?: ticketUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type usersUncheckedUpdateManyWithoutAutorizadorInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    username?: NullableStringFieldUpdateOperationsInput | string | null
-    correo?: NullableStringFieldUpdateOperationsInput | string | null
-    id_sector?: NullableIntFieldUpdateOperationsInput | number | null
-    id_posicion?: NullableIntFieldUpdateOperationsInput | number | null
-    rol?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+  export type usersCreateManyAutorizadorInput = {
+    id?: string
+    created_at?: Date | string
+    nombre: string
+    correo?: string | null
+    id_sector?: number | null
+    id_posicion?: number | null
+    rol?: string | null
+    telefono?: string | null
+    iB1?: string | null
+    iB2?: string | null
+    iB3?: string | null
+    iB4?: string | null
+    iB5?: string | null
   }
 
   export type ticketUpdateWithoutUserInput = {
@@ -18907,10 +16377,10 @@ export namespace Prisma {
     link_art?: NullableStringFieldUpdateOperationsInput | string | null
     fecha?: NullableStringFieldUpdateOperationsInput | string | null
     categoria?: categoriaUpdateOneWithoutTicketsNestedInput
-    subcategoria?: sub_categoriasUpdateOneWithoutTicketsNestedInput
+    estado?: estadosUpdateOneWithoutTicketsNestedInput
     prioridad?: prioridadUpdateOneWithoutTicketsNestedInput
     sector?: sectorUpdateOneWithoutTicketsNestedInput
-    estado?: estadosUpdateOneWithoutTicketsNestedInput
+    subcategoria?: sub_categoriasUpdateOneWithoutTicketsNestedInput
   }
 
   export type ticketUncheckedUpdateWithoutUserInput = {
@@ -18941,6 +16411,58 @@ export namespace Prisma {
     link_art?: NullableStringFieldUpdateOperationsInput | string | null
     id_estado?: NullableIntFieldUpdateOperationsInput | number | null
     fecha?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type usersUpdateWithoutAutorizadorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    nombre?: StringFieldUpdateOperationsInput | string
+    correo?: NullableStringFieldUpdateOperationsInput | string | null
+    rol?: NullableStringFieldUpdateOperationsInput | string | null
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    iB1?: NullableStringFieldUpdateOperationsInput | string | null
+    iB2?: NullableStringFieldUpdateOperationsInput | string | null
+    iB3?: NullableStringFieldUpdateOperationsInput | string | null
+    iB4?: NullableStringFieldUpdateOperationsInput | string | null
+    iB5?: NullableStringFieldUpdateOperationsInput | string | null
+    tickets?: ticketUpdateManyWithoutUserNestedInput
+    autorizados?: usersUpdateManyWithoutAutorizadorNestedInput
+    posicion?: posicionUpdateOneWithoutUsersNestedInput
+    sector?: sectorUpdateOneWithoutUsersNestedInput
+  }
+
+  export type usersUncheckedUpdateWithoutAutorizadorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    nombre?: StringFieldUpdateOperationsInput | string
+    correo?: NullableStringFieldUpdateOperationsInput | string | null
+    id_sector?: NullableIntFieldUpdateOperationsInput | number | null
+    id_posicion?: NullableIntFieldUpdateOperationsInput | number | null
+    rol?: NullableStringFieldUpdateOperationsInput | string | null
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    iB1?: NullableStringFieldUpdateOperationsInput | string | null
+    iB2?: NullableStringFieldUpdateOperationsInput | string | null
+    iB3?: NullableStringFieldUpdateOperationsInput | string | null
+    iB4?: NullableStringFieldUpdateOperationsInput | string | null
+    iB5?: NullableStringFieldUpdateOperationsInput | string | null
+    tickets?: ticketUncheckedUpdateManyWithoutUserNestedInput
+    autorizados?: usersUncheckedUpdateManyWithoutAutorizadorNestedInput
+  }
+
+  export type usersUncheckedUpdateManyWithoutAutorizadorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    nombre?: StringFieldUpdateOperationsInput | string
+    correo?: NullableStringFieldUpdateOperationsInput | string | null
+    id_sector?: NullableIntFieldUpdateOperationsInput | number | null
+    id_posicion?: NullableIntFieldUpdateOperationsInput | number | null
+    rol?: NullableStringFieldUpdateOperationsInput | string | null
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    iB1?: NullableStringFieldUpdateOperationsInput | string | null
+    iB2?: NullableStringFieldUpdateOperationsInput | string | null
+    iB3?: NullableStringFieldUpdateOperationsInput | string | null
+    iB4?: NullableStringFieldUpdateOperationsInput | string | null
+    iB5?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 
