@@ -6,7 +6,7 @@ import { Search, Plus, Pencil } from 'lucide-react'
 import { useRouter } from "next/navigation"
 import Modal from "@/components/modal"
 
-export function AjustesComponent({
+export async function AjustesComponent({
   usuarios,
   sectores,
   posiciones,
@@ -29,6 +29,7 @@ export function AjustesComponent({
   const subcategoriasList = subcategorias
   const router = useRouter()
   const [activeTab, setActiveTab] = useState("usuarios")
+
 
   // State for Sectors and Positions lists
   // const [sectorsList, setSectorsList] = useState([
@@ -101,6 +102,7 @@ export function AjustesComponent({
 
   // Functions for general list management (Sectors, Positions, Categories, Subcategories)
   const openAddModal = (type) => {
+
     setModalType(type)
     setEditingItem(null)
     setNewItemName("")

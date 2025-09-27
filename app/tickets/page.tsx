@@ -1,13 +1,12 @@
 import { redirect } from "next/navigation"
-
+import { checkSession } from "@/lib/utils"
 import TicketManagementClient from "./client"
-import { createClient } from "@/lib/supabase/server"
+
 
 export default async function TicketManagementPage() {
-  const supabase = await createClient()
-  const { data, error } = await supabase.auth.getUser()
+  const session = await checkSession()
 
-  if (error || !data?.user) {
+  if (!session) {
     redirect("/")
   }
 

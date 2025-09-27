@@ -43,3 +43,17 @@ export async function createClient() {
     }
   )
 }
+
+export async function getAuthServer() {
+
+  const supabase = await createClient();
+
+  // getUser valida el token contra Supabase (mejor que getSession)
+  const { data: { user }, error } = await supabase.auth.getUser();
+  if (error) return { user: null, rol: null, isAdmin: false, error };
+
+  const rol =
+    (user?.app_metadata as any)?.rol ?? "user";
+
+  return { user, rol, isAdmin: rol === "admin" };
+}

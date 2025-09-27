@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 import { prisma } from "@/lib/prisma"
 import { createAdminClient, createClient } from "@/lib/supabase/server"
+import { getAuthServer } from "@/lib/supabase/server"
 
 // Types para los datos base (estructura típica de las tablas)
 
@@ -497,6 +498,9 @@ export async function getUsuariosComplete() {
 }
 
 export default async function AjustesPage() {
+  const { user, isAdmin } = await getAuthServer();
+  if (!user) redirect("/");
+  if (!isAdmin) redirect("/tickets");
   const users = await getUsuariosComplete()
   const sectores = await getSectores()
   const posiciones = await getPosiciones()
